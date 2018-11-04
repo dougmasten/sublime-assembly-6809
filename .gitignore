@@ -1,0 +1,6 @@
+.vagrant
+*.pyc
+*.cache
+*.sublime-project
+*.sublime-workspace
+/private
