@@ -1,6 +1,6 @@
 # Assembly-6809 - Sublime Text Syntax Highlighting
 
-[![The MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+[![The MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/dougmasten/sublime-assembly-6809.svg?branch=master)](https://travis-ci.org/dougmasten/sublime-assembly-6809)
 
 A [Sublime Text 3][Sublime] syntax highlighting package for the [Motorola 6809][Motorola] and [Hitachi 6309][Hitachi] Assembly language.
