@@ -1,4 +1,4 @@
-# Assembly-6809 - Sublime Text Syntax Highlighting Package
+# Assembly-6809 - Sublime Text Syntax Highlighting
 
 [![The MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
