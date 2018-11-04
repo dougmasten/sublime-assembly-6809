@@ -1,0 +1,9 @@
+{
+    "extensions":
+    [
+        "asm",
+        "src",
+        "s"
+    ],
+    "tab_size": 8,
+}
