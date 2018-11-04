@@ -1,0 +1,490 @@
+%YAML 1.2
+---
+
+name: Assembly 6809/6309
+
+file_extensions:
+  - asm
+  - src
+  - s
+
+scope: source.asm.6809
+
+variables:
+  num_bin: '(?:[01][01]*)'
+  num_oct: '(?:[0-7][0-7]*)'
+  num_dec: '(?:\d\d*)'
+  num_hex: '(?:\h\h*)'
+  symbol_identifier: '(?:[A-Za-z\.\@_!\?][A-Za-z0-9\.\@\$_\?]*)'
+  ustack: '([abdxys]|cc|dp|pc)'
+  sstack: '([abdxyu]|cc|dp|pc)'
+  registers_all: '([dxyuswvab0ef]|cc|dp|pc)'
+  # HEXFRC: (?:{{HEXNUM}})?
+  # HEXNUM: '\h(_?\h)*'
+  # num_hex: ''
+  # address: '\$(?:[0-9A-F]){4}|[0-9]{5}'
+  # hex_number: '\$(?:[0-9A-F][0-9A-F]){1,2}'
+  # oct_number: '@[0-9]+'
+  # bin_number: '%[01]+'
+  # dec_number: '-?[0-9.]+'
+
+contexts:
+  line-ending:
+    - match: $
+      pop: true
+
+  skip-white-spaces:
+    - match: '[ \t]*'
+
+  comments:
+    - match: '(?:([*;])).*$\n?'
+      scope: comment.line.asm.6809
+      captures:
+        1: punctuation.definition.comment.asm.6809
+      pop: true
+
+  comments-eol:
+    - include: skip-white-spaces
+    - include: comments
+    - match: '.*$'
+      scope: comment.line.asm.6809
+      pop: true
+
+
+  main:
+    # Skip blank lines
+    - match: ^\s*$
+
+    # Disassembly listing
+    - match: '^\h{4}\:\s'
+      scope: comment.line.asm.6809
+      push: disassembly
+
+    - include: column_1
+
+    # Use for debugging. It should not match anything.
+    - match: \S
+      scope: invalid.illegal.entity.name.type.constant.asm.6809
+
+
+  column_1:
+    # Blank column one
+    - match: '^\s+'
+      push: column_2
+
+    # Line begins with a comment
+    - match: '^([*;#]).*$\n?'
+      scope: comment.line.asm.6809
+      captures:
+        1: punctuation.definition.comment.asm.6809
+
+    # Label
+    - match: '^{{symbol_identifier}}'
+      scope: entity.name.type.constant.asm.6809
+      push: column_2
+
+    # Use for debugging. It should not match anything.
+    - match: '.*$'
+      scope: invalid.illegal.entity.name.type.constant.asm.6809
+
+
+  column_2:
+    - include: skip-white-spaces
+    - include: mnemonics
+    - include: directives
+    - include: pragmas
+    - include: comments
+    - include: emulator-extensions
+    - include: os9
+    - include: line-ending
+
+
+  mnemonics:
+    # Addressing mode: Inherent
+    - match: |-
+        (?ix:
+          \b(
+             abx|daa|mul|nop|rt[is]|
+             s(wi[23]?|exw?|ync)|
+             ((as|ls|ro)[lr]|neg)[abd]|
+             (clr|com|dec|inc|tst)[abdefw]|
+             (p(sh|ul)[su]|ro[lr]|lsr)w
+          )
+        )(?!\S)
+      scope: keyword.operator.asm.6809
+      set: comments-eol
+
+    # Branch instructions
+    - match: (?i)(l?b([cv][cs]|eq|gt|h[is]|l[ost]|r[an]|mi|pl|sr|[gnl]e))(?!\S)
+      scope: keyword.operator.asm.6809
+      set:
+        - match: '{{symbol_identifier}}'
+          scope: constant.other.asm.6809
+          set: comments-eol
+        - include: line-ending
+
+    # Jump instructions
+    # TODO: direct, indexed and extended
+    - match: (?i)\b(j(mp|sr))(?!\S)
+      scope: keyword.operator.asm.6809
+      set:
+        - match: '{{symbol_identifier}}'
+          scope: constant.other.asm.6809
+          set: comments-eol
+        - include: line-ending
+
+    # Addressing modes: Immediate #i8
+    - match: (?i)\b((and|or)cc|(bit|ld)md|cwai)(?!\S)
+      scope: keyword.operator.asm.6809
+      set:
+        - include: skip-white-spaces
+        - include: address-immediate
+        - include: line-ending
+
+    # Addressing modes: Immediate r0,r1
+    - match: (?i)(ad[cd]|and|eor|cmp|or|s(bc|ub)|tf)r|exg(?!\S)
+      scope: keyword.operator.asm.6809
+      set:
+        - include: skip-white-spaces
+        - match: (?i)(?:(?={{registers_all}},{{registers_all}}))
+          set: highlight-registers
+        - match: '\S*'
+          scope: invalid.illegal.constant.language.register.asm.6809
+          set: comments-eol
+        - include: line-ending
+
+    # Addressing modes: Immediate, Direct, Indexed and Extended
+    - match: |-
+        (?ix:
+          \b(
+            (adc|and|bit|e?or|sbc)[ab]|
+            (add|sub)[abd]|
+            (as|ls|ro)[lr]|
+            clr|com|dec|inc|neg|tst|
+            (cmp|ld|st)[abdsuxy]|
+            lea[suxy]
+          )
+        )(?!\S)
+      scope: keyword.operator.asm.6809
+      set:
+        - include: skip-white-spaces
+        - include: address-immediate
+        - include: address-index
+        - match: '\S*'
+          scope: invalid.illegal.constant.language.register.asm.6809
+          set: comments-eol
+        - include: line-ending
+
+    # PSHS and PULS instructions
+    # TODO! check registers syntax
+    - match: '(?i)\b(pshs|puls)(?!\S)'
+      scope: keyword.operator.asm.6809
+      set:
+        - match: \s+
+          set: highlight-registers
+        - include: line-ending
+
+    # PSHU and PULU instructions
+    # TODO! check registers syntax
+    - match: '(?i)\b(pshu|pulu)(?!\S)'
+      scope: keyword.operator.asm.6809
+      set:
+        - match: \s+
+          set: highlight-registers
+        - include: line-ending
+
+    #  6309 xxx
+    # TODO! process after instruction
+    - match: |-
+        (?ix:
+          \b
+            a(dcd|im|ndd)|
+            (add|cmp|ld|st|sub)[efw]|
+            b(and|e?or|i(and|e?or)|itd)|
+            div[dq]|
+            [eo]im|e?ord|ldbt|
+            (ld|st)q|
+            muld|
+            s(tbt|bcd)|
+            tim
+        )(?!\S)
+      scope: keyword.operator.asm.6809
+      set: comments-eol
+
+    # TFM instruction (6309 only)
+    - match: (?i)\b(tfm)(?!\S)
+      scope: keyword.operator.asm.6809
+      set:
+        - include: skip-white-spaces
+        - match: |-
+            (?ix:
+                (?:
+                  (?=[xyusd]\+,[xyusd]\+)|
+                  (?=[xyusd]\+,[xyusd]\b)|
+                  (?=[xyusd]\-,[xyusd]\-)|
+                  (?=[xyusd],[xyusd]\+)
+                )
+            )
+          set: highlight-registers
+        - match: '\S*'
+          scope: invalid.illegal.constant.language.register.asm.6809
+          set: comments-eol
+        - include: line-ending
+
+    # Convenience instructions (supported by lwasm)
+    - match: (?i)\b((asr|clr|com|ls[lr]|neg|tst)q|(lsl|neg)[ef]|negw)(?!\S)
+      scope: keyword.operator.asm.6809
+      set: comments-eol
+
+    # Invalid instructions
+    - match: (?i)(lslw)(?!\S)
+      scope: invalid.keyword.operator.asm.6809
+      set: comments-eol
+
+
+  # Addressing mode - Immediate
+  address-immediate:
+    - match: \#
+      scope: keyword.operator.immediate.asm.6809
+      set:
+        - include: skip-white-spaces
+        - match: '{{symbol_identifier}}'
+          scope: entity.name.type.constant.asm.6809
+          set: comments-eol
+        - match: '([01]?\d{1,2}|2([0-4]\d|5[0-5]))(?!\S)'
+          scope: constant.numeric.decimal.asm.6809
+          set: comments-eol
+        - match: '(\$\h\h?)(?!\S)'
+          scope: constant.numeric.hexadecimal.asm.6809
+          set: comments-eol
+        - match: '\S*'
+          scope: invalid.constant.numeric.asm.6809
+          set: comments-eol
+        - include: line-ending
+
+
+  # Addressing mode - Indexed
+  address-index:
+    - match: |-
+        (?ix:
+            (?:
+              (?=[abdefw],[suxy])|
+              (?=,[suxyw])|
+              (?=,[suxy]\+)|
+              (?=,[suxyw]\+\+)|
+              (?=,\-[suxy])|
+              (?=,\-\-[suxyw])
+            )
+        )
+      set: highlight-registers
+    - match: |-
+        (?ix:
+            (?:
+              (?=\[,[suxyw]\])|
+              (?=\[[abdefw],[suxy]\])|
+              (?=\[,[suxyw]\+\+\])|
+              (?=\[,\-\-[suxyw]\])
+            )
+        )
+      set: highlight-registers-brackets
+
+
+  # Addressing mode - Direct
+  # TODO: "<" force an 8-bit offset
+  address-direct:
+    - match: "<"
+      scope: test-address-direct
+      set: comments-eol
+
+
+  # Addressing mode - Extended
+  # TODO: ">" force an 16-bit offset
+  address-extended:
+    - match: ">"
+      scope: test-address-extended
+      set: comments-eol
+
+
+  # Highlight string of registers and commas
+  highlight-registers:
+    - match: \w
+      scope: constant.language.register.asm.6809
+    - match: ','
+      scope: operator.separator.asm.6809
+    - match: '[\+\-]'
+      scope: keyword.operator.arithmetic.asm.6809
+    - match: \s
+      set: comments-eol
+    - include: line-ending
+
+
+  # Highlight string of registers and commas between brackets
+  highlight-registers-brackets:
+    - match: \w
+      scope: meta.brackets.asm.6809 constant.language.register.asm.6809
+    - match: ','
+      scope: meta.brackets.asm.6809 operator.separator.asm.6809
+    - match: '[\+\-]'
+      scope: meta.brackets.asm.6809 keyword.operator.arithmetic.asm.6809
+    - match: '\['
+      scope: meta.brackets.asm.6809 punctuation.section.brackets.begin.asm.6809
+    - match: '\]'
+      scope: meta.brackets.asm.6809 punctuation.section.brackets.end.asm.6809
+    - match: \s
+      set: comments-eol
+    - include: line-ending
+
+
+  pragmas:
+    # TODO - support *pragma, *pragmapush and *pragmapop
+    - match: '(?i)\b(pragma|opt)(?!\S)'
+      scope: support.function.directive.assembler.asm.6809
+      set:
+        - include: skip-white-spaces
+        - match: |-
+            (?ix:
+                6800compat|
+                6[83]09(conv)?|
+                index0tonone|
+                cescapes|
+                (importundef)?export|
+                undefextern|
+                dollar(not)?local|
+                pcaspcr|
+                shadow|
+                nolist|
+                autobranchlength|
+                (nosymbol|symbolno)case|
+                condundefzero|
+                forwardrefmax|
+                qrts|
+                m80ext|
+                testmode|
+                c[dtc]?
+            )
+          scope: keyword.operator.asm.6809
+        - match: ','
+          scope: operator.separator.asm.6809
+        - include: comments
+        - include: line-ending
+
+
+  directives:
+    # data directives with expr
+    - match: (?i)\b(f[cdq]b|[zr]m[bdq])(?!\S)
+      scope: storage.type.asm.6809
+      set: comments-eol
+
+    # data directives with strings
+    - match: (?i)\b(fc[cns])(?!\S)
+      scope: storage.type.asm.6809
+      set: strings
+
+    # data directives with misc
+    - match: (i?)\b(fill)(?!\S)
+      scope: storage.type.asm.6809
+      set: comments-eol
+
+    # Address Definition
+    - match: '(?i)\b((re)?org|equ|set(dp)?|align)(?!\S)'
+      scope: support.function.address.asm.6809
+
+    # Conditional Assembly
+    - match: '(?i)\b(if(eq|ne|gt|lt|le|def|pragma|ndef)?|else|endc)(?!\S)'
+      scope: support.function.conditional.asm.6809
+      set: comments-eol
+
+    # Miscelaneous Directives
+    - match: '(?i)\b(include(bin)?|use|end)(?!\S)'
+      scope: support.function.directive.misc.asm.6809
+      set: comments-eol
+
+    # Misc directives with string
+    - match: '(?i)\b(error|warning)(?!\S)'
+      scope: support.function.directive.misc.asm.6809
+      set: strings
+    - match: '(?i)\B(.module)(?!\S)'
+      scope: support.function.directive.misc.asm.6809
+      set: strings
+
+    # Invalid directive (not supported by lwasm)
+    - match: (?i)\b(ifp[12])(?!\S)
+      scope: invalid.support.function.conditional.asm.6809
+      set: comments-eol
+
+
+  # OS9 Target Directives
+  os9:
+    - match: '(?i)\b(os9|e?mod)(?!\S)'
+      scope: support.function.directive.asm.6809
+      set:
+        - match: '{{symbol_identifier}}'
+          scope: entity.name.namespace.asm.6809
+        - include: line-ending
+
+
+  # Emulator extensions for MAME
+  emulator-extensions:
+    - match: '(?i)\b(break|log)(?!\S)'
+      scope: support.function.directive.asm.6809
+      set: comments-eol
+
+
+  # Disassembly listing
+  disassembly:
+    - include: line-ending
+    - match: '(\h\h)\s'
+      scope: comment.line.asm.6809
+    - match: '(?=\H)'
+      set: column_2
+
+
+  numbers:
+    # Binary number: Prefixed with "%" or suffixed with "b" or "B".
+    - match: (?:(?:\%{{num_bin}})|(?:\b{{num_bin}}[bB]))\b
+      scope: constant.numeric.binary.asm.6809
+
+    # Octal number: Prefixed with "@" or suffixed with "Q", "q", "O" or "o".
+    - match: (?:(?:\@{{num_oct}})|(?:\b{{num_oct}}[oqOQ]))\b
+      scope: constant.numeric.octal.asm.6809
+
+    # Decimal number: May be prefixed with "&" but is not required.
+    - match: (?:(?:\&{{num_dec}})|(?:\b{{num_dec}}))\b
+      scope: constant.numeric.decimal.asm.6809
+
+    # Hexadecimal number: Prefixed with "$", "0x" or "0X", or suffixed with "H".
+    - match: (?i)(?:(?:(0x|\$){{num_hex}})|(?:\b{{num_hex}}h))\b
+      scope: constant.numeric.hexadecimal.asm.6809
+
+
+  # # operators:
+  # #   - match: '[+\-*/]'
+  # #     scope: keyword.operator.arithmetic.asm.6809
+  # #   - match: '[|&^~!]|<<|>>'
+  # #     scope: keyword.operator.bitwise.asm.6809
+  # #   - match: ','
+  # #     scope: operator.separator.asm.6809
+
+
+  strings:
+    - include: skip-white-spaces
+    - match: \"
+      scope: punctuation.definition.string.begin.asm.6809
+      set:
+        - meta_scope: string.quoted.double.asm.6809
+        - match: \"
+          scope: punctuation.definition.string.end.asm.6809
+          set: comments-eol
+        - include: line-ending
+    - match: \'
+      scope: punctuation.definition.string.begin.asm.6809
+      set:
+        - meta_scope: string.quoted.single.asm.6809
+        - match: \'
+          scope: punctuation.definition.string.end.asm.6809
+          set: comments-eol
+        - include: line-ending
+    - match: '.*$'
+      scope: string.unquoted.asm.6809
+      pop: true
+    - include: line-ending
