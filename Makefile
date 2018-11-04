@@ -6,7 +6,7 @@ help:
 	@echo '  make clean   - clean project folders'
 
 publish:
-	@git push origin master
+	@git push origin master --tags
 
 clean:
 	@rm -f tests/a.out
