@@ -6,6 +6,7 @@ A [Sublime Text 3][Sublime] syntax highlighting package for the [Motorola 6809][
 
 ### Installation
 * Use [Sublime Package Control](http://wbond.net/sublime_packages/package_control "Sublime Package Control")
+
  * Linux/Windows - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> then select `Package Control: Install Package`
  * OS X - <kbd>Shift</kbd>+<kbd>Cmd</kbd>+<kbd>P</kbd> then select `Package Control: Install Package`
 * Type `Assembly-6809` and press <kbd>ENTER</kbd>
