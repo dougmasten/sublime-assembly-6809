@@ -1,0 +1,3 @@
+Thank you for installing Assembly-6809 syntax highlighting package.
+
+To report issues: https://github.com/dougmasten/sublime-assembly-6809
