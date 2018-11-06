@@ -35,8 +35,8 @@
  endc
 #^^^^ support.function.conditional
 
- ifp1 ; not supported by lwasm
-#^^^^ invalid.support.function.conditional
+; ifp1
+; ^^^^ invalid.support.function.conditional
 
- ifp2 ; not supported by lwasm
-#^^^^ invalid.support.function.conditional
+; ifp2 ; not supported by lwasm
+; ^^^^ invalid.support.function.conditional

@@ -389,8 +389,13 @@ contexts:
     - match: '(?i)\b((re)?org|equ|set(dp)?|align)(?!\S)'
       scope: support.function.address.asm.6809
 
-    # Conditional Assembly
+    # Conditional assembly (lwasm)
     - match: '(?i)\b(if(eq|ne|gt|lt|le|def|pragma|ndef)?|else|endc)(?!\S)'
+      scope: support.function.conditional.asm.6809
+      set: comments-eol
+
+    # Conditional assembly (ccasm)
+    - match: (?i)\b(end(if|p)|ifp[12]|ifge|cond)(?!\S)
       scope: support.function.conditional.asm.6809
       set: comments-eol
 
@@ -407,10 +412,7 @@ contexts:
       scope: support.function.directive.misc.asm.6809
       set: strings
 
-    # Invalid directive (not supported by lwasm)
-    - match: (?i)\b(ifp[12])(?!\S)
-      scope: invalid.support.function.conditional.asm.6809
-      set: comments-eol
+
 
 
   # OS9 Target Directives
