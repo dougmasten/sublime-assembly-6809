@@ -1,0 +1,17 @@
+<snippet>
+    <description>Function</description>
+    <content><![CDATA[
+;------------------------------------------------------------------------------
+; Function    : $1
+; Input       : ${2:none}
+; Output      : ${3:none}
+; Destroys    : ${4:none}
+; Calls       : ${5:none}
+; Description : $6
+;------------------------------------------------------------------------------
+${1}
+
+]]></content>
+    <tabTrigger>func</tabTrigger>
+    <scope>source.asm.6809</scope>
+</snippet>

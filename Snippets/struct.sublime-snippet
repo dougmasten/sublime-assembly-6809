@@ -1,0 +1,9 @@
+<snippet>
+    <description>struct</description>
+    <content><![CDATA[${1:struct_name} STRUCT
+        ${2:; body...}
+        ENDSTRUCT
+]]></content>
+    <tabTrigger>struct</tabTrigger>
+    <scope>source.asm.6809</scope>
+</snippet>
