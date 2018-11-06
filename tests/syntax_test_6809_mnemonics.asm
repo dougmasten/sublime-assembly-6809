@@ -1,97 +1,266 @@
 # SYNTAX TEST "Packages/Assembly-6809/Assembly-6809.sublime-syntax"
 # <- source.asm.6809
 
-
 ; Mnemonics available on Motorola 6809 and Hitachi 6309 CPUs
-start   equ *
 
+
+;--------------------------------------------------------------------
         abx comment
 #       ^^^ keyword.operator
 #           ^^^^^^^ comment.line
+
+
+;--------------------------------------------------------------------
+        adca #IMM comment
+#       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^ entity.name.type.constant
+#                 ^^^^^^^ comment.line
 
         adca $ffff comment
 #       ^^^^ keyword.operator
 #                  ^^^^^^^ comment.line
 
+        adca [EXT] comment
+#       ^^^^ keyword.operator
+#                  ^^^^^^^ comment.line
+
+        adca ,x comment
+#       ^^^^ keyword.operator
+#            ^ operator.separator
+#             ^ constant.language.register
+#               ^^^^^^^ comment.line
+
+        adca ,y++ comment
+#       ^^^^ keyword.operator
+#            ^ operator.separator
+#             ^ constant.language.register
+#              ^^ keyword.operator.arithmetic
+#                 ^^^^^^^ comment.line
+
+        adca [,--u] comment
+#       ^^^^ keyword.operator
+#            ^^^^^^ meta.brackets.asm
+#            ^ punctuation.section.brackets.begin
+#             ^ operator.separator
+#              ^^ keyword.operator.arithmetic
+#                ^ constant.language.register
+#                 ^ punctuation.section.brackets.end
+#                   ^^^^^^^ comment.line
+
+
+;--------------------------------------------------------------------
+        adcb #IMM comment
+#       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^ entity.name.type.constant
+#                 ^^^^^^^ comment.line
+
         adcb $ffff comment
 #       ^^^^ keyword.operator
 #                  ^^^^^^^ comment.line
 
-        adda #$ff comment
+        adcb [EXT] comment
 #       ^^^^ keyword.operator
+#                  ^^^^^^^ comment.line
+
+        adcb ,x comment
+#       ^^^^ keyword.operator
+#            ^ operator.separator
+#             ^ constant.language.register
+#               ^^^^^^^ comment.line
+
+        adcb ,y++ comment
+#       ^^^^ keyword.operator
+#            ^ operator.separator
+#             ^ constant.language.register
+#              ^^ keyword.operator.arithmetic
 #                 ^^^^^^^ comment.line
 
-        addb #$ff comment
+        adcb [,--u] comment
 #       ^^^^ keyword.operator
+#            ^^^^^^ meta.brackets.asm
+#            ^ punctuation.section.brackets.begin
+#             ^ operator.separator
+#              ^^ keyword.operator.arithmetic
+#                ^ constant.language.register
+#                 ^ punctuation.section.brackets.end
+#                   ^^^^^^^ comment.line
+
+
+;--------------------------------------------------------------------
+        adda #IMM comment
+#       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^ entity.name.type.constant
 #                 ^^^^^^^ comment.line
 
+        adda $ffff comment
+#       ^^^^ keyword.operator
+#                  ^^^^^^^ comment.line
+
+        adda [EXT] comment
+#       ^^^^ keyword.operator
+#                  ^^^^^^^ comment.line
+
+        adda ,x comment
+#       ^^^^ keyword.operator
+#            ^ operator.separator
+#             ^ constant.language.register
+#               ^^^^^^^ comment.line
+
+        adda ,y++ comment
+#       ^^^^ keyword.operator
+#            ^ operator.separator
+#             ^ constant.language.register
+#              ^^ keyword.operator.arithmetic
+#                 ^^^^^^^ comment.line
+
+        adda [,--u] comment
+#       ^^^^ keyword.operator
+#            ^^^^^^ meta.brackets.asm
+#            ^ punctuation.section.brackets.begin
+#             ^ operator.separator
+#              ^^ keyword.operator.arithmetic
+#                ^ constant.language.register
+#                 ^ punctuation.section.brackets.end
+#                   ^^^^^^^ comment.line
+
+
+;--------------------------------------------------------------------
+        addb #IMM comment
+#       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^ entity.name.type.constant
+#                 ^^^^^^^ comment.line
+
+        addb $ffff comment
+#       ^^^^ keyword.operator
+#                  ^^^^^^^ comment.line
+
+        addb [EXT] comment
+#       ^^^^ keyword.operator
+#                  ^^^^^^^ comment.line
+
+        addb ,x comment
+#       ^^^^ keyword.operator
+#            ^ operator.separator
+#             ^ constant.language.register
+#               ^^^^^^^ comment.line
+
+        addb ,y++ comment
+#       ^^^^ keyword.operator
+#            ^ operator.separator
+#             ^ constant.language.register
+#              ^^ keyword.operator.arithmetic
+#                 ^^^^^^^ comment.line
+
+        addb [,--u] comment
+#       ^^^^ keyword.operator
+#            ^^^^^^ meta.brackets.asm
+#            ^ punctuation.section.brackets.begin
+#             ^ operator.separator
+#              ^^ keyword.operator.arithmetic
+#                ^ constant.language.register
+#                 ^ punctuation.section.brackets.end
+#                   ^^^^^^^ comment.line
+
+;--------------------------------------------------------------------
         addd #$ffff comment
 #       ^^^^ keyword.operator
 #                   ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         anda #$ff comment
 #       ^^^^ keyword.operator
 #                 ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         andb #$ff comment
 #       ^^^^ keyword.operator
 #                 ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         andcc #$50 comment
 #       ^^^^^ keyword.operator
 #             ^ keyword.operator.immediate
 #              ^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
-        asl $ffff comment
-#       ^^^ keyword.operator
-#                 ^^^^^^^ comment.line
 
+;--------------------------------------------------------------------
         asla comment
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         aslb comment
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
+
+
+;--------------------------------------------------------------------
+        asl $ffff comment
+#       ^^^ keyword.operator
+#                 ^^^^^^^ comment.line
+
+
+;--------------------------------------------------------------------
 
         asr $ffff comment
 #       ^^^ keyword.operator
 #                 ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         asra comment
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         asrb comment
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         bcc start comment
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         bcs start comment
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
+
         beq start comment
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
+
         bge start comment
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
+
         bgt start comment
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
+
         bhi start comment
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
+
         bhs start comment
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
@@ -165,117 +334,150 @@ start   equ *
 #           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
 
-        clr $ffff comment
-#       ^^^ keyword.operator
-#                 ^^^^^^^ comment.line
 
+;--------------------------------------------------------------------
         clra comment
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         clrb comment
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
+
+
+;--------------------------------------------------------------------
+        clr $ffff comment
+#       ^^^ keyword.operator
+#                 ^^^^^^^ comment.line
+
+
+;--------------------------------------------------------------------
 
         cmpa #$ff comment
 #       ^^^^ keyword.operator
 #                 ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         cmpb #$ff comment
 #       ^^^^ keyword.operator
 #                 ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         cmpd #$ffff comment
 #       ^^^^ keyword.operator
 #                   ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         cmps #$ffff comment
 #       ^^^^ keyword.operator
 #                   ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         cmpu #$ffff comment
 #       ^^^^ keyword.operator
 #                   ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         cmpx #$ffff comment
 #       ^^^^ keyword.operator
 #                   ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         cmpy #$ffff comment
 #       ^^^^ keyword.operator
 #                   ^^^^^^^ comment.line
 
-        com $ffff comment
-#       ^^^ keyword.operator
-#                 ^^^^^^^ comment.line
 
+;--------------------------------------------------------------------
         coma comment
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         comb comment
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
+        com $ffff comment
+#       ^^^ keyword.operator
+#                 ^^^^^^^ comment.line
+
+
+;--------------------------------------------------------------------
         cwai #$ff comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
-
+;--------------------------------------------------------------------
         daa comment
 #       ^^^ keyword.operator
 #           ^^^^^^^ comment.line
 
-        dec $ffff comment
-#       ^^^ keyword.operator
-#                 ^^^^^^^ comment.line
 
+;--------------------------------------------------------------------
         deca comment
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
-
+;--------------------------------------------------------------------
         decb comment
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
 
+;--------------------------------------------------------------------
+        dec $ffff comment
+#       ^^^ keyword.operator
+#                 ^^^^^^^ comment.line
+
+;--------------------------------------------------------------------
         eora #$ff comment
 #       ^^^^ keyword.operator
 #                 ^^^^^^^ comment.line
-
+;--------------------------------------------------------------------
         eorb #$ff comment
 #       ^^^^ keyword.operator
 #                 ^^^^^^^ comment.line
-
+;--------------------------------------------------------------------
         exg x,y comment
 #       ^^^ keyword.operator
 #           ^ constant.language.register
 #            ^ operator.separator
 #             ^ constant.language.register
 #               ^^^^^^^ comment.line
-
+;--------------------------------------------------------------------
         inc $ffff comment
 #       ^^^ keyword.operator
 #                 ^^^^^^^ comment.line
-
+;--------------------------------------------------------------------
         inca comment
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
-
+;--------------------------------------------------------------------
         incb comment
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
-
+;--------------------------------------------------------------------
         jmp start comment
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
-
+;--------------------------------------------------------------------
         jsr start comment
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
-
+;--------------------------------------------------------------------
         lbcc start comment
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
@@ -370,45 +572,63 @@ start   equ *
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
 #                  ^^^^^^^ comment.line
-
+;--------------------------------------------------------------------
         lda $ffff comment
 #       ^^^ keyword.operator
 #                 ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         ldb $ffff comment
 #       ^^^ keyword.operator
 #                 ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         ldd $ffff comment
 #       ^^^ keyword.operator
 #                 ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         lds $ffff comment
 #       ^^^ keyword.operator
 #                 ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         ldu $ffff comment
 #       ^^^ keyword.operator
 #                 ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         ldx #$ffff comment
 #       ^^^ keyword.operator
 #                  ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         ldy #$ffff comment
 #       ^^^ keyword.operator
 #                  ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         leas 1,s comment
 #       ^^^^ keyword.operator
 #                ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         leau ,y comment
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #               ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         leax b,y comment
 #       ^^^^ keyword.operator
 #            ^ constant.language.register
@@ -416,6 +636,8 @@ start   equ *
 #              ^ constant.language.register
 #                ^^^^^^^ comment.line
 
+
+;--------------------------------------------------------------------
         leay a,y comment
 #       ^^^^ keyword.operator
 #            ^ constant.language.register
@@ -423,9 +645,9 @@ start   equ *
 #              ^ constant.language.register
 #                ^^^^^^^ comment.line
 
-        lsr $ffff comment
-#       ^^^ keyword.operator
-#                 ^^^^^^^ comment.line
+
+;--------------------------------------------------------------------
+
 
         lsra comment
 #       ^^^^ keyword.operator
@@ -434,6 +656,11 @@ start   equ *
         lsrb comment
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
+
+
+        lsr $ffff comment
+#       ^^^ keyword.operator
+#                 ^^^^^^^ comment.line
 
         lsl $ffff comment
 #       ^^^ keyword.operator
