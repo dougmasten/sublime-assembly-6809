@@ -388,6 +388,7 @@ contexts:
     # Address Definition
     - match: '(?i)\b((re)?org|equ|set(dp)?|align)(?!\S)'
       scope: support.function.address.asm.6809
+      set: comments-eol
 
     # Conditional assembly (lwasm)
     - match: '(?i)\b(if(eq|ne|gt|lt|le|def|pragma|ndef)?|else|endc)(?!\S)'
