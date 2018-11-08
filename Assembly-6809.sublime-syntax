@@ -422,7 +422,8 @@ contexts:
       scope: support.function.directive.asm.6809
       set:
         - match: '{{symbol_identifier}}'
-          scope: entity.name.namespace.asm.6809
+          #scope: entity.name.namespace.asm.6809
+          scope: constant.other.asm.6809
         - include: line-ending
 
 
