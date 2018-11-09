@@ -83,7 +83,6 @@ label9@ equ *
 # <- entity.name.type.constant
 
 
-
 ;-----------------------------------------------------
 ; Branch symbols
 
@@ -142,7 +141,9 @@ label9@ equ *
 #            ^^^^^ constant.other
 
         jmp loop1
-#           ^^^^^ constant.other
+; TODO!
+;           ^^^^^ constant.other
 
         jsr loop1
-#           ^^^^^ constant.other
+; TODO!
+;           ^^^^^ constant.other
