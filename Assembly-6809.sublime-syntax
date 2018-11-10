@@ -87,6 +87,7 @@ contexts:
       push:
         - match: '\s+'
           set:
+            - include: structures
             - include: macros
             - include: column_2
         - include: line-ending
@@ -434,6 +435,10 @@ contexts:
       scope: support.function.directive.macro.asm.6809
       set: comments-eol
 
+    # Structures
+    - match: (?i)ends(truct)?(?!\S)
+      scope: support.function.directive.structure.asm.6809
+      set: comments-eol
 
 
   # OS9 Target Directives
@@ -455,6 +460,14 @@ contexts:
           scope: support.function.directive.macro.asm.6809
           set: comments-eol
         - include: comments-eol
+
+
+  # Structures directives
+  structures:
+    - match: (?i)struct(?!\S)
+      scope: support.function.directive.structure.asm.6809
+      set: comments-eol
+
 
 
   # Emulator extensions for MAME
