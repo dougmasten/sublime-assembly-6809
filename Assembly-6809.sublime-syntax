@@ -414,14 +414,16 @@ contexts:
     - match: (?i)f[cdq]b|[zr]m[bdq]|\.(d[bsw]|4?byte|word|quad|blkb|rs)(?!\S)
       scope: storage.type.asm.6809
       set:
-        - include: skip-white-spaces
-        - include: numbers
-        - include: operators
-        - match: ','
-          scope: operator.separator.asm.6809
+        - match: '\s*'
+          set:
+            - include: numbers
+            - include: operators
+            - match: ','
+              scope: operator.separator.asm.6809
+            - include: line-ending
+            - match: ''
+              set: comments-eol
         - include: line-ending
-        - match: ''
-          set: comments-eol
 
     # data directives with strings
     - match: (?i)fc[cns]|\.(asci[isz]|str[sz]?)(?!\S)
