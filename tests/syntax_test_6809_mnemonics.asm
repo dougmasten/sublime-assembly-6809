@@ -22,9 +22,11 @@ start equ *+100
 #             ^^^^ constant.other
 #                  ^^^^^^^ comment.line
 
-        adca $ffff comment
+        adca <$ff comment
 #       ^^^^ keyword.operator
-#                  ^^^^^^^ comment.line
+#            ^ keyword.operator.direct
+#             ^^^ constant.numeric.hexadecimal
+#                 ^^^^^^^ comment.line
 
         adca [EXT] comment
 #       ^^^^ keyword.operator
@@ -51,6 +53,12 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
+#                   ^^^^^^^ comment.line
+
+        adca >$ffff comment
+#       ^^^^ keyword.operator
+#            ^ keyword.operator.extended
+#             ^^^^^ constant.numeric.hexadecimal
 #                   ^^^^^^^ comment.line
 
 

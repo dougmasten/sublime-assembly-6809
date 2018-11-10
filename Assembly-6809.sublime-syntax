@@ -267,12 +267,26 @@ contexts:
         - include: line-ending
 
 
-  # Addressing mode - Direct
-  # TODO: "<" force an 8-bit offset
+  # Addressing mode - Direct (8-bit offset)
   address-direct:
     - match: "<"
-      scope: test-address-direct
-      set: comments-eol
+      scope: keyword.operator.direct.asm.6809
+      set:
+        - include: numbers
+        - include: line-ending
+        - match: '\S*'
+          set: comments-eol
+
+
+  # Addressing mode - Extended (16-bit offset)
+  address-extended:
+    - match: ">"
+      scope: keyword.operator.extended.asm.6809
+      set:
+        - include: numbers
+        - include: line-ending
+        - match: '\S*'
+          set: comments-eol
 
 
   # Addressing mode - Indexed
@@ -301,14 +315,6 @@ contexts:
             )
         )
       set: highlight-registers-brackets
-
-
-  # Addressing mode - Extended
-  # TODO: ">" force an 16-bit offset
-  address-extended:
-    - match: ">"
-      scope: test-address-extended
-      set: comments-eol
 
 
   # Validate stack registers
