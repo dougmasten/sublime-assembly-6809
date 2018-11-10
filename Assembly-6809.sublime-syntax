@@ -378,34 +378,37 @@ contexts:
     - match: '(?i)pragma|opt|\*pragma(push|pop)?(?!\S)'
       scope: support.function.directive.assembler.asm.6809
       set:
-        - include: skip-white-spaces
-        - match: |-
-            (?ix:
-              (no)?(
-                6800compat|
-                6[83]09(conv)?|
-                index0tonone|
-                cescapes|
-                (importundef)?export|
-                undefextern|
-                dollar(not)?local|
-                pcaspcr|
-                shadow|
-                nolist|
-                autobranchlength|
-                (nosymbol|symbolno)case|
-                condundefzero|
-                forwardrefmax|
-                qrts|
-                m80ext|
-                testmode|
-                c[dtc]?
-              )
-            )
-          scope: keyword.operator.asm.6809
-        - match: ','
-          scope: operator.separator.asm.6809
-        - include: comments
+        - match: '\s*'
+          set:
+            - match: |-
+                (?ix:
+                  (no)?(
+                    6800compat|
+                    6[83]09(conv)?|
+                    index0tonone|
+                    cescapes|
+                    (importundef)?export|
+                    undefextern|
+                    dollar(not)?local|
+                    pcaspcr|
+                    shadow|
+                    list|
+                    autobranchlength|
+                    (nosymbol|symbolno)case|
+                    condundefzero|
+                    forwardrefmax|
+                    qrts|
+                    m80ext|
+                    testmode|
+                    c[dtc]?
+                  )
+                )
+              scope: keyword.operator.asm.6809
+            - match: ','
+              scope: operator.separator.asm.6809
+            - match: ''
+              set: comments-eol
+            - include: line-ending
         - include: line-ending
 
 
