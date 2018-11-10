@@ -16,9 +16,9 @@ variables:
   num_dec: '(?:\d\d*)'
   num_hex: '(?:\h\h*)'
   symbol_identifier: '(?:[A-Za-z\.\@_!\?][A-Za-z0-9\.\@\$_\?]*)'
-  ustack: '([abdxys]|cc|dp|pc)'
-  sstack: '([abdxyu]|cc|dp|pc)'
   all_registers: '(cc|dp|pc|[0abdefsuvwxy])'
+  ustack: '(cc|dp|pc|[abdsxy]|)'
+  sstack: '(cc|dp|pc|[abduxy]|)'
   # HEXFRC: (?:{{HEXNUM}})?
   # HEXNUM: '\h(_?\h)*'
   # num_hex: ''
