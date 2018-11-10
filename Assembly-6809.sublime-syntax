@@ -18,7 +18,7 @@ variables:
   symbol_identifier: '(?:[A-Za-z\.\@_!\?][A-Za-z0-9\.\@\$_\?]*)'
   ustack: '([abdxys]|cc|dp|pc)'
   sstack: '([abdxyu]|cc|dp|pc)'
-  registers_all: '([dxyuswvab0ef]|cc|dp|pc)'
+  all_registers: '(cc|dp|pc|[0abdefsuvwxy])'
   # HEXFRC: (?:{{HEXNUM}})?
   # HEXNUM: '\h(_?\h)*'
   # num_hex: ''
@@ -86,7 +86,9 @@ contexts:
       scope: entity.name.type.constant.asm.6809
       push:
         - match: '\s+'
-          set: column_2
+          set:
+            - include: macros
+            - include: column_2
         - include: line-ending
 
     # Use for debugging. It should not match anything.
@@ -101,7 +103,12 @@ contexts:
     - include: emulator-extensions
     - include: os9
     - include: line-ending
-    - include: debug
+
+    # No match. Mark as invalid
+    - match: \S*$?
+      scope: invalid.keyword.operator.asm.6809
+      set: comments-eol
+    #- include: debug
 
 
   mnemonics:
@@ -152,7 +159,7 @@ contexts:
       scope: keyword.operator.asm.6809
       set:
         - include: skip-white-spaces
-        - match: (?i)(?:(?={{registers_all}},{{registers_all}}))
+        - match: (?i)(?:(?={{all_registers}},{{all_registers}}))
           set: highlight-registers
         - match: '\S*'
           scope: invalid.illegal.constant.language.register.asm.6809
@@ -315,7 +322,7 @@ contexts:
 
   # Highlight string of registers and commas
   highlight-registers:
-    - match: \w
+    - match: '{{all_registers}}'
       scope: constant.language.register.asm.6809
     - match: ','
       scope: operator.separator.asm.6809
@@ -328,7 +335,7 @@ contexts:
 
   # Highlight string of registers and commas between brackets
   highlight-registers-brackets:
-    - match: \w
+    - match: '{{all_registers}}'
       scope: meta.brackets.asm.6809 constant.language.register.asm.6809
     - match: ','
       scope: meta.brackets.asm.6809 operator.separator.asm.6809
@@ -422,6 +429,12 @@ contexts:
       scope: support.function.directive.misc.asm.6809
       set: strings
 
+    # Macro
+    - match: (?i)endm(?!\S)
+      scope: support.function.directive.macro.asm.6809
+      set: comments-eol
+
+
 
   # OS9 Target Directives
   os9:
@@ -431,6 +444,17 @@ contexts:
         - match: '{{symbol_identifier}}'
           scope: constant.other.asm.6809
         - include: line-ending
+
+
+  # Macro directives
+  macros:
+    - match: (?i)macro(?!\S)
+      scope: support.function.directive.macro.asm.6809
+      set:
+        - match: (?i)noexpand(?!\S)
+          scope: support.function.directive.macro.asm.6809
+          set: comments-eol
+        - include: comments-eol
 
 
   # Emulator extensions for MAME
