@@ -461,15 +461,9 @@ contexts:
       scope: support.function.directive.misc.asm.6809
       set: strings
 
-    # Macro
-    - match: (?i)endm(?!\S)
-      scope: support.function.directive.macro.asm.6809
-      set: comments-eol
-
-    # Structures
-    - match: (?i)ends(truct)?(?!\S)
-      scope: support.function.directive.structure.asm.6809
-      set: comments-eol
+    # end statement for macros and structures
+    - include: end-macros
+    - include: end-structures
 
 
   # OS9 Target Directives
@@ -491,6 +485,10 @@ contexts:
           scope: support.function.directive.macro.asm.6809
           set: comments-eol
         - include: comments-eol
+  end-macros:
+    - match: (?i)endm(?!\S)
+      scope: support.function.directive.macro.asm.6809
+      set: comments-eol
 
 
   # Structures directives
@@ -498,7 +496,10 @@ contexts:
     - match: (?i)struct(?!\S)
       scope: support.function.directive.structure.asm.6809
       set: comments-eol
-
+  end-structures:
+    - match: (?i)ends(truct)?(?!\S)
+      scope: support.function.directive.structure.asm.6809
+      set: comments-eol
 
 
   # Emulator extensions for MAME
