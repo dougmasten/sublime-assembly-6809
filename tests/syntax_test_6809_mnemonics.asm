@@ -399,6 +399,15 @@ start equ *+100
 #           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
 
+        bcc > comment
+#       ^^^ keyword.operator
+#           ^ constant.other
+#             ^^^^^^^ comment.line
+
+        bcc < comment
+#       ^^^ keyword.operator
+#           ^ constant.other
+#             ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
         bcs start comment
@@ -406,11 +415,13 @@ start equ *+100
 #           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
 
+;--------------------------------------------------------------------
         beq start comment
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
 
+;--------------------------------------------------------------------
         bge start comment
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other

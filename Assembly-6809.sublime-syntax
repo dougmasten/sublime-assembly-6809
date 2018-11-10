@@ -119,6 +119,12 @@ contexts:
     - match: (?i)l?b([cv][cs]|eq|gt|h[is]|l[ost]|r[an]|mi|pl|sr|[gnl]e)(?!\S)
       scope: keyword.operator.asm.6809
       set:
+        - match: '<'
+          scope: constant.other.asm.6809
+          set: comments-eol
+        - match: '>'
+          scope: source.asm.6809 constant.other.asm.6809
+          set: comments-eol
         - match: '{{symbol_identifier}}'
           scope: constant.other.asm.6809
           set: comments-eol
