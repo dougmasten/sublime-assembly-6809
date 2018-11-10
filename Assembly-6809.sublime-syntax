@@ -323,6 +323,8 @@ contexts:
       scope: keyword.operator.direct.asm.6809
       set:
         - include: numbers
+        - include: operators
+        - include: labels
         - include: line-ending
         - match: '\S*'
           set: comments-eol
@@ -334,6 +336,8 @@ contexts:
       scope: keyword.operator.extended.asm.6809
       set:
         - include: numbers
+        - include: operators
+        - include: labels
         - include: line-ending
         - match: '\S*'
           set: comments-eol
