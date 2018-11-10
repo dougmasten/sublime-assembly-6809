@@ -108,13 +108,13 @@
 
     ldq #2342h
 #   ^^^ keyword.operator
-;       ^ keyword.operator.immediate
-;        ^^^ constant.numeric.hexadecimal
+#       ^ keyword.operator.immediate
+#        ^^^ constant.numeric.hexadecimal
 
     ldw #42H
 #   ^^^ keyword.operator
-;       ^ keyword.operator.immediate
-;        ^^^ constant.numeric.hexadecimal
+#       ^ keyword.operator.immediate
+#        ^^^ constant.numeric.hexadecimal
 
 
 ; The ASCII value of a character can be included by prefixing it with a single

@@ -66,12 +66,16 @@ start equ *+100
 ;--------------------------------------------------------------------
         adde #IMM8 comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^ constant.other
 #                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
         addf #IMM8 comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^ constant.other
 #                  ^^^^^^^ comment.line
 
 
@@ -99,6 +103,8 @@ start equ *+100
 ;--------------------------------------------------------------------
         andd #IMM16 comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^^ constant.other
 #                   ^^^^^^^ comment.line
 
 
@@ -156,12 +162,16 @@ start equ *+100
 ;--------------------------------------------------------------------
         bitd #IMM16 comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^^ constant.other
 #                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
         bitmd #IMM8 comment
 #       ^^^^^ keyword.operator
+#             ^ keyword.operator.immediate
+#              ^^^^ constant.other
 #                   ^^^^^^^ comment.line
 
 
@@ -197,18 +207,24 @@ start equ *+100
 ;--------------------------------------------------------------------
         cmpe #$ff comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
         cmpf #$ff comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
         cmpw #$ffff comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^^ constant.numeric.hexadecimal
 #                   ^^^^^^^ comment.line
 
 
@@ -271,11 +287,15 @@ start equ *+100
 ;--------------------------------------------------------------------
         divd #IMM8 comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^ constant.other
 #                  ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
         divq #IMM16 comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^^ constant.other
 #                   ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
@@ -324,18 +344,24 @@ start equ *+100
 ;--------------------------------------------------------------------
         lde #$ff comment
 #       ^^^ keyword.operator
+#           ^ keyword.operator.immediate
+#            ^^^ constant.numeric.hexadecimal
 #                ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
         ldf #$ff comment
 #       ^^^ keyword.operator
+#           ^ keyword.operator.immediate
+#            ^^^ constant.numeric.hexadecimal
 #                ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
         ldw #$ffff comment
 #       ^^^ keyword.operator
+#           ^ keyword.operator.immediate
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
 
@@ -355,6 +381,8 @@ start equ *+100
 ;--------------------------------------------------------------------
         ldq #$11223344 comment
 #       ^^^ keyword.operator
+#           ^ keyword.operator.immediate
+#            ^^^^^^^^^ constant.numeric.hexadecimal
 #                      ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
@@ -374,6 +402,8 @@ start equ *+100
 
         muld #IMM16 comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^^ constant.other
 #                   ^^^^^^^ comment.line
 
         negd comment
@@ -386,6 +416,8 @@ start equ *+100
 
         ord #IMM16 comment
 #       ^^^ keyword.operator
+#           ^ keyword.operator.immediate
+#            ^^^^^ constant.other
 #                  ^^^^^^^ comment.line
 
         orr y,s comment
@@ -447,6 +479,8 @@ start equ *+100
 ;--------------------------------------------------------------------
         sbcd #IMM16 comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^^ constant.other
 #                   ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
@@ -497,18 +531,24 @@ start equ *+100
 ;--------------------------------------------------------------------
         sube #IMM8 comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^ constant.other
 #                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
         subf #IMM8 comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^ constant.other
 #                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
         subw #IMM16 comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^^ constant.other
 #                   ^^^^^^^ comment.line
 
 

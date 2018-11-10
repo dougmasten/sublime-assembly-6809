@@ -183,6 +183,10 @@ contexts:
         - include: address-direct
         - include: address-index
         - include: address-extended
+        - include: labels
+        #- include: operators
+        - match: ''
+          set: comments-eol
         - match: '\S*'
           scope: invalid.illegal.constant.language.register.asm.6809
           set: comments-eol
@@ -223,7 +227,12 @@ contexts:
             tim
         )(?!\S)
       scope: keyword.operator.asm.6809
-      set: comments-eol
+      #set: comments-eol
+      set:
+        - include: skip-white-spaces
+        - include: address-immediate
+        - match: ''
+          set: comments-eol
 
     # TFM instruction (6309 only)
     - match: (?i)tfm(?!\S)
@@ -265,12 +274,13 @@ contexts:
         - include: operators
         - match: '{{symbol_identifier}}'
           scope: constant.other.asm.6809
-          set: comments-eol
-        - match: '\S*'
-          scope: invalid.constant.numeric.asm.6809
-          set: comments-eol
+          #set: comments-eol
+        # - match: '\S*'
+        #   scope: invalid.constant.numeric.asm.6809
+        #   set: comments-eol
         - include: line-ending
-
+        - match: ''
+          set: comments-eol
 
   # Addressing mode - Direct (8-bit offset)
   address-direct:
@@ -550,7 +560,7 @@ contexts:
 
 
   operators:
-    - match: '[+\-*/]'
+    - match: '[\+\-\*\/]'
       scope: keyword.operator.arithmetic.asm.6809
     - match: '[|&^~!]|<<|>>'
       scope: keyword.operator.bitwise.asm.6809
@@ -561,6 +571,7 @@ contexts:
   labels:
     - match: '{{symbol_identifier}}'
       scope: constant.other.asm.6809
+
 
   strings:
     - include: skip-white-spaces
