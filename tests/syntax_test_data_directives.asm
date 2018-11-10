@@ -3,57 +3,62 @@
 
 
 ; Include one or more constant bytes (seperated by commas) in the output
-        fcb 1,2,3
+        fcb 1,2,3 comment
 #       ^^^ storage.type
 #           ^ constant.numeric.decimal
 #            ^ operator.separator
 #             ^ constant.numeric.decimal
 #              ^ operator.separator
 #               ^ constant.numeric.decimal
+#                 ^^^^^^^ comment.line
 
-        .db $a,$b,$c
-;       ^^^ storage.type
-;           ^^ constant.numeric.hexadecimal
-;             ^ operator.separator
-;              ^^ constant.numeric.hexadecimal
-;                ^ operator.separator
-;                 ^^ constant.numeric.hexadecimal
+        .db $a,$b,$c comment
+#       ^^^ storage.type
+#           ^^ constant.numeric.hexadecimal
+#             ^ operator.separator
+#              ^^ constant.numeric.hexadecimal
+#                ^ operator.separator
+#                 ^^ constant.numeric.hexadecimal
+#                    ^^^^^^^ comment.line
 
-        .byte %01010101,%10101010,%10010110
-;       ^^^^^ storage.type
-;             ^^^^^^^^^ constant.numeric.binary
-;                      ^ operator.separator
-;                      ^^^^^^^^^ constant.numeric.binary
-;                                ^ operator.separator
-;                                 ^^^^^^^^^ constant.numeric.binary
-
+        .byte %01010101,%10101010,%10010110 comment
+#       ^^^^^ storage.type
+#             ^^^^^^^^^ constant.numeric.binary
+#                      ^ operator.separator
+#                       ^^^^^^^^^ constant.numeric.binary
+#                                ^ operator.separator
+#                                 ^^^^^^^^^ constant.numeric.binary
+#                                           ^^^^^^^ comment.line
 
 ; Include one or more words (seperated by commas) in the output
-        fdb 65535,0,65535
+        fdb 65535,0,65535 comment
 #       ^^^ storage.type
 #           ^^^^^ constant.numeric.decimal
 #                ^ operator.separator
 #                 ^ constant.numeric.decimal
 #                  ^ operator.separator
 #                   ^^^^^ constant.numeric.decimal
+#                         ^^^^^^^ comment.line
 
-        .dw $aaaa,$bbbb,$cccc
-;      ^^^ storage.type
-;           ^^^^^ constant.numeric.hexadecimal
-;                ^ operator.separator
-;                 ^^^^^ constant.numeric.hexadecimal
-;                      ^ operator.separator
-;                       ^^^^^ constant.numeric.hexadecimal
+        .dw $aaaa,$bbbb,$cccc comment
+#       ^^^ storage.type
+#           ^^^^^ constant.numeric.hexadecimal
+#                ^ operator.separator
+#                 ^^^^^ constant.numeric.hexadecimal
+#                      ^ operator.separator
+#                       ^^^^^ constant.numeric.hexadecimal
+#                             ^^^^^^^ comment.line
 
-        .word %0000111100001111,%1111000011110000
-;       ^^^^^ storage.type
-;             ^^^^^^^^^^^^^^^^^ constant.numeric.binary
-;                             ^ operator.separator
-;                               ^^^^^^^^^^^^^^^^^ constant.numeric.binary
+        .word %0000111100001111,%1111000011110000 comment
+#       ^^^^^ storage.type
+#             ^^^^^^^^^^^^^^^^^ constant.numeric.binary
+#                              ^ operator.separator
+#                               ^^^^^^^^^^^^^^^^^ constant.numeric.binary
+#                                                 ^^^^^^^ comment.line
 
 
 ; Include one or more double words (seperated by commas) in the output
-        fqb 1,2,3,4
+        fqb 1,2,3,4 comment
 #       ^^^ storage.type
 #           ^ constant.numeric.decimal
 #            ^ operator.separator
@@ -62,123 +67,159 @@
 #               ^ constant.numeric.decimal
 #                ^ operator.separator
 #                 ^ constant.numeric.decimal
+#                   ^^^^^^^ comment.line
 
-        .quad
-;       ^^^^^ storage.type
+        .quad 1,2,3,4 comment
+#       ^^^^^ storage.type
+#             ^ constant.numeric.decimal
+#              ^ operator.separator
+#               ^ constant.numeric.decimal
+#                ^ operator.separator
+#                 ^ constant.numeric.decimal
+#                  ^ operator.separator
+#                   ^ constant.numeric.decimal
+#                     ^^^^^^^ comment.line
 
-        .4byte
-;       ^^^^^^ storage.type
-
+        .4byte 1,2,3,4 comment
+#       ^^^^^^ storage.type
+#              ^ constant.numeric.decimal
+#               ^ operator.separator
+#                ^ constant.numeric.decimal
+#                 ^ operator.separator
+#                  ^ constant.numeric.decimal
+#                   ^ operator.separator
+#                    ^ constant.numeric.decimal
+#                      ^^^^^^^ comment.line
 
 ; Include a string of text in the output
-        fcc /Testing/
+        fcc /Testing/ comment
 #       ^^^ storage.type
 ;           ^ punctuation.definition.string.begin
 ;           ^^^^^^^^^ string.quoted.other
 ;                   ^ punctuation.definition.string.end
 
-        .ascii "Testing"
-;       ^^^^^^ storage.type
-;              ^ punctuation.definition.string.begin
-;             ^^^^^^^^^ string.quoted.double
-;                      ^ punctuation.definition.string.end
+        .ascii "Testing" comment
+#       ^^^^^^ storage.type
+#              ^ punctuation.definition.string.begin
+#              ^^^^^^^^^ string.quoted.double
+#                      ^ punctuation.definition.string.end
+#                        ^^^^^^^ comment.line
 
-        .str "Testing"
-;       ^^^^ storage.type
-;           ^ punctuation.definition.string.begin
-;            ^^^^^^^^^ string.quoted.double
-;                    ^ punctuation.definition.string.end
+        .str "Testing" comment
+#       ^^^^ storage.type
+#            ^ punctuation.definition.string.begin
+#            ^^^^^^^^^ string.quoted.double
+#                    ^ punctuation.definition.string.end
+#                      ^^^^^^^ comment.line
 
 
 ; Include a NUL terminated string of text in the output
-        fcn "Testing"
+        fcn "Testing" comment
 #       ^^^ storage.type
 #           ^ punctuation.definition.string.begin
 #           ^^^^^^^^^ string.quoted.double
 #                   ^ punctuation.definition.string.end
 
-        .asciz "Testing"
-;       ^^^^^^ storage.type
-;              ^ punctuation.definition.string.begin
-;              ^^^^^^^^^ string.quoted.double
-;                      ^ punctuation.definition.string.end
+        .asciz "Testing" comment
+#       ^^^^^^ storage.type
+#              ^ punctuation.definition.string.begin
+#              ^^^^^^^^^ string.quoted.double
+#                      ^ punctuation.definition.string.end
 
-        .strz "Testing"
-;       ^^^^^ storage.type
-;             ^ punctuation.definition.string.begin
-;             ^^^^^^^^^ string.quoted.double
-;                     ^ punctuation.definition.string.end
-
+        .strz "Testing" comment
+#       ^^^^^ storage.type
+#             ^ punctuation.definition.string.begin
+#             ^^^^^^^^^ string.quoted.double
+#                     ^ punctuation.definition.string.end
+#                       ^^^^^^^ comment.line
 
 ; Include a string of text in the output with bit 7 of the final byte set.
-        fcs /Testing/
+        fcs /Testing/ comment
 #       ^^^ storage.type
 #           ^^^^^^^^^ string.unquoted
 
-        .ascis "Testing"
-;       ^^^^^^ storage.type
-;              ^ punctuation.definition.string.begin
-;              ^^^^^^^^^ string.quoted.double
-;                      ^ punctuation.definition.string.end
+        .ascis "Testing" comment
+#       ^^^^^^ storage.type
+#              ^ punctuation.definition.string.begin
+#              ^^^^^^^^^ string.quoted.double
+#                      ^ punctuation.definition.string.end
+#                        ^^^^^^^ comment.line
 
-        .strs "Testing"
-;       ^^^^^ storage.type
-;             ^ punctuation.definition.string.begin
-;             ^^^^^^^^^ string.quoted.double
-;                     ^ punctuation.definition.string.end
-
+        .strs "Testing" comment
+#       ^^^^^ storage.type
+#             ^ punctuation.definition.string.begin
+#             ^^^^^^^^^ string.quoted.double
+#                     ^ punctuation.definition.string.end
+#                       ^^^^^^^ comment.line
 
 ; Include a number of NUL bytes in the output
-        zmb
+        zmb 80 comment
 #       ^^^ storage.type
-
+#           ^^ constant.numeric.decimal
+#              ^^^^^^^ comment.line
 
 ; Include a number of zero words in the output
-        zmd
-;       ^^^ storage.type
-
+        zmd 128 comment
+#       ^^^ storage.type
+#           ^^^ constant.numeric.decimal
+#               ^^^^^^^ comment.line
 
 ; Include a number of zero double-words in the output
-        zmq
-;       ^^^ storage.type
-
+        zmq 128 comment
+#       ^^^ storage.type
+#           ^^^ constant.numeric.decimal
+#               ^^^^^^^ comment.line
 
 ; Reserve a number of bytes in the output
-        rmb 32*32*32
+        rmb 32*32*32 comment
 #       ^^^ storage.type
-;           ^^ constant.numeric.decimal
-;             ^ keyword.operator.arithmetic
-;              ^^ constant.numeric.decimal
-;                ^ keyword.operator.arithmetic
-;                 ^^ constant.numeric.decimal
+#           ^^ constant.numeric.decimal
+#             ^ keyword.operator.arithmetic
+#              ^^ constant.numeric.decimal
+#                ^ keyword.operator.arithmetic
+#                 ^^ constant.numeric.decimal
+#                    ^^^^^^^ comment.line
 
-        .blkb
-;       ^^^^^ storage.type
-        .ds
-;       ^^^ storage.type
-        .rs
-;       ^^^ storage.type
+        .blkb 32 comment
+#       ^^^^^ storage.type
+#             ^^ constant.numeric.decimal
+#                ^^^^^^^ comment.line
 
+        .ds 32 comment
+#       ^^^ storage.type
+#           ^^ constant.numeric.decimal
+#              ^^^^^^^ comment.line
+
+        .rs 32 comment
+#       ^^^ storage.type
+#           ^^ constant.numeric.decimal
+#              ^^^^^^^ comment.line
 
 ; Reserve a number of words in the output
-        rmd 128+31-$ff
+        rmd 128+31-$f comment
 #       ^^^ storage.type
-;           ^^^ constant.numeric.decimal
-;              ^ keyword.operator.arithmetic
-;               ^^ constant.numeric.decimal
-;                 ^ keyword.operator.arithmetic
-;                  ^^^ constant.numeric.hexadecimal
+#           ^^^ constant.numeric.decimal
+#              ^ keyword.operator.arithmetic
+#               ^^ constant.numeric.decimal
+#                 ^ keyword.operator.arithmetic
+#                  ^^ constant.numeric.hexadecimal
+#                     ^^^^^^^ comment.line
 
 ; Reserve a number of double-words in the output
-        rmq
+        rmq 32 comment
 #       ^^^ storage.type
-
+#           ^^ constant.numeric.decimal
+#              ^^^^^^^ comment.line
 
 ; Treat the contents of filename as a string of bytes to be included
-        includebin
+        includebin syntax_test_6809_mnemonics.asm
 #       ^^^^^^^^^^ support.function.directive.misc
 
 
 ; Insert size bytes of byte
-        fill
+        fill $ff,10 comment
 #       ^^^^ storage.type
+#            ^^^ constant.numeric.hexadecimal
+#               ^ operator.separator
+#                ^^ constant.numeric.decimal
+#                   ^^^^^^^ comment.line

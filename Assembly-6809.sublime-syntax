@@ -405,11 +405,12 @@ contexts:
 
   directives:
     # data directives with expr
-    - match: (?i)f[cdq]b|[zr]m[bdq](?!\S)
+    - match: (?i)f[cdq]b|[zr]m[bdq]|\.(d[bsw]|4?byte|word|quad|blkb|rs)(?!\S)
       scope: storage.type.asm.6809
       set:
         - include: skip-white-spaces
         - include: numbers
+        - include: operators
         - match: ','
           scope: operator.separator.asm.6809
         - include: line-ending
@@ -417,14 +418,22 @@ contexts:
           set: comments-eol
 
     # data directives with strings
-    - match: (?i)fc[cns](?!\S)
+    - match: (?i)fc[cns]|\.(asci[isz]|str[sz]?)(?!\S)
       scope: storage.type.asm.6809
       set: strings
 
     # data directives with misc
     - match: (i?)fill(?!\S)
       scope: storage.type.asm.6809
-      set: comments-eol
+      set:
+        - include: skip-white-spaces
+        - include: numbers
+        - include: operators
+        - match: ','
+          scope: operator.separator.asm.6809
+        - include: line-ending
+        - match: ''
+          set: comments-eol
 
     # Address Definition
     - match: '(?i)(re)?org|equ|set(dp)?|align(?!\S)'
@@ -451,7 +460,11 @@ contexts:
     # Miscelaneous Directives
     - match: '(?i)include(bin)?|use|end(?!\S)'
       scope: support.function.directive.misc.asm.6809
-      set: comments-eol
+      set:
+        - include: skip-white-spaces
+        - match: '.*$'
+          scope: support.function.directive.asm.6809
+        - include: line-ending
 
     # Misc directives with string
     - match: '(?i)error|warning(?!\S)'
