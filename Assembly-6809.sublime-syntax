@@ -138,6 +138,9 @@ contexts:
         - include: address-direct
         - include: address-index
         - include: address-extended
+        - match: '{{symbol_identifier}}'
+          scope: constant.other.asm.6809
+          set: comments-eol
         - match: '\S*'
           scope: invalid.illegal.constant.language.register.asm.6809
           set: comments-eol
@@ -258,14 +261,10 @@ contexts:
     - match: \#
       scope: keyword.operator.immediate.asm.6809
       set:
+        - include: numbers
+        - include: operators
         - match: '{{symbol_identifier}}'
           scope: constant.other.asm.6809
-          set: comments-eol
-        - match: '([01]?\d{1,2}|2([0-4]\d|5[0-5]))(?!\S)'
-          scope: constant.numeric.decimal.asm.6809
-          set: comments-eol
-        - match: '(\$\h\h?)(?!\S)'
-          scope: constant.numeric.hexadecimal.asm.6809
           set: comments-eol
         - match: '\S*'
           scope: invalid.constant.numeric.asm.6809
@@ -423,7 +422,14 @@ contexts:
     # Address Definition
     - match: '(?i)(re)?org|equ|set(dp)?|align(?!\S)'
       scope: support.function.address.asm.6809
-      set: comments-eol
+      set:
+        - include: skip-white-spaces
+        - include: numbers
+        - include: operators
+        - include: labels
+        - match: ''
+          set: comments-eol
+        - include: line-ending
 
     # Conditional assembly (ccasm)
     - match: (?i)(end(if|p)|ifp[12]|ifge|cond)(?!\S)
@@ -521,14 +527,18 @@ contexts:
       scope: constant.numeric.hexadecimal.asm.6809
 
 
-  # # operators:
-  # #   - match: '[+\-*/]'
-  # #     scope: keyword.operator.arithmetic.asm.6809
-  # #   - match: '[|&^~!]|<<|>>'
-  # #     scope: keyword.operator.bitwise.asm.6809
-  # #   - match: ','
-  # #     scope: operator.separator.asm.6809
+  operators:
+    - match: '[+\-*/]'
+      scope: keyword.operator.arithmetic.asm.6809
+    - match: '[|&^~!]|<<|>>'
+      scope: keyword.operator.bitwise.asm.6809
+    - match: ','
+      scope: operator.separator.asm.6809
 
+
+  labels:
+    - match: '{{symbol_identifier}}'
+      scope: constant.other.asm.6809
 
   strings:
     - include: skip-white-spaces
