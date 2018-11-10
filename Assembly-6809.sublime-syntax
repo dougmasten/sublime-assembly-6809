@@ -134,36 +134,42 @@ contexts:
     - match: (?i)jmp|jsr(?!\S)
       scope: keyword.operator.asm.6809
       set:
-        - include: skip-white-spaces
-        - include: address-direct
-        - include: address-index
-        - include: address-extended
-        - match: '{{symbol_identifier}}'
-          scope: constant.other.asm.6809
-          set: comments-eol
-        - match: '\S*'
-          scope: invalid.illegal.constant.language.register.asm.6809
-          set: comments-eol
+        - match: '\s*'
+          set:
+            - include: address-direct
+            - include: address-index
+            - include: address-extended
+            - match: '{{symbol_identifier}}'
+              scope: constant.other.asm.6809
+              set: comments-eol
+            - match: '\S*'
+              scope: invalid.illegal.constant.language.register.asm.6809
+              set: comments-eol
+            - include: line-ending
         - include: line-ending
 
     # Addressing modes: Immediate #i8
     - match: (?i)(and|or)cc|(bit|ld)md|cwai(?!\S)
       scope: keyword.operator.asm.6809
       set:
-        - include: skip-white-spaces
-        - include: address-immediate
+        - match: '\s*'
+          set:
+            - include: address-immediate
+            - include: line-ending
         - include: line-ending
 
     # Addressing modes: Immediate r0,r1
     - match: (?i)(ad[cd]|and|eor|cmp|or|s(bc|ub)|tf)r|exg(?!\S)
       scope: keyword.operator.asm.6809
       set:
-        - include: skip-white-spaces
-        - match: (?i)(?:(?={{all_registers}},{{all_registers}}))
-          set: highlight-registers
-        - match: '\S*'
-          scope: invalid.illegal.constant.language.register.asm.6809
-          set: comments-eol
+        - match: '\s*'
+          set:
+            - match: (?i)(?:(?={{all_registers}},{{all_registers}}))
+              set: highlight-registers
+            - match: '\S*'
+              scope: invalid.illegal.constant.language.register.asm.6809
+              set: comments-eol
+            - include: line-ending
         - include: line-ending
 
     # Addressing modes: Immediate, Direct, Indexed and Extended
@@ -178,18 +184,19 @@ contexts:
         )(?!\S)
       scope: keyword.operator.asm.6809
       set:
-        - include: skip-white-spaces
-        - include: address-immediate
-        - include: address-direct
-        - include: address-index
-        - include: address-extended
-        - include: labels
-        #- include: operators
-        - match: ''
-          set: comments-eol
-        - match: '\S*'
-          scope: invalid.illegal.constant.language.register.asm.6809
-          set: comments-eol
+        - match: '\s*'
+          set:
+            - include: address-immediate
+            - include: address-direct
+            - include: address-index
+            - include: address-extended
+            - include: labels
+            - match: ''
+              set: comments-eol
+            - match: '\S*'
+              scope: invalid.illegal.constant.language.register.asm.6809
+              set: comments-eol
+            - include: line-ending
         - include: line-ending
 
     # PSHS and PULS instructions
