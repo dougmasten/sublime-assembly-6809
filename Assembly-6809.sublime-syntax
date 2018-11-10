@@ -15,7 +15,7 @@ variables:
   num_oct: '(?:[0-7][0-7]*)'
   num_dec: '(?:\d\d*)'
   num_hex: '(?:\h\h*)'
-  symbol_identifier: '(?:[A-Za-z\.\@_!\?][A-Za-z0-9\.\@\$_\?]*)'
+  symbol_identifier: '(?:[A-Za-z\.\@\_!\?][A-Za-z0-9\.\@\$\_\?]*)'
   all_registers: '(cc|dp|pc|[0abdefsuvwxy])'
   ustack: '(cc|dp|pc|[abdsxy]|)'
   sstack: '(cc|dp|pc|[abduxy]|)'
@@ -97,9 +97,9 @@ contexts:
     - include: line-ending
 
     # No match. Mark as invalid
-    # - match: \S*$?
-    #   scope: invalid.keyword.operator.asm.6809
-    #   set: comments-eol
+    - match: \S*$?
+      scope: invalid.keyword.operator.asm.6809
+      set: comments-eol
 
 
   mnemonics:
@@ -274,10 +274,6 @@ contexts:
         - include: operators
         - match: '{{symbol_identifier}}'
           scope: constant.other.asm.6809
-          #set: comments-eol
-        # - match: '\S*'
-        #   scope: invalid.constant.numeric.asm.6809
-        #   set: comments-eol
         - include: line-ending
         - match: ''
           set: comments-eol
@@ -471,10 +467,17 @@ contexts:
     - match: '(?i)include(bin)?|use|end(?!\S)'
       scope: support.function.directive.misc.asm.6809
       set:
-        - include: skip-white-spaces
-        - match: '.*$'
-          scope: support.function.directive.asm.6809
+        - match: '\s*'
+          set:
+            - include: numbers
+            - include: operators
+            - include: labels
+            - include: line-ending
+            - match: ''
+              set: comments-eol
+            - include: line-ending
         - include: line-ending
+
 
     # Misc directives with string
     - match: '(?i)error|warning(?!\S)'
