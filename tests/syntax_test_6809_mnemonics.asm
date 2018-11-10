@@ -2,7 +2,11 @@
 # <- source.asm.6809
 
 ; Mnemonics available on Motorola 6809 and Hitachi 6309 CPUs
-IMM equ *
+        opt 6809
+IMM8 equ $12
+IMM16 equ $3456
+EXT equ $abcd
+start equ *+100
 
 
 ;--------------------------------------------------------------------
@@ -12,7 +16,7 @@ IMM equ *
 
 
 ;--------------------------------------------------------------------
-        adca #IMM comment
+        adca #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.other
@@ -51,7 +55,7 @@ IMM equ *
 
 
 ;--------------------------------------------------------------------
-        adcb #IMM comment
+        adcb #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.other
@@ -90,7 +94,7 @@ IMM equ *
 
 
 ;--------------------------------------------------------------------
-        adda #IMM comment
+        adda #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.other
@@ -129,7 +133,7 @@ IMM equ *
 
 
 ;--------------------------------------------------------------------
-        addb #IMM comment
+        addb #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.other
@@ -168,7 +172,7 @@ IMM equ *
 
 
 ;--------------------------------------------------------------------
-        addd #IMM comment
+        addd #IMM16 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.other
@@ -207,7 +211,7 @@ IMM equ *
 
 
 ;--------------------------------------------------------------------
-        anda #IMM comment
+        anda #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.other
@@ -246,7 +250,7 @@ IMM equ *
 
 
 ;--------------------------------------------------------------------
-        andb #IMM comment
+        andb #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.other
@@ -507,7 +511,7 @@ IMM equ *
 
 
 ;--------------------------------------------------------------------
-        cmpa #IMM comment
+        cmpa #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.other
@@ -546,7 +550,7 @@ IMM equ *
 
 
 ;--------------------------------------------------------------------
-        cmpb #IMM comment
+        cmpb #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.other
@@ -585,7 +589,7 @@ IMM equ *
 
 
 ;--------------------------------------------------------------------
-        cmpd #IMM comment
+        cmpd #IMM16 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.other
@@ -1012,7 +1016,7 @@ IMM equ *
 ;           ^^^^^ constant.other
 ;                 ^^^^^^^ comment.line
 
-        jmp START comment
+        jmp start comment
 #       ^^^ keyword.operator
 ;           ^^^^^ constant.other
 ;                 ^^^^^^^ comment.line
