@@ -22,31 +22,45 @@
  bhs.w comment
 #^^^^^ invalid.keyword.operator
 
+;--------------------------------------------------------------------
  pshs a,b,d
 ;     ^^^^^ invalid.constant.language.register
 
  pshs d,e,f,w
 ;     ^^^^^^^ invalid.constant.language.register
 
- pshs d,s,y
-;     ^^^^^ invalid.constant.language.register
-
  pshs d,dp
-;     ^^^^^ invalid.constant.language.register
+;     ^^^^ invalid.constant.language.register
 
  pshs s
-;     ^ invalid.constant.language.register
+#     ^ invalid.constant.language.register
 
+ pshs s,d
+#     ^^^ invalid.constant.language.register
+
+ pshs d,s
+#     ^^^ invalid.constant.language.register
+
+ pshs d,s,y
+#     ^^^^^ invalid.constant.language.register
+
+
+;--------------------------------------------------------------------
  pshu u
-;     ^ invalid.constant.language.register
+#     ^ invalid.constant.language.register
 
+
+;--------------------------------------------------------------------
  puls s
-;     ^ invalid.constant.language.register
+#     ^ invalid.constant.language.register
 
+
+;--------------------------------------------------------------------
  pulu u
-;     ^ invalid.constant.language.register
+#     ^ invalid.constant.language.register
 
 
+;--------------------------------------------------------------------
 ; comments
 
  # comments

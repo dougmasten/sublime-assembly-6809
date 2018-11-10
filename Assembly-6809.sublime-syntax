@@ -190,24 +190,30 @@ contexts:
         - include: line-ending
 
     # PSHS and PULS instructions
-    # TODO! check registers syntax
     - match: '(?i)pshs|puls(?!\S)'
       scope: keyword.operator.asm.6809
       set:
         - include: skip-white-spaces
-        - match: (?<!\S)
-          set: highlight-registers
-        - include: line-ending
+        # check for s register
+        - match: (?=[\S\w]*s[\S\w]*\s)
+          set: invalid-registers
+        - match: ''
+          set: validate-stack-registers
+        # - match: (?<!\S)
+        #   set: highlight-registers
+        # - include: line-ending
 
     # PSHU and PULU instructions
-    # TODO! check registers syntax
     - match: '(?i)pshu|pulu(?!\S)'
       scope: keyword.operator.asm.6809
       set:
         - include: skip-white-spaces
-        - match: (?<!\S)
-          set: highlight-registers
-        - include: line-ending
+        # check for u register
+        - match: (?=[\S\w]*u[\S\w]*\s)
+          set: invalid-registers
+        - match: ''
+          set: validate-stack-registers
+
 
     #  6309 xxx
     # TODO! process after instruction
@@ -321,6 +327,13 @@ contexts:
       set: comments-eol
 
 
+  # Validate stack registers
+  validate-stack-registers:
+    - match: (?<!\S)
+      set: highlight-registers
+    - include: line-ending
+
+
   # Highlight string of registers and commas
   highlight-registers:
     - match: '{{all_registers}}'
@@ -346,6 +359,15 @@ contexts:
       scope: meta.brackets.asm.6809 punctuation.section.brackets.begin.asm.6809
     - match: '\]'
       scope: meta.brackets.asm.6809 punctuation.section.brackets.end.asm.6809
+    - match: \s
+      set: comments-eol
+    - include: line-ending
+
+
+  # Invalid string of registers
+  invalid-registers:
+    - match: '[\S\w]'
+      scope: invalid.constant.language.register.asm.6809
     - match: \s
       set: comments-eol
     - include: line-ending
