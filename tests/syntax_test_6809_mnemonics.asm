@@ -2,6 +2,7 @@
 # <- source.asm.6809
 
 ; Mnemonics available on Motorola 6809 and Hitachi 6309 CPUs
+IMM equ *
 
 
 ;--------------------------------------------------------------------
@@ -14,7 +15,7 @@
         adca #IMM comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ entity.name.type.constant
+#             ^^^ constant.other
 #                 ^^^^^^^ comment.line
 
         adca $ffff comment
@@ -53,7 +54,7 @@
         adcb #IMM comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ entity.name.type.constant
+#             ^^^ constant.other
 #                 ^^^^^^^ comment.line
 
         adcb $ffff comment
@@ -92,7 +93,7 @@
         adda #IMM comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ entity.name.type.constant
+#             ^^^ constant.other
 #                 ^^^^^^^ comment.line
 
         adda $ffff comment
@@ -131,7 +132,7 @@
         addb #IMM comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ entity.name.type.constant
+#             ^^^ constant.other
 #                 ^^^^^^^ comment.line
 
         addb $ffff comment
@@ -170,7 +171,7 @@
         addd #IMM comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ entity.name.type.constant
+#             ^^^ constant.other
 #                 ^^^^^^^ comment.line
 
         addd $ffff comment
@@ -209,7 +210,7 @@
         anda #IMM comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ entity.name.type.constant
+#             ^^^ constant.other
 #                 ^^^^^^^ comment.line
 
         anda $ffff comment
@@ -248,7 +249,7 @@
         andb #IMM comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ entity.name.type.constant
+#             ^^^ constant.other
 #                 ^^^^^^^ comment.line
 
         andb $ffff comment
@@ -509,7 +510,7 @@
         cmpa #IMM comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ entity.name.type.constant
+#             ^^^ constant.other
 #                 ^^^^^^^ comment.line
 
         cmpa $ffff comment
@@ -548,7 +549,7 @@
         cmpb #IMM comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ entity.name.type.constant
+#             ^^^ constant.other
 #                 ^^^^^^^ comment.line
 
         cmpb $ffff comment
@@ -587,7 +588,7 @@
         cmpd #IMM comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ entity.name.type.constant
+#             ^^^ constant.other
 #                 ^^^^^^^ comment.line
 
         cmpd $ffff comment
@@ -1006,7 +1007,7 @@
 
 
 ;--------------------------------------------------------------------
-        jmp $4000 comment
+        jmp $2000 comment
 #       ^^^ keyword.operator
 ;           ^^^^^ constant.other
 ;                 ^^^^^^^ comment.line
@@ -1016,7 +1017,7 @@
 ;           ^^^^^ constant.other
 ;                 ^^^^^^^ comment.line
 
-        jmp [$4000] comment
+        jmp [$2000] comment
 #       ^^^ keyword.operator
 #                   ^^^^^^^ comment.line
 
@@ -1047,39 +1048,56 @@
 #               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
+        jmp <$f0 comment
+#       ^^^ keyword.operator
+#                ^^^^^^^ comment.line
+
 
 ;--------------------------------------------------------------------
+        jsr $a000 comment
+#       ^^^ keyword.operator
+;           ^^^^^ constant.other
+;                 ^^^^^^^ comment.line
+
         jsr start comment
 #       ^^^ keyword.operator
 ;           ^^^^^ constant.other
 ;                 ^^^^^^^ comment.line
 
-        jmp [EXT] comment
+        jsr [$a000] comment
+#       ^^^ keyword.operator
+#                   ^^^^^^^ comment.line
+
+        jsr [EXT] comment
 #       ^^^ keyword.operator
 #                 ^^^^^^^ comment.line
 
-        jmp ,x comment
+        jsr ,x comment
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #              ^^^^^^^ comment.line
 
-        jmp ,y++ comment
+        jsr ,y++ comment
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
 #                ^^^^^^^ comment.line
 
-        jmp [,--u] comment
+        jsr [b,x] comment
 #       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
+#           ^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
-#            ^ operator.separator
-#             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
-#                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
+#            ^ constant.language.register
+#             ^ operator.separator
+#              ^ constant.language.register
+#               ^ punctuation.section.brackets.end
+#                 ^^^^^^^ comment.line
+
+        jsr <$f0 comment
+#       ^^^ keyword.operator
+#                ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------

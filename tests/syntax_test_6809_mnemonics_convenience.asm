@@ -3,8 +3,10 @@
 
 
 ; 6809 convenience instructions added by lwasm
+
 ; Note: Syntax highlighting actually covered by 6309 instructions and is
 ;       included here for completeness.
+
 
         asrd comment
 #       ^^^^ keyword.operator
