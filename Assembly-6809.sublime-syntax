@@ -434,25 +434,29 @@ contexts:
     - match: (i?)fill(?!\S)
       scope: storage.type.asm.6809
       set:
-        - include: skip-white-spaces
-        - include: numbers
-        - include: operators
-        - match: ','
-          scope: operator.separator.asm.6809
+        - match: '\s*'
+          set:
+            - include: numbers
+            - include: operators
+            - match: ','
+              scope: operator.separator.asm.6809
+            - include: line-ending
+            - match: ''
+              set: comments-eol
         - include: line-ending
-        - match: ''
-          set: comments-eol
 
     # Address Definition
     - match: '(?i)(re)?org|equ|set(dp)?|align(?!\S)'
       scope: support.function.address.asm.6809
       set:
-        - include: skip-white-spaces
-        - include: numbers
-        - include: operators
-        - include: labels
-        - match: ''
-          set: comments-eol
+        - match: '\s*'
+          set:
+            - include: numbers
+            - include: operators
+            - include: labels
+            - match: ''
+              set: comments-eol
+            - include: line-ending
         - include: line-ending
 
     # Conditional assembly (ccasm)
