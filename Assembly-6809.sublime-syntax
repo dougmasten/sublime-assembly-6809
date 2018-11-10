@@ -238,20 +238,22 @@ contexts:
     - match: (?i)tfm(?!\S)
       scope: keyword.operator.asm.6809
       set:
-        - include: skip-white-spaces
-        - match: |-
-            (?ix:
-                (?:
-                  (?=[xyusd]\+,[xyusd]\+)|
-                  (?=[xyusd]\+,[xyusd]\b)|
-                  (?=[xyusd]\-,[xyusd]\-)|
-                  (?=[xyusd],[xyusd]\+)
+        - match: '\s*'
+          set:
+            - match: |-
+                (?ix:
+                    (?:
+                      (?=[xyusd]\+,[xyusd]\+)|
+                      (?=[xyusd]\+,[xyusd]\b)|
+                      (?=[xyusd]\-,[xyusd]\-)|
+                      (?=[xyusd],[xyusd]\+)
+                    )
                 )
-            )
-          set: highlight-registers
-        - match: '\S*'
-          scope: invalid.illegal.constant.language.register.asm.6809
-          set: comments-eol
+              set: highlight-registers
+            - match: '\S*'
+              scope: invalid.illegal.constant.language.register.asm.6809
+              set: comments-eol
+            - include: line-ending
         - include: line-ending
 
     # Convenience instructions (supported by lwasm)
