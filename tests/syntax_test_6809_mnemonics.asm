@@ -1971,6 +1971,12 @@ start equ *+100
 ;--------------------------------------------------------------------
         sta $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
+#                 ^^^^^^^ comment.line
+
+        sta start comment
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
 
         sta [EXT] comment

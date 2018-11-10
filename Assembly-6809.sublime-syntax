@@ -177,9 +177,7 @@ contexts:
         (?ix:
             (adc|and|bit|e?or|sbc)[ab]|
             (add|sub)[abd]|
-            (as|ls|ro)[lr]|
-            clr|com|dec|inc|neg|tst|
-            (cmp|ld|st)[abdsuxy]|
+            (cmp|ld)[abdsuxy]|
             lea[suxy]
         )(?!\S)
       scope: keyword.operator.asm.6809
@@ -198,6 +196,32 @@ contexts:
               set: comments-eol
             - include: line-ending
         - include: line-ending
+
+    # Addressing modes: Direct, Indexed and Extended
+    - match: |-
+        (?ix:
+            (as|ls|ro)[lr]|
+            clr|com|dec|inc|neg|tst|
+            st[abdsuxy]
+        )(?!\S)
+      scope: keyword.operator.asm.6809
+      set:
+        - match: '\s*'
+          set:
+            - include: address-direct
+            - include: address-index
+            - include: address-extended
+            - include: labels
+            - include: numbers
+            - include: operators
+            - match: ''
+              set: comments-eol
+            - match: '\S*'
+              scope: invalid.illegal.constant.language.register.asm.6809
+              set: comments-eol
+            - include: line-ending
+        - include: line-ending
+
 
     # PSHS and PULS instructions
     - match: '(?i)pshs|puls(?!\S)'
