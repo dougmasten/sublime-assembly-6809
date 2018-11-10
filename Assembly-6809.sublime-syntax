@@ -194,26 +194,20 @@ contexts:
       scope: keyword.operator.asm.6809
       set:
         - include: skip-white-spaces
-        # check for s register
         - match: (?=[\S\w]*s[\S\w]*\s)
           set: invalid-registers
         - match: ''
           set: validate-stack-registers
-        # - match: (?<!\S)
-        #   set: highlight-registers
-        # - include: line-ending
 
     # PSHU and PULU instructions
     - match: '(?i)pshu|pulu(?!\S)'
       scope: keyword.operator.asm.6809
       set:
         - include: skip-white-spaces
-        # check for u register
         - match: (?=[\S\w]*u[\S\w]*\s)
           set: invalid-registers
         - match: ''
           set: validate-stack-registers
-
 
     #  6309 xxx
     # TODO! process after instruction
