@@ -407,7 +407,14 @@ contexts:
     # data directives with expr
     - match: (?i)f[cdq]b|[zr]m[bdq](?!\S)
       scope: storage.type.asm.6809
-      set: comments-eol
+      set:
+        - include: skip-white-spaces
+        - include: numbers
+        - match: ','
+          scope: operator.separator.asm.6809
+        - include: line-ending
+        - match: ''
+          set: comments-eol
 
     # data directives with strings
     - match: (?i)fc[cns](?!\S)
@@ -509,22 +516,23 @@ contexts:
       set: column_2
     - include: line-ending
 
+
   numbers:
     # Binary number: Prefixed with "%" or suffixed with "b" or "B".
-    - match: (?:(?:\%{{num_bin}})|(?:\b{{num_bin}}[bB]))\b
+    - match: (?:(?:\%{{num_bin}})|(?:{{num_bin}}[bB]))
       scope: constant.numeric.binary.asm.6809
 
     # Octal number: Prefixed with "@" or suffixed with "Q", "q", "O" or "o".
-    - match: (?:(?:\@{{num_oct}})|(?:\b{{num_oct}}[oqOQ]))\b
+    - match: (?:(?:\@{{num_oct}})|(?:{{num_oct}}[oqOQ]))
       scope: constant.numeric.octal.asm.6809
 
-    # Decimal number: May be prefixed with "&" but is not required.
-    - match: (?:(?:\&{{num_dec}})|(?:\b{{num_dec}}))\b
-      scope: constant.numeric.decimal.asm.6809
-
     # Hexadecimal number: Prefixed with "$", "0x" or "0X", or suffixed with "H".
-    - match: (?i)(?:(?:(0x|\$){{num_hex}})|(?:\b{{num_hex}}h))\b
+    - match: (?i)(?:(?:(0x|\$){{num_hex}})|(?:{{num_hex}}h))
       scope: constant.numeric.hexadecimal.asm.6809
+
+    # Decimal number: May be prefixed with "&" but is not required.
+    - match: (?:(?:\&{{num_dec}})|(?:{{num_dec}}))
+      scope: constant.numeric.decimal.asm.6809
 
 
   operators:

@@ -5,11 +5,11 @@
 ; Include one or more constant bytes (seperated by commas) in the output
         fcb 1,2,3
 #       ^^^ storage.type
-;           ^ constant.numeric.decimal
-;            ^ operator.separator
-;             ^ constant.numeric.decimal
-;              ^ operator.separator
-;               ^ constant.numeric.decimal
+#           ^ constant.numeric.decimal
+#            ^ operator.separator
+#             ^ constant.numeric.decimal
+#              ^ operator.separator
+#               ^ constant.numeric.decimal
 
         .db $a,$b,$c
 ;       ^^^ storage.type
@@ -31,11 +31,11 @@
 ; Include one or more words (seperated by commas) in the output
         fdb 65535,0,65535
 #       ^^^ storage.type
-;           ^^^^^ constant.numeric.decimal
-;                ^ operator.separator
-;                ^ constant.numeric.decimal
-;                  ^ operator.separator
-;                   ^^^^^ constant.numeric.decimal
+#           ^^^^^ constant.numeric.decimal
+#                ^ operator.separator
+#                 ^ constant.numeric.decimal
+#                  ^ operator.separator
+#                   ^^^^^ constant.numeric.decimal
 
         .dw $aaaa,$bbbb,$cccc
 ;      ^^^ storage.type
@@ -55,6 +55,13 @@
 ; Include one or more double words (seperated by commas) in the output
         fqb 1,2,3,4
 #       ^^^ storage.type
+#           ^ constant.numeric.decimal
+#            ^ operator.separator
+#             ^ constant.numeric.decimal
+#              ^ operator.separator
+#               ^ constant.numeric.decimal
+#                ^ operator.separator
+#                 ^ constant.numeric.decimal
 
         .quad
 ;       ^^^^^ storage.type
