@@ -3,13 +3,20 @@
 
 
 ; Additional mnemonics available on Hitachi 6309 CPU
-
-        adcd
-#       ^^^^ keyword.operator
+        opt 6309
+IMM8 equ $12
+IMM16 equ $3456
+EXT equ $abcd
+start equ *+100
 
 
 ;--------------------------------------------------------------------
-        adca #IMM comment
+        adcd #IMM16 comment
+#       ^^^^ keyword.operator
+#                   ^^^^^^^ comment.line
+
+;--------------------------------------------------------------------
+        adca #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.other
@@ -57,18 +64,21 @@
 
 
 ;--------------------------------------------------------------------
-        adde
+        adde #IMM8 comment
 #       ^^^^ keyword.operator
+#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        addf
+        addf #IMM8 comment
 #       ^^^^ keyword.operator
+#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        addw
+        addw #IMM16 comment
 #       ^^^^ keyword.operator
+#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
@@ -81,13 +91,15 @@
 
 
 ;--------------------------------------------------------------------
-        aim
+        aim #$3f;4,u comment
 #       ^^^ keyword.operator
+#                    ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        andd
+        andd #IMM16 comment
 #       ^^^^ keyword.operator
+#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
@@ -112,44 +124,51 @@
 
 
 ;--------------------------------------------------------------------
-        band
+        band a,5,1,$40 comment
 #       ^^^^ keyword.operator
+#                      ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        beor
+        beor a,6,1,$40 comment
 #       ^^^^ keyword.operator
+#                      ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        biand
+        biand a,1,3,$40 comment
 #       ^^^^^ keyword.operator
+#                       ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        bieor
+        bieor a,0,3,$40 comment
 #       ^^^^^ keyword.operator
+#                       ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        bior
+        bior a,0,4,$40 comment
 #       ^^^^ keyword.operator
+#                      ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        bitd
+        bitd #IMM16 comment
 #       ^^^^ keyword.operator
+#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        bitmd
+        bitmd #IMM8 comment
 #       ^^^^^ keyword.operator
+#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        bor
+        bor a,6,1,$40 comment
 #       ^^^ keyword.operator
-
+#                     ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
         clrd comment
@@ -250,27 +269,27 @@
 
 
 ;--------------------------------------------------------------------
-        divd
+        divd #IMM8 comment
 #       ^^^^ keyword.operator
-
+#                  ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
-        divq
+        divq #IMM16 comment
 #       ^^^^ keyword.operator
-
+#                   ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
-        eim
+        eim #$3f;4,u comment
 #       ^^^ keyword.operator
-
+#                    ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
-        eord
+        eord #IMM16 comment
 #       ^^^^ keyword.operator
-
+#                   ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
-        eorr s,w
+        eorr s,w comment
 #       ^^^^ keyword.operator
 #            ^ constant.language.register
 #             ^ operator.separator
@@ -321,9 +340,9 @@
 
 
 ;--------------------------------------------------------------------
-        ldbt
+        ldbt a,5,1,$40 comment
 #       ^^^^ keyword.operator
-
+#                      ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
         ldmd #1 comment
@@ -334,9 +353,9 @@
 
 
 ;--------------------------------------------------------------------
-        ldq #$11223344
+        ldq #$11223344 comment
 #       ^^^ keyword.operator
-
+#                      ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
         lsld comment
@@ -353,17 +372,21 @@
 #       ^^^^ keyword.operator
 #            ^^^^^^^ comment.line
 
-        muld
+        muld #IMM16 comment
 #       ^^^^ keyword.operator
+#                   ^^^^^^^ comment.line
 
-        negd
+        negd comment
 #       ^^^^ keyword.operator
+#            ^^^^^^^ comment.line
 
-        oim
+        oim #$c0;4,u comment
 #       ^^^ keyword.operator
+#                    ^^^^^^^ comment.line
 
-        ord
+        ord #IMM16 comment
 #       ^^^ keyword.operator
+#                  ^^^^^^^ comment.line
 
         orr y,s comment
 #       ^^^ keyword.operator
@@ -422,9 +445,9 @@
 
 
 ;--------------------------------------------------------------------
-        sbcd
+        sbcd #IMM16 comment
 #       ^^^^ keyword.operator
-
+#                   ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
         sbcr x,u comment
@@ -442,43 +465,51 @@
 
 
 ;--------------------------------------------------------------------
-        ste
+        ste $ffff comment
 #       ^^^ keyword.operator
+#                 ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        stf
+        stf $ffff comment
 #       ^^^ keyword.operator
+#                 ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        stw
+        stw $ffff comment
 #       ^^^ keyword.operator
+#                 ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        stbt
+        stbt a,5,1,$40 comment
 #       ^^^^ keyword.operator
+#                      ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        stq
+        stq $ffff comment
 #       ^^^ keyword.operator
+#                 ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        sube
+        sube #IMM8 comment
 #       ^^^^ keyword.operator
+#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        subf
+        subf #IMM8 comment
 #       ^^^^ keyword.operator
+#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        subw
+        subw #IMM16 comment
 #       ^^^^ keyword.operator
+#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
@@ -527,8 +558,9 @@
 
 
 ;--------------------------------------------------------------------
-        tim
+        tim #$3f;4,u comment
 #       ^^^ keyword.operator
+#                    ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
