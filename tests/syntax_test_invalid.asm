@@ -112,11 +112,11 @@
         ldmd #256 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ invalid.constant.numeric
-#                 ^^^^^^^ comment.line
+;             ^^^ invalid.constant.numeric
+;                 ^^^^^^^ comment.line
 
         orcc #$ff0 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^^ invalid.constant.numeric
-#                  ^^^^^^^ comment.line
+;             ^^^^ invalid.constant.numeric
+;                  ^^^^^^^ comment.line

@@ -1037,8 +1037,8 @@ start equ *+100
 
         jmp start comment
 #       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ comment.line
+#           ^^^^^ constant.other
+#                 ^^^^^^^ comment.line
 
         jmp [$2000] comment
 #       ^^^ keyword.operator
@@ -1084,8 +1084,8 @@ start equ *+100
 
         jsr start comment
 #       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ comment.line
+#           ^^^^^ constant.other
+#                 ^^^^^^^ comment.line
 
         jsr [$a000] comment
 #       ^^^ keyword.operator
