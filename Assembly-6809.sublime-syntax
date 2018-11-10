@@ -97,9 +97,9 @@ contexts:
     - include: line-ending
 
     # No match. Mark as invalid
-    - match: \S*$?
-      scope: invalid.keyword.operator.asm.6809
-      set: comments-eol
+    # - match: \S*$?
+    #   scope: invalid.keyword.operator.asm.6809
+    #   set: comments-eol
 
 
   mnemonics:
