@@ -189,6 +189,8 @@ contexts:
             - include: address-index
             - include: address-extended
             - include: labels
+            - include: numbers
+            - include: operators
             - match: ''
               set: comments-eol
             - match: '\S*'
