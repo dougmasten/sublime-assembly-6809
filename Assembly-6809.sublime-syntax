@@ -94,6 +94,7 @@ contexts:
     - include: comments
     - include: emulator-extensions
     - include: os9
+    - include: invalid
     - include: line-ending
 
     # No match. Mark as invalid
@@ -298,7 +299,9 @@ contexts:
       scope: keyword.operator.asm.6809
       set: comments-eol
 
-    # Invalid instructions
+
+  # Invalid instructions
+  invalid:
     - match: (?i)lslw(?!\S)
       scope: invalid.keyword.operator.asm.6809
       set: comments-eol
