@@ -19,8 +19,8 @@ start equ *+100
         adca #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ constant.other
-#                 ^^^^^^^ comment.line
+#             ^^^^ constant.other
+#                  ^^^^^^^ comment.line
 
         adca $ffff comment
 #       ^^^^ keyword.operator

@@ -19,8 +19,8 @@ start equ *+100
         adca #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ constant.other
-#                 ^^^^^^^ comment.line
+#             ^^^^ constant.other
+#                  ^^^^^^^ comment.line
 
         adca $ffff comment
 #       ^^^^ keyword.operator
@@ -58,8 +58,8 @@ start equ *+100
         adcb #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ constant.other
-#                 ^^^^^^^ comment.line
+#             ^^^^ constant.other
+#                  ^^^^^^^ comment.line
 
         adcb $ffff comment
 #       ^^^^ keyword.operator
@@ -97,8 +97,8 @@ start equ *+100
         adda #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ constant.other
-#                 ^^^^^^^ comment.line
+#             ^^^^ constant.other
+#                  ^^^^^^^ comment.line
 
         adda $ffff comment
 #       ^^^^ keyword.operator
@@ -136,8 +136,8 @@ start equ *+100
         addb #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ constant.other
-#                 ^^^^^^^ comment.line
+#             ^^^^ constant.other
+#                  ^^^^^^^ comment.line
 
         addb $ffff comment
 #       ^^^^ keyword.operator
@@ -175,8 +175,8 @@ start equ *+100
         addd #IMM16 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ constant.other
-#                 ^^^^^^^ comment.line
+#             ^^^^^ constant.other
+#                   ^^^^^^^ comment.line
 
         addd $ffff comment
 #       ^^^^ keyword.operator
@@ -214,8 +214,8 @@ start equ *+100
         anda #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ constant.other
-#                 ^^^^^^^ comment.line
+#             ^^^^ constant.other
+#                  ^^^^^^^ comment.line
 
         anda $ffff comment
 #       ^^^^ keyword.operator
@@ -253,8 +253,8 @@ start equ *+100
         andb #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ constant.other
-#                 ^^^^^^^ comment.line
+#             ^^^^ constant.other
+#                  ^^^^^^^ comment.line
 
         andb $ffff comment
 #       ^^^^ keyword.operator
@@ -514,8 +514,8 @@ start equ *+100
         cmpa #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ constant.other
-#                 ^^^^^^^ comment.line
+#             ^^^^ constant.other
+#                  ^^^^^^^ comment.line
 
         cmpa $ffff comment
 #       ^^^^ keyword.operator
@@ -553,8 +553,8 @@ start equ *+100
         cmpb #IMM8 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ constant.other
-#                 ^^^^^^^ comment.line
+#             ^^^^ constant.other
+#                  ^^^^^^^ comment.line
 
         cmpb $ffff comment
 #       ^^^^ keyword.operator
@@ -592,8 +592,8 @@ start equ *+100
         cmpd #IMM16 comment
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^ constant.other
-#                 ^^^^^^^ comment.line
+#             ^^^^^ constant.other
+#                   ^^^^^^^ comment.line
 
         cmpd $ffff comment
 #       ^^^^ keyword.operator
