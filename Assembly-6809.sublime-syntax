@@ -344,13 +344,13 @@ contexts:
 
 
   pragmas:
-    # TODO - support *pragma, *pragmapush and *pragmapop
-    - match: '(?i)pragma|opt(?!\S)'
+    - match: '(?i)pragma|opt|\*pragma(push|pop)?(?!\S)'
       scope: support.function.directive.assembler.asm.6809
       set:
         - include: skip-white-spaces
         - match: |-
             (?ix:
+              (no)?(
                 6800compat|
                 6[83]09(conv)?|
                 index0tonone|
@@ -369,6 +369,7 @@ contexts:
                 m80ext|
                 testmode|
                 c[dtc]?
+              )
             )
           scope: keyword.operator.asm.6809
         - match: ','

@@ -1,8 +1,7 @@
 # SYNTAX TEST "Packages/Assembly-6809/Assembly-6809.sublime-syntax"
 # <- source.asm.6809
 
-; TODO: *PRAGMA, *PRAGMAPUSH, *PRAGMAPOP
-; TODO! PRAGMA pragma [,...]
+; Assembly pragmas (lwasm)
 
 
   pragma 6800compat
@@ -108,6 +107,18 @@
   pragma cc
 # ^^^^^^ support.function.directive.assembler
 #        ^^ keyword.operator
+
+  *pragma c
+# ^^^^^^^ support.function.directive.assembler
+#         ^ keyword.operator
+
+  *pragmapush c
+# ^^^^^^^^^^^ support.function.directive.assembler
+#             ^ keyword.operator
+
+  *pragmapop c
+# ^^^^^^^^^^ support.function.directive.assembler
+#            ^ keyword.operator
 
   opt 6800compat
 # ^^^ support.function.directive.assembler
@@ -226,6 +237,10 @@
   pragma nolist
 # ^^^^^^ support.function.directive.assembler
 #        ^^^^^^ keyword.operator
+
+  pragma notestmode
+# ^^^^^^ support.function.directive.assembler
+#        ^^^^^^^^^^ keyword.operator
 
   opt nolist
 # ^^^ support.function.directive.assembler
