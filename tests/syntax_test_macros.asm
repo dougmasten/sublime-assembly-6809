@@ -21,4 +21,4 @@ label2      macro noexpand comment
 
 ; no prefix label
  macro
-#^^^^^ invalid.keyword.operator
+;^^^^^ invalid.keyword.operator

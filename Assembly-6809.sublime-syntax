@@ -50,24 +50,9 @@ contexts:
       scope: comment.line.asm.6809
       pop: true
 
-  debug:
-    - match: '.*$'
-      scope: invalid.illegal.entity.name.type.constant.asm.6809
-
 
   main:
-    # Skip blank lines
-    - match: ^\s*$
-
-    # Disassembly listing
-    - match: '^\h{4}\:\s'
-      scope: comment.line.asm.6809
-      push: disassembly
-
     - include: column_1
-
-    # Use for debugging. It should not match anything.
-    #- include: debug
 
 
   column_1:
@@ -76,10 +61,15 @@ contexts:
       push: column_2
 
     # Line begins with a comment
-    - match: '^([*;#]).*$\n?'
+    - match: '^([*;#]).*$'
       scope: comment.line.asm.6809
       captures:
         1: punctuation.definition.comment.asm.6809
+
+    # Disassembly listing
+    - match: '^\h{4}\:\s'
+      scope: comment.line.asm.6809
+      push: disassembly
 
     # Label
     - match: '^{{symbol_identifier}}'
@@ -93,7 +83,8 @@ contexts:
         - include: line-ending
 
     # Use for debugging. It should not match anything.
-    - include: debug
+    #- match: '.*$'
+    #  scope: invalid.illegal.entity.name.type.constant.asm.6809
 
 
   column_2:
@@ -106,10 +97,9 @@ contexts:
     - include: line-ending
 
     # No match. Mark as invalid
-    - match: \S*$?
-      scope: invalid.keyword.operator.asm.6809
-      set: comments-eol
-    #- include: debug
+    # - match: \S*$?
+    #   scope: invalid.keyword.operator.asm.6809
+    #   set: comments-eol
 
 
   mnemonics:

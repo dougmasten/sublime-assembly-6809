@@ -11,16 +11,16 @@
 #^^^^ invalid.keyword.operator
 
  bra.b
-#^^^^^ invalid.keyword.operator
+;^^^^^ invalid.keyword.operator
 
  exg.l
-#^^^^^ invalid.keyword.operator
+;^^^^^ invalid.keyword.operator
 
  bsr.b
-#^^^^^ invalid.keyword.operator
+;^^^^^ invalid.keyword.operator
 
  bhs.w comment
-#^^^^^ invalid.keyword.operator
+;^^^^^ invalid.keyword.operator
 
 ;--------------------------------------------------------------------
  pshs a,b,d
@@ -71,8 +71,8 @@
 
 ; Labels cannot start with a number
 123invalidlabel
-# <- invalid.illegal.entity.name.type.constant
-#^^^^^^^^^^^^^^ invalid.illegal.entity.name.type.constant
+; <- invalid.illegal.entity.name.type.constant
+;^^^^^^^^^^^^^^ invalid.illegal.entity.name.type.constant
 
 ; String has no ending double quotes
  fcc "testing
