@@ -17,16 +17,36 @@ variables:
   num_hex: '(?:\h\h*)'
   symbol_identifier: '(?:[A-Za-z\.\@\_!\?][A-Za-z0-9\.\@\$\_\?]*)'
   all_registers: '(cc|dp|pc|[0abdefsuvwxy])'
-  ustack: '(cc|dp|pc|[abdsxy]|)'
-  sstack: '(cc|dp|pc|[abduxy]|)'
+  pragma_options:  '(?ix:
+                      (no)?(
+                        6800compat|
+                        6[83]09(conv)?|
+                        index0tonone|
+                        cescapes|
+                        (importundef)?export|
+                        undefextern|
+                        dollar(not)?local|
+                        pcaspcr|
+                        shadow|
+                        list|
+                        autobranchlength|
+                        (nosymbol|symbolno)case|
+                        condundefzero|
+                        forwardrefmax|
+                        qrts|
+                        m80ext|
+                        testmode|
+                        c[dtc]?
+                      )
+                    )'
   # HEXFRC: (?:{{HEXNUM}})?
   # HEXNUM: '\h(_?\h)*'
-  # num_hex: ''
   # address: '\$(?:[0-9A-F]){4}|[0-9]{5}'
   # hex_number: '\$(?:[0-9A-F][0-9A-F]){1,2}'
   # oct_number: '@[0-9]+'
   # bin_number: '%[01]+'
   # dec_number: '-?[0-9.]+'
+
 
 contexts:
   line-ending:
@@ -445,29 +465,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - match: |-
-                (?ix:
-                  (no)?(
-                    6800compat|
-                    6[83]09(conv)?|
-                    index0tonone|
-                    cescapes|
-                    (importundef)?export|
-                    undefextern|
-                    dollar(not)?local|
-                    pcaspcr|
-                    shadow|
-                    list|
-                    autobranchlength|
-                    (nosymbol|symbolno)case|
-                    condundefzero|
-                    forwardrefmax|
-                    qrts|
-                    m80ext|
-                    testmode|
-                    c[dtc]?
-                  )
-                )
+            - match: '{{pragma_options}}'
               scope: keyword.operator.asm.6809
             - match: ','
               scope: operator.separator.asm.6809
@@ -523,13 +521,37 @@ contexts:
             - include: line-ending
         - include: line-ending
 
-    # Conditional assembly (ccasm)
-    - match: (?i)(end(if|p)|ifp[12]|ifge|cond)(?!\S)
+    # Conditional assembly with expr
+    - match: '(?i)if(eq|ne|gt|lt|le|def|ndef)?(?!\S)'
+      scope: support.function.conditional.asm.6809
+      set:
+        - match: '\s*'
+          set:
+            - include: expr
+            - match: ''
+              set: comments-eol
+            - include: line-ending
+        - include: line-ending
+
+    # Conditional assembly with pragma
+    - match: '(?i)ifpragma(?!\S)'
+      scope: support.function.conditional.asm.6809
+      set:
+        - match: '\s*'
+          set:
+            - match: '{{pragma_options}}'
+              scope: keyword.operator.asm.6809
+              set: comments-eol
+            - include: line-ending
+        - include: line-ending
+
+    # Conditional assembly
+    - match: '(?i)else|endc(?!\S)'
       scope: support.function.conditional.asm.6809
       set: comments-eol
 
-    # Conditional assembly (lwasm)
-    - match: '(?i)if(eq|ne|gt|lt|le|def|pragma|ndef)?|else|endc(?!\S)'
+    # Conditional assembly (ccasm)
+    - match: (?i)(end(if|p)|ifp[12]|ifge|cond)(?!\S)
       scope: support.function.conditional.asm.6809
       set: comments-eol
 
