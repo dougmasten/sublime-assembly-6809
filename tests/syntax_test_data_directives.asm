@@ -1,6 +1,7 @@
 # SYNTAX TEST "Packages/Assembly-6809/Assembly-6809.sublime-syntax"
 # <- source.asm.6809
 
+buffer_size equ $a1a2
 
 ; Include one or more constant bytes (seperated by commas) in the output
         fcb 1,2,3 comment
@@ -179,6 +180,11 @@
 #                ^ keyword.operator.arithmetic
 #                 ^^ constant.numeric.decimal
 #                    ^^^^^^^ comment.line
+
+        rmb buffer_size comment
+#       ^^^ storage.type
+#           ^^^^^^^^^^^ constant.other
+#                       ^^^^^^^ comment.line
 
         .blkb 32 comment
 #       ^^^^^ storage.type

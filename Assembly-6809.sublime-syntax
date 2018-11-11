@@ -504,6 +504,7 @@ contexts:
           set:
             - include: numbers
             - include: operators
+            - include: labels
             - match: ','
               scope: operator.separator.asm.6809
             - include: line-ending
