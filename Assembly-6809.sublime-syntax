@@ -524,9 +524,9 @@ contexts:
         - include: line-ending
 
     # Conditional assembly (ccasm)
-    #- match: (?i)(end(if|p)|ifp[12]|ifge|cond)(?!\S)
-    #  scope: support.function.conditional.asm.6809
-    #  set: comments-eol
+    - match: (?i)(end(if|p)|ifp[12]|ifge|cond)(?!\S)
+      scope: support.function.conditional.asm.6809
+      set: comments-eol
 
     # Conditional assembly (lwasm)
     - match: '(?i)if(eq|ne|gt|lt|le|def|pragma|ndef)?|else|endc(?!\S)'
