@@ -15,7 +15,7 @@ variables:
   num_oct: '(?:[0-7][0-7]*)'
   num_dec: '(?:\d\d*)'
   num_hex: '(?:\h\h*)'
-  symbol_identifier: '(?:[A-Za-z\.\@\_!\?][A-Za-z0-9\.\@\$\_\?]*)'
+  symbol_id: '(?:[A-Za-z\.\@\_!\?][A-Za-z0-9\.\@\$\_\?]*)'
   all_registers: '(?i)cc|dp|pc|[0abdefsuvwxy]'
   pragma_options:  '(?ix:
                       (no)?(
@@ -39,6 +39,7 @@ variables:
                         c[dtc]?
                       )
                     )'
+  lwasm_list_id: '.*\(.*\):\d{5}.{9}'
 
 
 contexts:
@@ -48,6 +49,10 @@ contexts:
 
   skip-white-spaces:
     - match: \s*
+
+  bail-out:
+    - match: (?=\S)
+      pop: true
 
   comments:
     - match: '(?:([*;])).*$\n?'
@@ -65,35 +70,44 @@ contexts:
 
 
   main:
-    - include: column_1
+    # Lwasm assembly list output
+    - match: '(?={{lwasm_list_id}})'
+      push: lwasm-listing
+
+    # Disassembly listing
+    - match: '^\h{4}\:\s'
+      scope: comment.line.disasm.asm.6809
+      push: disassembly
+
+    # Process column #1
+    - match: ''
+      push: column_1
 
 
   column_1:
     # Blank column one
-    - match: '^\s+'
-      push: column_2
+    - match: '\s+'
+      set: column_2
 
     # Line begins with a comment
-    - match: '^([*;#]).*$'
+    - match: '([*;#]).*$'
       scope: comment.line.asm.6809
       captures:
         1: punctuation.definition.comment.asm.6809
-
-    # Disassembly listing
-    - match: '^\h{4}\:\s'
-      scope: comment.line.asm.6809
-      push: disassembly
+      pop: true
 
     # Label
-    - match: '^{{symbol_identifier}}'
+    - match: '{{symbol_id}}'
       scope: entity.name.type.constant.asm.6809
-      push:
+      set:
         - match: '\s+'
           set:
             - include: structures
             - include: macros
             - include: column_2
         - include: line-ending
+
+    - include: bail-out
 
     # Use for debugging. It should not match anything.
     #- match: '.*$'
@@ -109,7 +123,7 @@ contexts:
     - include: os9
     - include: invalid
     - include: line-ending
-
+    - include: bail-out
     # No match. Mark as invalid
     # - match: \S*$?
     #   scope: invalid.keyword.operator.asm.6809
@@ -139,7 +153,7 @@ contexts:
         - match: '>'
           scope: constant.other.asm.6809
           set: comments-eol
-        - match: '{{symbol_identifier}}'
+        - match: '{{symbol_id}}'
           scope: constant.other.asm.6809
           set: comments-eol
         - include: line-ending
@@ -585,7 +599,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - match: '{{symbol_identifier}}'
+            - match: '{{symbol_id}}'
               scope: constant.other.asm.6809
             - include: expr
             - match: ''
@@ -627,15 +641,6 @@ contexts:
       set: comments-eol
 
 
-  # Disassembly listing
-  disassembly:
-    - match: '(\h\h)\s'
-      scope: comment.line.asm.6809
-    - match: \s*
-      set: column_2
-    - include: line-ending
-
-
   expr:
     # TODO: add '()'
     - include: numbers
@@ -671,7 +676,7 @@ contexts:
 
 
   labels:
-    - match: '{{symbol_identifier}}'
+    - match: '{{symbol_id}}'
       scope: constant.other.asm.6809
 
 
@@ -696,4 +701,21 @@ contexts:
     - match: '.*$'
       scope: string.unquoted.asm.6809
       pop: true
+    - include: line-ending
+
+
+  # lwasm assembly listing
+  lwasm-listing:
+    - match: '{{lwasm_list_id}}'
+      scope: comment.line.lwasm.asm.6809
+      set: column_1
+    - include: bail-out
+
+
+  # Disassembly listing
+  disassembly:
+    - match: '(\h\h)\s'
+      scope: comment.line.asm.6809
+    - match: \s*
+      set: column_2
     - include: line-ending
