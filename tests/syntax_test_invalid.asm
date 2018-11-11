@@ -5,10 +5,10 @@
 ; invalid instructions
 
  LSLW
-#^^^^ invalid.keyword.operator
+;^^^^ invalid.keyword.operator
 
  lslw
-#^^^^ invalid.keyword.operator
+;^^^^ invalid.keyword.operator
 
  bra.b
 ;^^^^^ invalid.keyword.operator

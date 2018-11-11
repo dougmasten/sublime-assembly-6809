@@ -121,7 +121,7 @@ contexts:
     - include: comments
     - include: emulator-extensions
     - include: os9
-    - include: invalid
+    #- include: invalid
     - include: line-ending
     - include: bail-out
     # No match. Mark as invalid
