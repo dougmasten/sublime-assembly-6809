@@ -16,7 +16,7 @@ variables:
   num_dec: '(?:\d\d*)'
   num_hex: '(?:\h\h*)'
   symbol_identifier: '(?:[A-Za-z\.\@\_!\?][A-Za-z0-9\.\@\$\_\?]*)'
-  all_registers: '(cc|dp|pc|[0abdefsuvwxy])'
+  all_registers: '(?i)cc|dp|pc|[0abdefsuvwxy]'
   pragma_options:  '(?ix:
                       (no)?(
                         6800compat|
@@ -638,6 +638,7 @@ contexts:
 
 
   expr:
+    # TODO: add '()'
     - include: numbers
     - include: operators
     - include: labels
