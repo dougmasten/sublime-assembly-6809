@@ -39,7 +39,7 @@ variables:
                         c[dtc]?
                       )
                     )'
-  lwasm_list_id: '.*\(.*\):\d{5}.{9}'
+  lwasm_list_id: '[\s\h]*\([\s\w\.]*\):\d{5}[\s\d\(\)\+\?]{9}'
 
 
 contexts:
