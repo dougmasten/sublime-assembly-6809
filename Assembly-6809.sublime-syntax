@@ -140,6 +140,8 @@ contexts:
             - include: address-direct
             - include: address-index
             - include: address-extended
+            - include: numbers
+            - include: operators
             - match: '{{symbol_identifier}}'
               scope: constant.other.asm.6809
               set: comments-eol
@@ -397,6 +399,16 @@ contexts:
             )
         )
       set: highlight-registers-brackets
+    # Extended Indirect
+    - match: '\['
+      scope: meta.brackets.asm.6809 punctuation.section.brackets.begin.asm.6809
+      set:
+        - match: '\]'
+          scope: meta.brackets.asm.6809 punctuation.section.brackets.end.asm.6809
+          set: comments-eol
+        - include: numbers
+        - include: labels
+        - include: line-ending
 
 
   # Validate stack registers
@@ -534,9 +546,9 @@ contexts:
         - include: line-ending
 
     # Conditional assembly (ccasm)
-    - match: (?i)(end(if|p)|ifp[12]|ifge|cond)(?!\S)
-      scope: support.function.conditional.asm.6809
-      set: comments-eol
+    #- match: (?i)(end(if|p)|ifp[12]|ifge|cond)(?!\S)
+    #  scope: support.function.conditional.asm.6809
+    #  set: comments-eol
 
     # Conditional assembly (lwasm)
     - match: '(?i)if(eq|ne|gt|lt|le|def|pragma|ndef)?|else|endc(?!\S)'
