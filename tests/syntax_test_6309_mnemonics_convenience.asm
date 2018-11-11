@@ -3,6 +3,8 @@
 
 
 ; 6309 convenience instructions (lwasm)
+        opt 6309conv
+
 
         asrq comment
 #       ^^^^ keyword.operator

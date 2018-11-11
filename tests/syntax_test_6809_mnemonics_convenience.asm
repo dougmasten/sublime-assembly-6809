@@ -6,7 +6,7 @@
 
 ; Note: Syntax highlighting actually covered by 6309 instructions and is
 ;       included here for completeness.
-
+        opt 6809conv
 
         asrd comment
 #       ^^^^ keyword.operator

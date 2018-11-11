@@ -30,14 +30,14 @@
 #     ^ punctuation.definition.comment
 #     ^^^^^^^^^ comment.line
 
- tste comment
+ tsta comment
 #     ^^^^^^^ comment.line
 
- tstf ; comment
+ tsta ; comment
 #     ^ punctuation.definition.comment
 #     ^^^^^^^^^ comment.line
 
- tstw comment
+ tstb comment
 #     ^^^^^^^ comment.line
 
  cmpa #20 ; comment
@@ -58,8 +58,8 @@
 #           ^ punctuation.definition.comment
 #           ^^^^^^^^^ comment.line
 
- tstw comment
-#     ^^^^^^^ comment.line
+; tstw comment
+;     ^^^^^^^ comment.line
 
  fcc 'testing' comment
 ;              ^^^^^^^ comment.line

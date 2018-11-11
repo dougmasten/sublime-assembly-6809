@@ -19,6 +19,9 @@ start equ *+100
 
         adcd [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         adcd ,x comment
@@ -68,6 +71,9 @@ start equ *+100
 
         adde [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         adde ,x comment
@@ -108,6 +114,9 @@ start equ *+100
 
         addf [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         addf ,x comment
@@ -146,6 +155,9 @@ start equ *+100
 
         addw [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         addw ,x comment
@@ -203,6 +215,9 @@ start equ *+100
 
         andd [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         andd ,x comment
@@ -345,6 +360,9 @@ start equ *+100
 
         cmpe [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         cmpe ,x comment
@@ -391,6 +409,9 @@ start equ *+100
 
         cmpf [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         cmpf ,x comment
@@ -437,6 +458,9 @@ start equ *+100
 
         cmpw [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         cmpw ,x comment
@@ -568,6 +592,9 @@ start equ *+100
 
         eord [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         eord ,x comment
@@ -646,6 +673,9 @@ start equ *+100
 
         lde [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         lde ,x comment
@@ -691,6 +721,9 @@ start equ *+100
 
         ldf [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         ldf ,x comment
@@ -737,6 +770,9 @@ start equ *+100
 
         ldw [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         ldw ,x comment
@@ -796,6 +832,9 @@ start equ *+100
 
         ldq [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         ldq ,x comment
@@ -860,6 +899,9 @@ start equ *+100
 
         muld [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         muld ,x comment
@@ -925,6 +967,9 @@ start equ *+100
 
         ord [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         ord ,x comment
@@ -1028,6 +1073,9 @@ start equ *+100
 
         sbcd [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         sbcd ,x comment
@@ -1081,6 +1129,9 @@ start equ *+100
 
         ste [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         ste ,x comment
@@ -1114,6 +1165,9 @@ start equ *+100
 
         stf [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         stf ,x comment
@@ -1147,6 +1201,9 @@ start equ *+100
 
         stw [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         stw ,x comment
@@ -1186,6 +1243,9 @@ start equ *+100
 
         stq [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         stq ,x comment
@@ -1227,13 +1287,24 @@ start equ *+100
 
         sube [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
+
+        sube [$ffff] comment
+#       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^^^ constant.numeric.hexadecimal
+#                  ^ punctuation.section.brackets.end
+#                    ^^^^^^^ comment.line
 
         sube ,x comment
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #               ^^^^^^^ comment.line
+
 
         sube ,y++ comment
 #       ^^^^ keyword.operator
@@ -1273,7 +1344,17 @@ start equ *+100
 
         subf [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
+
+        sube [$ffff] comment
+#       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^^^ constant.numeric.hexadecimal
+#                  ^ punctuation.section.brackets.end
+#                    ^^^^^^^ comment.line
 
         subf ,x comment
 #       ^^^^ keyword.operator
@@ -1319,7 +1400,17 @@ start equ *+100
 
         subw [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
+
+        subw [$ffff] comment
+#       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^^^ constant.numeric.hexadecimal
+#                  ^ punctuation.section.brackets.end
+#                    ^^^^^^^ comment.line
 
         subw ,x comment
 #       ^^^^ keyword.operator

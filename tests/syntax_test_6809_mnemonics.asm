@@ -30,6 +30,9 @@ start equ *+100
 
         adca [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         adca ,x comment
@@ -61,6 +64,11 @@ start equ *+100
 #             ^^^^^ constant.numeric.hexadecimal
 #                   ^^^^^^^ comment.line
 
+        adca $ffff comment
+#       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
+#                  ^^^^^^^ comment.line
+
 
 ;--------------------------------------------------------------------
         adcb #IMM8 comment
@@ -71,10 +79,14 @@ start equ *+100
 
         adcb $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         adcb [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         adcb ,x comment
@@ -110,10 +122,14 @@ start equ *+100
 
         adda $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         adda [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         adda ,x comment
@@ -149,10 +165,14 @@ start equ *+100
 
         addb $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         addb [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         addb ,x comment
@@ -188,10 +208,14 @@ start equ *+100
 
         addd $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         addd [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         addd ,x comment
@@ -227,10 +251,14 @@ start equ *+100
 
         anda $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         anda [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         anda ,x comment
@@ -266,10 +294,14 @@ start equ *+100
 
         andb $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         andb [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         andb ,x comment
@@ -318,10 +350,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         asl $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         asl [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         asl ,x comment
@@ -363,10 +399,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         asr $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         asr [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         asr ,x comment
@@ -399,6 +439,7 @@ start equ *+100
 #           ^^^^^ constant.other
 #                 ^^^^^^^ comment.line
 
+!
         bcc > comment
 #       ^^^ keyword.operator
 #           ^ constant.other
@@ -408,6 +449,8 @@ start equ *+100
 #       ^^^ keyword.operator
 #           ^ constant.other
 #             ^^^^^^^ comment.line
+!
+
 
 ;--------------------------------------------------------------------
         bcs start comment
@@ -526,7 +569,38 @@ start equ *+100
 ;--------------------------------------------------------------------
         clr $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
+
+        clr [EXT] comment
+#       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
+#                 ^^^^^^^ comment.line
+
+        clr ,x comment
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+#              ^^^^^^^ comment.line
+
+        clr ,y++ comment
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+#             ^^ keyword.operator.arithmetic
+#                ^^^^^^^ comment.line
+
+        clr [,--u] comment
+#       ^^^ keyword.operator
+#           ^^^^^^ meta.brackets.asm
+#           ^ punctuation.section.brackets.begin
+#            ^ operator.separator
+#             ^^ keyword.operator.arithmetic
+#               ^ constant.language.register
+#                ^ punctuation.section.brackets.end
+#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
@@ -538,10 +612,14 @@ start equ *+100
 
         cmpa $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         cmpa [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         cmpa ,x comment
@@ -577,10 +655,14 @@ start equ *+100
 
         cmpb $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         cmpb [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         cmpb ,x comment
@@ -616,10 +698,14 @@ start equ *+100
 
         cmpd $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         cmpd [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         cmpd ,x comment
@@ -654,10 +740,14 @@ start equ *+100
 
         cmps $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         cmps [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         cmps ,x comment
@@ -692,10 +782,14 @@ start equ *+100
 
         cmpu $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         cmpu [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         cmpu ,x comment
@@ -730,10 +824,14 @@ start equ *+100
 
         cmpx $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         cmpx [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         cmpx ,x comment
@@ -768,10 +866,14 @@ start equ *+100
 
         cmpy $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         cmpy [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         cmpy ,x comment
@@ -813,10 +915,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         com $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         com [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         com ,x comment
@@ -872,10 +978,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         dec $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         dec [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         dec ,x comment
@@ -905,14 +1015,20 @@ start equ *+100
 ;--------------------------------------------------------------------
         eora #$ff comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         eora $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         eora [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         eora ,x comment
@@ -942,14 +1058,20 @@ start equ *+100
 ;--------------------------------------------------------------------
         eorb #$ff comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         eorb $ffff comment
 #       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         eorb [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         eorb ,x comment
@@ -999,10 +1121,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         inc $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         inc [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         inc ,x comment
@@ -1032,8 +1158,8 @@ start equ *+100
 ;--------------------------------------------------------------------
         jmp $2000 comment
 #       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ comment.line
+#           ^^^^^ constant.numeric.hexadecimal
+#                 ^^^^^^^ comment.line
 
         jmp start comment
 #       ^^^ keyword.operator
@@ -1042,10 +1168,16 @@ start equ *+100
 
         jmp [$2000] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^^^ constant.numeric.hexadecimal
+#                 ^ punctuation.section.brackets.end
 #                   ^^^^^^^ comment.line
 
         jmp [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         jmp ,x comment
@@ -1079,8 +1211,8 @@ start equ *+100
 ;--------------------------------------------------------------------
         jsr $a000 comment
 #       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ comment.line
+#           ^^^^^ constant.numeric.hexadecimal
+#                 ^^^^^^^ comment.line
 
         jsr start comment
 #       ^^^ keyword.operator
@@ -1089,10 +1221,15 @@ start equ *+100
 
         jsr [$a000] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^^^ constant.numeric.hexadecimal
+#                 ^ punctuation.section.brackets.end
 #                   ^^^^^^^ comment.line
 
         jsr [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         jsr ,x comment
@@ -1223,6 +1360,7 @@ start equ *+100
 ;--------------------------------------------------------------------
         lda $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         lda start comment
@@ -1232,6 +1370,9 @@ start equ *+100
 
         lda [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         lda ,x comment
@@ -1261,6 +1402,7 @@ start equ *+100
 ;--------------------------------------------------------------------
         ldb $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         ldb start comment
@@ -1270,6 +1412,9 @@ start equ *+100
 
         ldb [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         ldb ,x comment
@@ -1299,6 +1444,7 @@ start equ *+100
 ;--------------------------------------------------------------------
         ldd $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         ldd start comment
@@ -1308,6 +1454,9 @@ start equ *+100
 
         ldd [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         ldd ,x comment
@@ -1337,6 +1486,7 @@ start equ *+100
 ;--------------------------------------------------------------------
         lds $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         lds start comment
@@ -1346,6 +1496,9 @@ start equ *+100
 
         lds [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         lds ,x comment
@@ -1375,6 +1528,7 @@ start equ *+100
 ;--------------------------------------------------------------------
         ldu #$ffff comment
 #       ^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         ldu start comment
@@ -1384,6 +1538,9 @@ start equ *+100
 
         ldu [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         ldu ,x comment
@@ -1413,6 +1570,7 @@ start equ *+100
 ;--------------------------------------------------------------------
         ldx #$ffff comment
 #       ^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         ldx start comment
@@ -1422,6 +1580,9 @@ start equ *+100
 
         ldx [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         ldx ,x comment
@@ -1451,15 +1612,19 @@ start equ *+100
 ;--------------------------------------------------------------------
         ldy #$ffff comment
 #       ^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
 #                  ^^^^^^^ comment.line
 
         ldy start comment
 #       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ comment.line
+#           ^^^^^ constant.other
+#                 ^^^^^^^ comment.line
 
         ldy [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         ldy ,x comment
@@ -1533,10 +1698,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         lsr $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         lsr [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         lsr ,x comment
@@ -1578,10 +1747,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         lsl $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         lsl [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         lsl ,x comment
@@ -1627,13 +1800,21 @@ start equ *+100
 
 
 ;--------------------------------------------------------------------
-        ldy start comment
+        neg $ffff comment
+#       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
+#                 ^^^^^^^ comment.line
+
+        neg start comment
 #       ^^^ keyword.operator
 ;           ^^^^^ constant.other
 ;                 ^^^^^^^ comment.line
 
         neg [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         neg ,x comment
@@ -1669,10 +1850,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         ora $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         ora [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         ora ,x comment
@@ -1702,10 +1887,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         orb $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         orb [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         orb ,x comment
@@ -1799,6 +1988,7 @@ start equ *+100
 ;--------------------------------------------------------------------
         rol $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         rol [EXT] comment
@@ -1844,6 +2034,7 @@ start equ *+100
 ;--------------------------------------------------------------------
         ror $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         ror [EXT] comment
@@ -1893,11 +2084,14 @@ start equ *+100
 
         sbca $ffff comment
 #       ^^^^ keyword.operator
-;            ^^^^^ constant.other
-;                  ^^^^^^^ comment.line
+#            ^^^^^ constant.numeric.hexadecimal
+#                  ^^^^^^^ comment.line
 
         sbca [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         sbca ,x comment
@@ -1927,15 +2121,19 @@ start equ *+100
 ;--------------------------------------------------------------------
         sbcb #$ff comment
 #       ^^^^ keyword.operator
+#             ^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         sbcb $ffff comment
 #       ^^^^ keyword.operator
-;            ^^^^^ constant.other
-;                  ^^^^^^^ comment.line
+#            ^^^^^ constant.numeric.hexadecimal
+#                  ^^^^^^^ comment.line
 
         sbcb [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         sbcb ,x comment
@@ -1981,6 +2179,9 @@ start equ *+100
 
         sta [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         sta ,x comment
@@ -2010,10 +2211,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         stb $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         stb [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         stb ,x comment
@@ -2043,10 +2248,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         std $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         std [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         std ,x comment
@@ -2076,10 +2285,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         sts $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         sts [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         sts ,x comment
@@ -2109,10 +2322,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         stu $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         stu [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         stu ,x comment
@@ -2142,10 +2359,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         stx $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         stx [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         stx ,x comment
@@ -2175,10 +2396,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         sty $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         sty [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         sty ,x comment
@@ -2208,6 +2433,8 @@ start equ *+100
 ;--------------------------------------------------------------------
         suba #$ff comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         suba $ffff comment
@@ -2217,6 +2444,9 @@ start equ *+100
 
         suba [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         suba ,x comment
@@ -2246,15 +2476,20 @@ start equ *+100
 ;--------------------------------------------------------------------
         subb #$ff comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         subb $ffff comment
 #       ^^^^ keyword.operator
-;            ^^^^^ constant.other
-;                  ^^^^^^^ comment.line
+#            ^^^^^ constant.numeric.hexadecimal
+#                  ^^^^^^^ comment.line
 
         subb [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         subb ,x comment
@@ -2284,6 +2519,8 @@ start equ *+100
 ;--------------------------------------------------------------------
         subd #$ffff comment
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^^ constant.numeric.hexadecimal
 #                   ^^^^^^^ comment.line
 
         subd $ffff comment
@@ -2293,6 +2530,9 @@ start equ *+100
 
         subd [EXT] comment
 #       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         subd ,x comment
@@ -2344,7 +2584,6 @@ start equ *+100
 
 
 ;--------------------------------------------------------------------
-
         tfr a,b comment
 #       ^^^ keyword.operator
 #           ^ constant.language.register
@@ -2358,6 +2597,7 @@ start equ *+100
 #            ^ operator.separator
 #             ^^ constant.language.register
 #                ^^^^^^^ comment.line
+
 
 ;--------------------------------------------------------------------
 
@@ -2375,10 +2615,14 @@ start equ *+100
 ;--------------------------------------------------------------------
         tst $ffff comment
 #       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
 #                 ^^^^^^^ comment.line
 
         tst [EXT] comment
 #       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
 #                 ^^^^^^^ comment.line
 
         tst ,x comment
