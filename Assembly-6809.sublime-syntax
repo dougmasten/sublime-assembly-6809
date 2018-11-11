@@ -124,7 +124,7 @@ contexts:
           scope: constant.other.asm.6809
           set: comments-eol
         - match: '>'
-          scope: source.asm.6809 constant.other.asm.6809
+          scope: constant.other.asm.6809
           set: comments-eol
         - match: '{{symbol_identifier}}'
           scope: constant.other.asm.6809
@@ -173,13 +173,31 @@ contexts:
             - include: line-ending
         - include: line-ending
 
+    # Addressing modes: INSTRUCTION #i8;EA
+    - match: (?i)[aeot]im(?!\S)
+      scope: keyword.operator.asm.6809
+      set:
+        - match: '\s*'
+          set:
+            - match: '#'
+              scope: keyword.operator.immediate.asm.6809
+              set:
+                - include: numbers
+                - include: line-ending
+            - include: line-ending
+        - include: line-ending
+
     # Addressing modes: Immediate, Direct, Indexed and Extended
     - match: |-
         (?ix:
-            (adc|and|bit|e?or|sbc)[ab]|
-            (add|sub)[abd]|
-            (cmp|ld)[abdsuxy]|
-            lea[suxy]
+            (adc|and|bit|e?or|sbc)[abd]|
+            (add|sub)[abdefw]|
+            (cmp|ld)[abdefsuwxy]|
+            div[dq]|
+            e?ord|
+            ldq|
+            muld|
+            sbcd
         )(?!\S)
       scope: keyword.operator.asm.6809
       set:
@@ -200,12 +218,24 @@ contexts:
             - include: line-ending
         - include: line-ending
 
+    # Addressing mode: Direct r,sBit,dBit,addr
+    # TODO!
+    - match: '(?i)b(i?and|(i?e|i)?or)|(ld|st)bt(?!\S)'
+      scope: keyword.operator.asm.6809
+      set:
+        - match: '\s*'
+          set:
+            - include: address-immediate
+            - match: ''
+              set: comments-eol
+        - include: line-ending
+
     # Addressing modes: Direct, Indexed and Extended
     - match: |-
         (?ix:
             (as|ls|ro)[lr]|
             clr|com|dec|inc|neg|tst|
-            st[abdsuxy]
+            st[abdefqsuwxy]
         )(?!\S)
       scope: keyword.operator.asm.6809
       set:
@@ -225,9 +255,26 @@ contexts:
             - include: line-ending
         - include: line-ending
 
+    # Addressing modes: Indexed
+    - match: '(?i)lea[suxy](?!\S)'
+      scope: keyword.operator.asm.6809
+      set:
+        - match: '\s*'
+          set:
+            - include: address-index
+            - include: labels
+            - include: numbers
+            - include: operators
+            - match: ''
+              set: comments-eol
+            - match: '\S*'
+              scope: invalid.illegal.constant.language.register.asm.6809
+              set: comments-eol
+            - include: line-ending
+        - include: line-ending
 
-    # PSHS and PULS instructions
-    - match: '(?i)pshs|puls(?!\S)'
+    # Instructions: PSHS and PULS
+    - match: '(?i)p(sh|ul)s(?!\S)'
       scope: keyword.operator.asm.6809
       set:
         - match: '\s*'
@@ -238,8 +285,8 @@ contexts:
               set: validate-stack-registers
         - include: line-ending
 
-    # PSHU and PULU instructions
-    - match: '(?i)pshu|pulu(?!\S)'
+    # Instructions: PSHU and PULU
+    - match: '(?i)p(sh|ul)u(?!\S)'
       scope: keyword.operator.asm.6809
       set:
         - match: '\s*'
@@ -250,29 +297,7 @@ contexts:
               set: validate-stack-registers
         - include: line-ending
 
-    #  6309 xxx
-    # TODO! process after instruction
-    - match: |-
-        (?ix:
-            a(dcd|im|ndd)|
-            (add|cmp|ld|st|sub)[efw]|
-            b(and|e?or|i(and|e?or)|itd)|
-            div[dq]|
-            [eo]im|e?ord|ldbt|
-            (ld|st)q|
-            muld|
-            s(tbt|bcd)|
-            tim
-        )(?!\S)
-      scope: keyword.operator.asm.6809
-      #set: comments-eol
-      set:
-        - include: skip-white-spaces
-        - include: address-immediate
-        - match: ''
-          set: comments-eol
-
-    # TFM instruction (6309 only)
+    # Instruction: TFM
     - match: (?i)tfm(?!\S)
       scope: keyword.operator.asm.6809
       set:
@@ -282,8 +307,8 @@ contexts:
                 (?ix:
                     (?:
                       (?=[xyusd]\+,[xyusd]\+)|
-                      (?=[xyusd]\+,[xyusd]\b)|
                       (?=[xyusd]\-,[xyusd]\-)|
+                      (?=[xyusd]\+,[xyusd]\b)|
                       (?=[xyusd],[xyusd]\+)
                     )
                 )
