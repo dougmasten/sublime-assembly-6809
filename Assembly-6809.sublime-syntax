@@ -595,6 +595,8 @@ contexts:
             - match: '{{symbol_identifier}}'
               scope: constant.other.asm.6809
             - include: expr
+            - match: ''
+              set: comments-eol
             - include: line-ending
         - include: line-ending
 
