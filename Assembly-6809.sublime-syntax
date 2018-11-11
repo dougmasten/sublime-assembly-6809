@@ -590,8 +590,12 @@ contexts:
     - match: '(?i)os9|e?mod(?!\S)'
       scope: support.function.directive.asm.6809
       set:
-        - match: '{{symbol_identifier}}'
-          scope: constant.other.asm.6809
+        - match: '\s*'
+          set:
+            - match: '{{symbol_identifier}}'
+              scope: constant.other.asm.6809
+            - include: expr
+            - include: line-ending
         - include: line-ending
 
 
