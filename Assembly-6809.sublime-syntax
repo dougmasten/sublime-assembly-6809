@@ -39,13 +39,6 @@ variables:
                         c[dtc]?
                       )
                     )'
-  # HEXFRC: (?:{{HEXNUM}})?
-  # HEXNUM: '\h(_?\h)*'
-  # address: '\$(?:[0-9A-F]){4}|[0-9]{5}'
-  # hex_number: '\$(?:[0-9A-F][0-9A-F]){1,2}'
-  # oct_number: '@[0-9]+'
-  # bin_number: '%[01]+'
-  # dec_number: '-?[0-9.]+'
 
 
 contexts:
