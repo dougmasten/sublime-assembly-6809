@@ -140,11 +140,7 @@ contexts:
             - include: address-direct
             - include: address-index
             - include: address-extended
-            - include: numbers
-            - include: operators
-            - match: '{{symbol_identifier}}'
-              scope: constant.other.asm.6809
-              set: comments-eol
+            - include: expr
             - match: '\S*'
               scope: invalid.illegal.constant.language.register.asm.6809
               set: comments-eol
@@ -198,8 +194,7 @@ contexts:
             div[dq]|
             e?ord|
             ldq|
-            muld|
-            sbcd
+            muld
         )(?!\S)
       scope: keyword.operator.asm.6809
       set:
@@ -209,9 +204,7 @@ contexts:
             - include: address-direct
             - include: address-index
             - include: address-extended
-            - include: labels
-            - include: numbers
-            - include: operators
+            - include: expr
             - match: ''
               set: comments-eol
             - match: '\S*'
@@ -246,9 +239,7 @@ contexts:
             - include: address-direct
             - include: address-index
             - include: address-extended
-            - include: labels
-            - include: numbers
-            - include: operators
+            - include: expr
             - match: ''
               set: comments-eol
             - match: '\S*'
@@ -264,9 +255,7 @@ contexts:
         - match: '\s*'
           set:
             - include: address-index
-            - include: labels
-            - include: numbers
-            - include: operators
+            - include: expr
             - match: ''
               set: comments-eol
             - match: '\S*'
@@ -339,10 +328,7 @@ contexts:
     - match: \#
       scope: keyword.operator.immediate.asm.6809
       set:
-        - include: numbers
-        - include: operators
-        - match: '{{symbol_identifier}}'
-          scope: constant.other.asm.6809
+        - include: expr
         - include: line-ending
         - match: ''
           set: comments-eol
@@ -352,9 +338,7 @@ contexts:
     - match: "<"
       scope: keyword.operator.direct.asm.6809
       set:
-        - include: numbers
-        - include: operators
-        - include: labels
+        - include: expr
         - include: line-ending
         - match: '\S*'
           set: comments-eol
@@ -365,9 +349,7 @@ contexts:
     - match: ">"
       scope: keyword.operator.extended.asm.6809
       set:
-        - include: numbers
-        - include: operators
-        - include: labels
+        - include: expr
         - include: line-ending
         - match: '\S*'
           set: comments-eol
@@ -502,9 +484,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: numbers
-            - include: operators
-            - include: labels
+            - include: expr
             - match: ','
               scope: operator.separator.asm.6809
             - include: line-ending
@@ -523,8 +503,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: numbers
-            - include: operators
+            - include: expr
             - match: ','
               scope: operator.separator.asm.6809
             - include: line-ending
@@ -538,9 +517,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: numbers
-            - include: operators
-            - include: labels
+            - include: expr
             - match: ''
               set: comments-eol
             - include: line-ending
@@ -562,9 +539,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: numbers
-            - include: operators
-            - include: labels
+            - include: expr
             - include: line-ending
             - match: ''
               set: comments-eol
@@ -635,6 +610,12 @@ contexts:
     - match: \s*
       set: column_2
     - include: line-ending
+
+
+  expr:
+    - include: numbers
+    - include: operators
+    - include: labels
 
 
   numbers:
