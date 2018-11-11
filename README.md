@@ -5,9 +5,6 @@
 
 A [Sublime Text 3][Sublime] syntax highlighting package for the [Motorola 6809][Motorola] and [Hitachi 6309][Hitachi] Assembly language.
 
-### Status
-* Alpha: This package is still in development and is still not feature complete.
-
 ### Installation
 * Use [Sublime Package Control](http://wbond.net/sublime_packages/package_control "Sublime Package Control")
  * Linux/Windows - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> then select `Package Control: Install Package`
