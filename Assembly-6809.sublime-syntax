@@ -554,6 +554,9 @@ contexts:
     - match: '(?i).module(?!\S)'
       scope: support.function.directive.misc.asm.6809
       set: strings
+    - match: '(?i)nam|ttl(?!\S)'
+      scope: support.function.directive.misc.asm.6809
+      set: strings
 
     # end statement for macros and structures
     - include: end-macros

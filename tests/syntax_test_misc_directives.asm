@@ -6,10 +6,12 @@
 #^^^^^^^ support.function.directive.misc
 #        ^^^^^^^^ constant.other
 
+
 ;--------------------------------------------------------------------
  use filename
 #^^^ support.function.directive.misc
 #    ^^^^^^^^ constant.other
+
 
 ;--------------------------------------------------------------------
  end expr comment
@@ -24,6 +26,7 @@
 #          ^^^^ constant.numeric.hexadecimal
 #               ^^^^^^^ comment.line
 
+
 ;--------------------------------------------------------------------
  error "Testing" comment
 #^^^^^ support.function.directive.misc
@@ -34,6 +37,7 @@
  error Testing string
 #^^^^^ support.function.directive.misc
 #      ^^^^^^^^^^^^^^ string.unquoted
+
 
 ;--------------------------------------------------------------------
  warning "Testing" comment
@@ -50,3 +54,15 @@
 #        ^ punctuation.definition.string.begin
 #        ^^^^^^^^^ string.quoted.double
 #                ^ punctuation.definition.string.end
+
+
+;--------------------------------------------------------------------
+ nam   program_name
+#^^^ support.function.directive.misc
+#      ^^^^^^^^^^^^ string.unquoted
+
+
+;--------------------------------------------------------------------
+ ttl   program module
+#^^^ support.function.directive.misc
+#      ^^^^^^^^^^^^^^ string.unquoted
