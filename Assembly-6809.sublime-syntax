@@ -297,7 +297,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - match: (?=[\S\w]*s[\S\w]*\s)
+            - match: '(?=[\S\w]*s[\S\w]*\s)'
               set: invalid-registers
             - match: ''
               set: validate-stack-registers
@@ -309,7 +309,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - match: (?=[\S\w]*u[\S\w]*\s)
+            - match: '(?=[\S\w]*u[\S\w]*\s)'
               set: invalid-registers
             - match: ''
               set: validate-stack-registers
