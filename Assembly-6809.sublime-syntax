@@ -362,7 +362,7 @@ contexts:
 
   # Addressing mode - Direct (8-bit offset)
   address-direct:
-    - match: "<"
+    - match: '<'
       scope: keyword.operator.direct.asm.6809
       set:
         - include: expr
@@ -373,7 +373,7 @@ contexts:
 
   # Addressing mode - Extended (16-bit offset)
   address-extended:
-    - match: ">"
+    - match: '>'
       scope: keyword.operator.extended.asm.6809
       set:
         - include: expr
