@@ -697,6 +697,7 @@ start equ *+100
         cmps #$ffff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
+#             ^^^^^ constant.numeric.hexadecimal
 
         cmps $ffff
 #       ^^^^ keyword.operator
@@ -733,6 +734,7 @@ start equ *+100
         cmpu #$ffff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
+#             ^^^^^ constant.numeric.hexadecimal
 
         cmpu $ffff
 #       ^^^^ keyword.operator
@@ -769,6 +771,7 @@ start equ *+100
         cmpx #$ffff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
+#             ^^^^^ constant.numeric.hexadecimal
 
         cmpx $ffff
 #       ^^^^ keyword.operator
@@ -1857,6 +1860,8 @@ start equ *+100
 ;--------------------------------------------------------------------
         sbca #$ff
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^ constant.numeric.hexadecimal
 
         sbca $ffff
 #       ^^^^ keyword.operator
@@ -1892,6 +1897,7 @@ start equ *+100
 ;--------------------------------------------------------------------
         sbcb #$ff
 #       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
 #             ^^^ constant.numeric.hexadecimal
 
         sbcb $ffff
