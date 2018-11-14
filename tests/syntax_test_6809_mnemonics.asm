@@ -10,45 +10,39 @@ start equ *+100
 
 
 ;--------------------------------------------------------------------
-        abx comment
+        abx
 #       ^^^ keyword.operator
-#           ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        adca #IMM8 comment
+        adca #IMM8
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        adca <$ff comment
+        adca <$ff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.direct
 #             ^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        adca [EXT] comment
+        adca [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        adca ,x comment
+        adca ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        adca ,y++ comment
+        adca ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        adca [,--u] comment
+        adca [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -56,53 +50,45 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
-        adca >$ffff comment
+        adca >$ffff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.extended
 #             ^^^^^ constant.numeric.hexadecimal
-#                   ^^^^^^^ comment.line
 
-        adca $ffff comment
+        adca $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        adcb #IMM8 comment
+        adcb #IMM8
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        adcb $ffff comment
+        adcb $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        adcb [EXT] comment
+        adcb [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        adcb ,x comment
+        adcb ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        adcb ,y++ comment
+        adcb ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        adcb [,--u] comment
+        adcb [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -110,42 +96,36 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        adda #IMM8 comment
+        adda #IMM8
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        adda $ffff comment
+        adda $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        adda [EXT] comment
+        adda [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        adda ,x comment
+        adda ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        adda ,y++ comment
+        adda ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        adda [,--u] comment
+        adda [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -153,42 +133,37 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
+
 
 
 ;--------------------------------------------------------------------
-        addb #IMM8 comment
+        addb #IMM8
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        addb $ffff comment
+        addb $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        addb [EXT] comment
+        addb [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        addb ,x comment
+        addb ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        addb ,y++ comment
+        addb ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        addb [,--u] comment
+        addb [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -196,42 +171,36 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        addd #IMM16 comment
+        addd #IMM16
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^^^ constant.other
-#                   ^^^^^^^ comment.line
 
-        addd $ffff comment
+        addd $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        addd [EXT] comment
+        addd [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        addd ,x comment
+        addd ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        addd ,y++ comment
+        addd ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        addd [,--u] comment
+        addd [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -239,42 +208,36 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        anda #IMM8 comment
+        anda #IMM8
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        anda $ffff comment
+        anda $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        anda [EXT] comment
+        anda [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        anda ,x comment
+        anda ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        anda ,y++ comment
+        anda ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        anda [,--u] comment
+        anda [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -282,42 +245,36 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        andb #IMM8 comment
+        andb #IMM8
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        andb $ffff comment
+        andb $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        andb [EXT] comment
+        andb [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        andb ,x comment
+        andb ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        andb ,y++ comment
+        andb ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        andb [,--u] comment
+        andb [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -325,55 +282,48 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
+
 
 ;--------------------------------------------------------------------
-        andcc #$50 comment
+        andcc #$50
 #       ^^^^^ keyword.operator
 #             ^ keyword.operator.immediate
 #              ^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        asla comment
+        asla
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        aslb comment
+        aslb
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        asl $ffff comment
+        asl $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        asl [EXT] comment
+        asl [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        asl ,x comment
+        asl ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        asl ,y++ comment
+        asl ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        asl [,--u] comment
+        asl [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -381,48 +331,41 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        asra comment
+        asra
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        asrb comment
+        asrb
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        asr $ffff comment
+        asr $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        asr [EXT] comment
+        asr [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        asr ,x comment
+        asr ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        asr ,y++ comment
+        asr ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        asr [,--u] comment
+        asr [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -430,212 +373,77 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        bcc start comment
+        bcc start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
-
 !
-        bcc > comment
+        bcc >
 #       ^^^ keyword.operator
 #           ^ constant.other
-#             ^^^^^^^ comment.line
 
-        bcc < comment
+        bcc <
 #       ^^^ keyword.operator
 #           ^ constant.other
-#             ^^^^^^^ comment.line
 !
 
 
 ;--------------------------------------------------------------------
-        bcs start comment
+        bcs start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
 
-;--------------------------------------------------------------------
-        beq start comment
+        beq start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
 
-;--------------------------------------------------------------------
-        bge start comment
+        bge start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
 
-        bgt start comment
+        bgt start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
 
-        bhi start comment
+        bhi start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
 
-        bhs start comment
+        bhs start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
-
-        bita #$ff comment
-#       ^^^^ keyword.operator
-#                 ^^^^^^^ comment.line
-
-        bitb #$ff comment
-#       ^^^^ keyword.operator
-#                 ^^^^^^^ comment.line
-
-        ble start comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
-
-        blo start comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
-
-        bls start comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
-
-        blt start comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
-
-        bmi start comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
-
-        bne start comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
-
-        bpl start comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
-
-        bra start comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
-
-        brn start comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
-
-        bsr start comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
-
-        bvc start comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
-
-        bvs start comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        clra comment
-#       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
-
-
-;--------------------------------------------------------------------
-        clrb comment
-#       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
-
-
-;--------------------------------------------------------------------
-        clr $ffff comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
-
-        clr [EXT] comment
-#       ^^^ keyword.operator
-#           ^ punctuation.section.brackets.begin
-#            ^^^ constant.other
-#               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
-
-        clr ,x comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#              ^^^^^^^ comment.line
-
-        clr ,y++ comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
-
-        clr [,--u] comment
-#       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
-#           ^ punctuation.section.brackets.begin
-#            ^ operator.separator
-#             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
-#                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
-
-
-;--------------------------------------------------------------------
-        cmpa #IMM8 comment
+        bita #$ff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^^ constant.other
-#                  ^^^^^^^ comment.line
+#             ^^^ constant.numeric.hexadecimal
 
-        cmpa $ffff comment
+        bita $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        cmpa [EXT] comment
+        bita [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        cmpa ,x comment
+        bita ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        cmpa ,y++ comment
+        bita ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        cmpa [,--u] comment
+        bita [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -643,42 +451,36 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        cmpb #IMM8 comment
+        bitb #$ff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^^ constant.other
-#                  ^^^^^^^ comment.line
+#             ^^^ constant.numeric.hexadecimal
 
-        cmpb $ffff comment
+        bitb $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        cmpb [EXT] comment
+        bitb [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        cmpb ,x comment
+        bitb ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        cmpb ,y++ comment
+        bitb ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        cmpb [,--u] comment
+        bitb [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -686,42 +488,202 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        cmpd #IMM16 comment
+        ble start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        blo start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        bls start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        blt start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        bmi start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        bne start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        bpl start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        bra start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        brn start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        bsr start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        bvc start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        bvs start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+
+;--------------------------------------------------------------------
+        clra
+#       ^^^^ keyword.operator
+
+
+;--------------------------------------------------------------------
+        clrb
+#       ^^^^ keyword.operator
+
+
+;--------------------------------------------------------------------
+        clr $ffff
+#       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
+
+        clr [EXT]
+#       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
+
+        clr ,x
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+
+        clr ,y++
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+#             ^^ keyword.operator.arithmetic
+
+        clr [,--u]
+#       ^^^ keyword.operator
+#           ^^^^^^ meta.brackets.asm
+#           ^ punctuation.section.brackets.begin
+#            ^ operator.separator
+#             ^^ keyword.operator.arithmetic
+#               ^ constant.language.register
+#                ^ punctuation.section.brackets.end
+
+
+;--------------------------------------------------------------------
+        cmpa #IMM8
+#       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^ constant.other
+
+        cmpa $ffff
+#       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
+
+        cmpa [EXT]
+#       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
+
+        cmpa ,x
+#       ^^^^ keyword.operator
+#            ^ operator.separator
+#             ^ constant.language.register
+
+        cmpa ,y++
+#       ^^^^ keyword.operator
+#            ^ operator.separator
+#             ^ constant.language.register
+#              ^^ keyword.operator.arithmetic
+
+        cmpa [,--u]
+#       ^^^^ keyword.operator
+#            ^^^^^^ meta.brackets.asm
+#            ^ punctuation.section.brackets.begin
+#             ^ operator.separator
+#              ^^ keyword.operator.arithmetic
+#                ^ constant.language.register
+#                 ^ punctuation.section.brackets.end
+
+
+;--------------------------------------------------------------------
+        cmpb #IMM8
+#       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^ constant.other
+
+        cmpb $ffff
+#       ^^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
+
+        cmpb [EXT]
+#       ^^^^ keyword.operator
+#            ^ punctuation.section.brackets.begin
+#             ^^^ constant.other
+#                ^ punctuation.section.brackets.end
+
+        cmpb ,x
+#       ^^^^ keyword.operator
+#            ^ operator.separator
+#             ^ constant.language.register
+
+        cmpb ,y++
+#       ^^^^ keyword.operator
+#            ^ operator.separator
+#             ^ constant.language.register
+#              ^^ keyword.operator.arithmetic
+
+        cmpb [,--u]
+#       ^^^^ keyword.operator
+#            ^^^^^^ meta.brackets.asm
+#            ^ punctuation.section.brackets.begin
+#             ^ operator.separator
+#              ^^ keyword.operator.arithmetic
+#                ^ constant.language.register
+#                 ^ punctuation.section.brackets.end
+
+
+;--------------------------------------------------------------------
+        cmpd #IMM16
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^^^ constant.other
-#                   ^^^^^^^ comment.line
 
-        cmpd $ffff comment
+        cmpd $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        cmpd [EXT] comment
+        cmpd [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        cmpd ,x comment
+        cmpd ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        cmpd ,y++ comment
+        cmpd ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        cmpd [,--u] comment
+        cmpd [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -729,41 +691,35 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        cmps #$ffff comment
+        cmps #$ffff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#                   ^^^^^^^ comment.line
 
-        cmps $ffff comment
+        cmps $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        cmps [EXT] comment
+        cmps [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        cmps ,x comment
+        cmps ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        cmps ,y++ comment
+        cmps ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        cmps [,--u] comment
+        cmps [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -771,41 +727,35 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        cmpu #$ffff comment
+        cmpu #$ffff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#                   ^^^^^^^ comment.line
 
-        cmpu $ffff comment
+        cmpu $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        cmpu [EXT] comment
+        cmpu [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        cmpu ,x comment
+        cmpu ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        cmpu ,y++ comment
+        cmpu ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        cmpu [,--u] comment
+        cmpu [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -813,41 +763,35 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        cmpx #$ffff comment
+        cmpx #$ffff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#                   ^^^^^^^ comment.line
 
-        cmpx $ffff comment
+        cmpx $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        cmpx [EXT] comment
+        cmpx [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        cmpx ,x comment
+        cmpx ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        cmpx ,y++ comment
+        cmpx ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        cmpx [,--u] comment
+        cmpx [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -855,41 +799,36 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
+
 
 
 ;--------------------------------------------------------------------
-        cmpy #$ffff comment
+        cmpy #$ffff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#                   ^^^^^^^ comment.line
 
-        cmpy $ffff comment
+        cmpy $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        cmpy [EXT] comment
+        cmpy [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        cmpy ,x comment
+        cmpy ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        cmpy ,y++ comment
+        cmpy ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        cmpy [,--u] comment
+        cmpy [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -897,48 +836,41 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        coma comment
+        coma
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        comb comment
+        comb
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        com $ffff comment
+        com $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        com [EXT] comment
+        com [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        com ,x comment
+        com ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        com ,y++ comment
+        com ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        com [,--u] comment
+        com [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -946,62 +878,55 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        cwai #$ff comment
+        cwai #$ff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        daa comment
+        daa
 #       ^^^ keyword.operator
-#           ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        deca comment
+        deca
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
+
 
 
 ;--------------------------------------------------------------------
-        decb comment
+        decb
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
+
 
 
 ;--------------------------------------------------------------------
-        dec $ffff comment
+        dec $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        dec [EXT] comment
+        dec [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        dec ,x comment
+        dec ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        dec ,y++ comment
+        dec ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        dec [,--u] comment
+        dec [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -1009,42 +934,36 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        eora #$ff comment
+        eora #$ff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        eora $ffff comment
+        eora $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        eora [EXT] comment
+        eora [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        eora ,x comment
+        eora ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        eora ,y++ comment
+        eora ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        eora [,--u] comment
+        eora [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -1052,42 +971,37 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
+
 
 
 ;--------------------------------------------------------------------
-        eorb #$ff comment
+        eorb #$ff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        eorb $ffff comment
+        eorb $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        eorb [EXT] comment
+        eorb [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        eorb ,x comment
+        eorb ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        eorb ,y++ comment
+        eorb ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        eorb [,--u] comment
+        eorb [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -1095,56 +1009,49 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        exg x,y comment
+        exg x,y
 #       ^^^ keyword.operator
 #           ^ constant.language.register
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        inca comment
+        inca
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        incb comment
+        incb
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
+
 
 ;--------------------------------------------------------------------
-        inc $ffff comment
+        inc $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        inc [EXT] comment
+        inc [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        inc ,x comment
+        inc ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        inc ,y++ comment
+        inc ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        inc [,--u] comment
+        inc [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -1152,48 +1059,42 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
+
 
 
 ;--------------------------------------------------------------------
-        jmp $2000 comment
+        jmp $2000
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        jmp start comment
+        jmp start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
 
-        jmp [$2000] comment
+        jmp [$2000]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^^^ constant.numeric.hexadecimal
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
-        jmp [EXT] comment
+        jmp [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        jmp ,x comment
+        jmp ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        jmp b,x comment
+        jmp b,x
 #       ^^^ keyword.operator
 #           ^ constant.language.register
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        jmp [b,x] comment
+        jmp [b,x]
 #       ^^^ keyword.operator
 #           ^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -1201,51 +1102,44 @@ start equ *+100
 #             ^ operator.separator
 #              ^ constant.language.register
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        jmp <$f0 comment
+        jmp <$f0
 #       ^^^ keyword.operator
-#                ^^^^^^^ comment.line
+
 
 
 ;--------------------------------------------------------------------
-        jsr $a000 comment
+        jsr $a000
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        jsr start comment
+        jsr start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
 
-        jsr [$a000] comment
+        jsr [$a000]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^^^ constant.numeric.hexadecimal
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
-        jsr [EXT] comment
+        jsr [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        jsr ,x comment
+        jsr ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        jsr ,y++ comment
+        jsr ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        jsr [b,x] comment
+        jsr [b,x]
 #       ^^^ keyword.operator
 #           ^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -1253,394 +1147,116 @@ start equ *+100
 #             ^ operator.separator
 #              ^ constant.language.register
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        jsr <$f0 comment
+        jsr <$f0
 #       ^^^ keyword.operator
-#                ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        lbcc start comment
+        lbcc start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbcs start comment
+        lbcs start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbeq start comment
+        lbeq start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbge start comment
+        lbge start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbgt start comment
+        lbgt start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbhi start comment
+        lbhi start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbhs start comment
+        lbhs start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lble start comment
+        lble start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lblo start comment
+        lblo start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbls start comment
+        lbls start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lblt start comment
+        lblt start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbmi start comment
+        lbmi start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbne start comment
+        lbne start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbpl start comment
+        lbpl start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbra start comment
+        lbra start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbrn start comment
+        lbrn start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbsr start comment
+        lbsr start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbvc start comment
+        lbvc start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
-        lbvs start comment
+        lbvs start
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.other
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        lda $ffff comment
+        lda $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        lda start comment
-#       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ comment.line
-
-        lda [EXT] comment
-#       ^^^ keyword.operator
-#           ^ punctuation.section.brackets.begin
-#            ^^^ constant.other
-#               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
-
-        lda ,x comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#              ^^^^^^^ comment.line
-
-        lda ,y++ comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
-
-        lda [,--u] comment
-#       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
-#           ^ punctuation.section.brackets.begin
-#            ^ operator.separator
-#             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
-#                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
-
-
-;--------------------------------------------------------------------
-        ldb $ffff comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
-
-        ldb start comment
-#       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ comment.line
-
-        ldb [EXT] comment
-#       ^^^ keyword.operator
-#           ^ punctuation.section.brackets.begin
-#            ^^^ constant.other
-#               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
-
-        ldb ,x comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#              ^^^^^^^ comment.line
-
-        ldb ,y++ comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
-
-        ldb [,--u] comment
-#       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
-#           ^ punctuation.section.brackets.begin
-#            ^ operator.separator
-#             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
-#                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
-
-
-;--------------------------------------------------------------------
-        ldd $ffff comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
-
-        ldd start comment
-#       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ comment.line
-
-        ldd [EXT] comment
-#       ^^^ keyword.operator
-#           ^ punctuation.section.brackets.begin
-#            ^^^ constant.other
-#               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
-
-        ldd ,x comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#              ^^^^^^^ comment.line
-
-        ldd ,y++ comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
-
-        ldd [,--u] comment
-#       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
-#           ^ punctuation.section.brackets.begin
-#            ^ operator.separator
-#             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
-#                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
-
-
-;--------------------------------------------------------------------
-        lds $ffff comment
-#       ^^^ keyword.operator
-#           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
-
-        lds start comment
-#       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ comment.line
-
-        lds [EXT] comment
-#       ^^^ keyword.operator
-#           ^ punctuation.section.brackets.begin
-#            ^^^ constant.other
-#               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
-
-        lds ,x comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#              ^^^^^^^ comment.line
-
-        lds ,y++ comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
-
-        lds [,--u] comment
-#       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
-#           ^ punctuation.section.brackets.begin
-#            ^ operator.separator
-#             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
-#                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
-
-
-;--------------------------------------------------------------------
-        ldu #$ffff comment
-#       ^^^ keyword.operator
-#            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
-
-        ldu start comment
-#       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ comment.line
-
-        ldu [EXT] comment
-#       ^^^ keyword.operator
-#           ^ punctuation.section.brackets.begin
-#            ^^^ constant.other
-#               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
-
-        ldu ,x comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#              ^^^^^^^ comment.line
-
-        ldu ,y++ comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
-
-        ldu [,--u] comment
-#       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
-#           ^ punctuation.section.brackets.begin
-#            ^ operator.separator
-#             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
-#                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
-
-
-;--------------------------------------------------------------------
-        ldx #$ffff comment
-#       ^^^ keyword.operator
-#            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
-
-        ldx start comment
-#       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ comment.line
-
-        ldx [EXT] comment
-#       ^^^ keyword.operator
-#           ^ punctuation.section.brackets.begin
-#            ^^^ constant.other
-#               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
-
-        ldx ,x comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#              ^^^^^^^ comment.line
-
-        ldx ,y++ comment
-#       ^^^ keyword.operator
-#           ^ operator.separator
-#            ^ constant.language.register
-#             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
-
-        ldx [,--u] comment
-#       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
-#           ^ punctuation.section.brackets.begin
-#            ^ operator.separator
-#             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
-#                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
-
-
-;--------------------------------------------------------------------
-        ldy #$ffff comment
-#       ^^^ keyword.operator
-#            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
-
-        ldy start comment
+        lda start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
 
-        ldy [EXT] comment
+        lda [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        ldy ,x comment
+        lda ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        ldy ,y++ comment
+        lda ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        ldy [,--u] comment
+        lda [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -1648,80 +1264,286 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        leas 1,s comment
+        ldb $ffff
+#       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
+
+        ldb start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+
+        ldb [EXT]
+#       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
+
+        ldb ,x
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+
+        ldb ,y++
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+#             ^^ keyword.operator.arithmetic
+
+        ldb [,--u]
+#       ^^^ keyword.operator
+#           ^^^^^^ meta.brackets.asm
+#           ^ punctuation.section.brackets.begin
+#            ^ operator.separator
+#             ^^ keyword.operator.arithmetic
+#               ^ constant.language.register
+#                ^ punctuation.section.brackets.end
+
+
+;--------------------------------------------------------------------
+        ldd $ffff
+#       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
+
+        ldd start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        ldd [EXT]
+#       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
+
+        ldd ,x
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+
+        ldd ,y++
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+#             ^^ keyword.operator.arithmetic
+
+        ldd [,--u]
+#       ^^^ keyword.operator
+#           ^^^^^^ meta.brackets.asm
+#           ^ punctuation.section.brackets.begin
+#            ^ operator.separator
+#             ^^ keyword.operator.arithmetic
+#               ^ constant.language.register
+#                ^ punctuation.section.brackets.end
+
+
+;--------------------------------------------------------------------
+        lds $ffff
+#       ^^^ keyword.operator
+#           ^^^^^ constant.numeric.hexadecimal
+
+        lds start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        lds [EXT]
+#       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
+
+        lds ,x
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+
+        lds ,y++
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+#             ^^ keyword.operator.arithmetic
+
+        lds [,--u]
+#       ^^^ keyword.operator
+#           ^^^^^^ meta.brackets.asm
+#           ^ punctuation.section.brackets.begin
+#            ^ operator.separator
+#             ^^ keyword.operator.arithmetic
+#               ^ constant.language.register
+#                ^ punctuation.section.brackets.end
+
+
+;--------------------------------------------------------------------
+        ldu #$ffff
+#       ^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
+
+        ldu start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        ldu [EXT]
+#       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
+
+        ldu ,x
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+
+        ldu ,y++
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+#             ^^ keyword.operator.arithmetic
+
+        ldu [,--u]
+#       ^^^ keyword.operator
+#           ^^^^^^ meta.brackets.asm
+#           ^ punctuation.section.brackets.begin
+#            ^ operator.separator
+#             ^^ keyword.operator.arithmetic
+#               ^ constant.language.register
+#                ^ punctuation.section.brackets.end
+
+
+;--------------------------------------------------------------------
+        ldx #$ffff
+#       ^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
+
+        ldx start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        ldx [EXT]
+#       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
+
+        ldx ,x
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+
+        ldx ,y++
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+#             ^^ keyword.operator.arithmetic
+
+        ldx [,--u]
+#       ^^^ keyword.operator
+#           ^^^^^^ meta.brackets.asm
+#           ^ punctuation.section.brackets.begin
+#            ^ operator.separator
+#             ^^ keyword.operator.arithmetic
+#               ^ constant.language.register
+#                ^ punctuation.section.brackets.end
+
+
+;--------------------------------------------------------------------
+        ldy #$ffff
+#       ^^^ keyword.operator
+#            ^^^^^ constant.numeric.hexadecimal
+
+        ldy start
+#       ^^^ keyword.operator
+#           ^^^^^ constant.other
+
+        ldy [EXT]
+#       ^^^ keyword.operator
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.other
+#               ^ punctuation.section.brackets.end
+
+        ldy ,x
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+
+        ldy ,y++
+#       ^^^ keyword.operator
+#           ^ operator.separator
+#            ^ constant.language.register
+#             ^^ keyword.operator.arithmetic
+
+        ldy [,--u]
+#       ^^^ keyword.operator
+#           ^^^^^^ meta.brackets.asm
+#           ^ punctuation.section.brackets.begin
+#            ^ operator.separator
+#             ^^ keyword.operator.arithmetic
+#               ^ constant.language.register
+#                ^ punctuation.section.brackets.end
+
+
+;--------------------------------------------------------------------
+        leas 1,s
 #       ^^^^ keyword.operator
-#                ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        leau ,y comment
+        leau ,y
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        leax b,y comment
+        leax b,y
 #       ^^^^ keyword.operator
 #            ^ constant.language.register
 #             ^ operator.separator
 #              ^ constant.language.register
-#                ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        leay a,y comment
+        leay a,y
 #       ^^^^ keyword.operator
 #            ^ constant.language.register
 #             ^ operator.separator
 #              ^ constant.language.register
-#                ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        lsra comment
+        lsra
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        lsrb comment
+        lsrb
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        lsr $ffff comment
+        lsr $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        lsr [EXT] comment
+        lsr [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        lsr ,x comment
+        lsr ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        lsr ,y++ comment
+        lsr ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        lsr [,--u] comment
+        lsr [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -1729,48 +1551,41 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        lsla comment
+        lsla
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        lslb comment
+        lslb
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        lsl $ffff comment
+        lsl $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        lsl [EXT] comment
+        lsl [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        lsl ,x comment
+        lsl ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        lsl ,y++ comment
+        lsl ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        lsl [,--u] comment
+        lsl [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -1778,59 +1593,51 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        mul comment
+        mul
 #       ^^^ keyword.operator
-#           ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        nega comment
+        nega
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        negb comment
+        negb
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        neg $ffff comment
+        neg $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        neg start comment
+
+        neg start
 #       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ comment.line
+#           ^^^^^ constant.other
 
-        neg [EXT] comment
+        neg [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        neg ,x comment
+        neg ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        neg ,y++ comment
+        neg ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        neg [,--u] comment
+        neg [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -1838,42 +1645,37 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        nop comment
+        nop
 #       ^^^ keyword.operator
-#           ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        ora $ffff comment
+        ora $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        ora [EXT] comment
+
+        ora [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        ora ,x comment
+        ora ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        ora ,y++ comment
+        ora ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        ora [,--u] comment
+        ora [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -1881,36 +1683,31 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        orb $ffff comment
+        orb $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        orb [EXT] comment
+        orb [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        orb ,x comment
+        orb ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        orb ,y++ comment
+        orb ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        orb [,--u] comment
+        orb [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -1918,17 +1715,15 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        orcc #$50 comment
+        orcc #$50
 #       ^^^^ keyword.operator
-#                 ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        pshs cc,a,b,dp,x,y,u,pc comment
+        pshs cc,a,b,dp,x,y,u,pc
 #       ^^^^ keyword.operator
 #            ^^ constant.language.register
 #              ^ operator.separator
@@ -1945,7 +1740,6 @@ start equ *+100
 #                          ^ constant.language.register
 #                           ^ operator.separator
 #                            ^^ constant.language.register
-#                               ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
@@ -1967,48 +1761,41 @@ start equ *+100
 
 
 ;--------------------------------------------------------------------
-        pulu y comment
+        pulu y
 #       ^^^^ keyword.operator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        rola comment
+        rola
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        rolb comment
+        rolb
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        rol $ffff comment
+        rol $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        rol [EXT] comment
+        rol [EXT]
 #       ^^^ keyword.operator
-#                 ^^^^^^^ comment.line
 
-        rol ,x comment
+        rol ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        rol ,y++ comment
+        rol ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        rol [,--u] comment
+        rol [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -2016,45 +1803,38 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        rora comment
+        rora
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        rorb comment
+        rorb
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        ror $ffff comment
+        ror $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        ror [EXT] comment
+        ror [EXT]
 #       ^^^ keyword.operator
-#                 ^^^^^^^ comment.line
 
-        ror ,x comment
+        ror ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        ror ,y++ comment
+        ror ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        ror [,--u] comment
+        ror [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -2062,52 +1842,44 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        rti comment
+        rti
 #       ^^^ keyword.operator
-#           ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        rts comment
+        rts
 #       ^^^ keyword.operator
-#           ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        sbca #$ff comment
+        sbca #$ff
 #       ^^^^ keyword.operator
-#                 ^^^^^^^ comment.line
 
-        sbca $ffff comment
+        sbca $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        sbca [EXT] comment
+        sbca [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        sbca ,x comment
+        sbca ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        sbca ,y++ comment
+        sbca ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        sbca [,--u] comment
+        sbca [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -2115,41 +1887,35 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        sbcb #$ff comment
+        sbcb #$ff
 #       ^^^^ keyword.operator
 #             ^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        sbcb $ffff comment
+        sbcb $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        sbcb [EXT] comment
+        sbcb [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        sbcb ,x comment
+        sbcb ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        sbcb ,y++ comment
+        sbcb ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        sbcb [,--u] comment
+        sbcb [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -2157,47 +1923,40 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        sex comment
+        sex
 #       ^^^ keyword.operator
-#           ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        sta $ffff comment
+        sta $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        sta start comment
+        sta start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-#                 ^^^^^^^ comment.line
 
-        sta [EXT] comment
+        sta [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        sta ,x comment
+        sta ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        sta ,y++ comment
+        sta ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        sta [,--u] comment
+        sta [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -2205,36 +1964,31 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        stb $ffff comment
+        stb $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        stb [EXT] comment
+        stb [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        stb ,x comment
+        stb ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        stb ,y++ comment
+        stb ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        stb [,--u] comment
+        stb [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -2242,36 +1996,31 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        std $ffff comment
+        std $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        std [EXT] comment
+        std [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        std ,x comment
+        std ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        std ,y++ comment
+        std ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        std [,--u] comment
+        std [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -2279,36 +2028,31 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        sts $ffff comment
+        sts $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        sts [EXT] comment
+        sts [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        sts ,x comment
+        sts ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        sts ,y++ comment
+        sts ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        sts [,--u] comment
+        sts [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -2316,36 +2060,31 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        stu $ffff comment
+        stu $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        stu [EXT] comment
+        stu [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        stu ,x comment
+        stu ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        stu ,y++ comment
+        stu ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        stu [,--u] comment
+        stu [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -2353,36 +2092,31 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        stx $ffff comment
+        stx $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        stx [EXT] comment
+        stx [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        stx ,x comment
+        stx ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        stx ,y++ comment
+        stx ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        stx [,--u] comment
+        stx [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -2390,36 +2124,31 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        sty $ffff comment
+        sty $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        sty [EXT] comment
+        sty [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        sty ,x comment
+        sty ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        sty ,y++ comment
+        sty ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        sty [,--u] comment
+        sty [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -2427,42 +2156,36 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        suba #$ff comment
+        suba #$ff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        suba $ffff comment
+        suba $ffff
 #       ^^^^ keyword.operator
 ;            ^^^^^ constant.other
-;                  ^^^^^^^ comment.line
 
-        suba [EXT] comment
+        suba [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        suba ,x comment
+        suba ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        suba ,y++ comment
+        suba ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        suba [,--u] comment
+        suba [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -2470,42 +2193,36 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        subb #$ff comment
+        subb #$ff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        subb $ffff comment
+        subb $ffff
 #       ^^^^ keyword.operator
 #            ^^^^^ constant.numeric.hexadecimal
-#                  ^^^^^^^ comment.line
 
-        subb [EXT] comment
+        subb [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        subb ,x comment
+        subb ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        subb ,y++ comment
+        subb ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        subb [,--u] comment
+        subb [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -2513,42 +2230,36 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        subd #$ffff comment
+        subd #$ffff
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
 #             ^^^^^ constant.numeric.hexadecimal
-#                   ^^^^^^^ comment.line
 
-        subd $ffff comment
+        subd $ffff
 #       ^^^^ keyword.operator
-;            ^^^^^ constant.other
-;                  ^^^^^^^ comment.line
+#            ^^^^^ constant.numeric.hexadecimal
 
-        subd [EXT] comment
+        subd [EXT]
 #       ^^^^ keyword.operator
 #            ^ punctuation.section.brackets.begin
 #             ^^^ constant.other
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
-        subd ,x comment
+        subd ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        subd ,y++ comment
+        subd ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
 #             ^ constant.language.register
 #              ^^ keyword.operator.arithmetic
-#                 ^^^^^^^ comment.line
 
-        subd [,--u] comment
+        subd [,--u]
 #       ^^^^ keyword.operator
 #            ^^^^^^ meta.brackets.asm
 #            ^ punctuation.section.brackets.begin
@@ -2556,89 +2267,76 @@ start equ *+100
 #              ^^ keyword.operator.arithmetic
 #                ^ constant.language.register
 #                 ^ punctuation.section.brackets.end
-#                   ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        swi comment
+        swi
 #       ^^^ keyword.operator
-#           ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        swi2 comment
+        swi2
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        swi3 comment
+        swi3
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        sync comment
+        sync
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        tfr a,b comment
+        tfr a,b
 #       ^^^ keyword.operator
 #           ^ constant.language.register
 #            ^ operator.separator
 #             ^ constant.language.register
-#               ^^^^^^^ comment.line
 
-        tfr a,dp comment
+        tfr a,dp
 #       ^^^ keyword.operator
 #           ^ constant.language.register
 #            ^ operator.separator
 #             ^^ constant.language.register
-#                ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
 
-        tsta comment
+        tsta
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        tstb comment
+        tstb
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
 
 ;--------------------------------------------------------------------
-        tst $ffff comment
+        tst $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-#                 ^^^^^^^ comment.line
 
-        tst [EXT] comment
+        tst [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
 #            ^^^ constant.other
 #               ^ punctuation.section.brackets.end
-#                 ^^^^^^^ comment.line
 
-        tst ,x comment
+        tst ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
-#              ^^^^^^^ comment.line
 
-        tst ,y++ comment
+        tst ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
 #            ^ constant.language.register
 #             ^^ keyword.operator.arithmetic
-#                ^^^^^^^ comment.line
 
-        tst [,--u] comment
+        tst [,--u]
 #       ^^^ keyword.operator
 #           ^^^^^^ meta.brackets.asm
 #           ^ punctuation.section.brackets.begin
@@ -2646,5 +2344,4 @@ start equ *+100
 #             ^^ keyword.operator.arithmetic
 #               ^ constant.language.register
 #                ^ punctuation.section.brackets.end
-#                  ^^^^^^^ comment.line
 
