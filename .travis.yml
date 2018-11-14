@@ -20,8 +20,9 @@ install:
 
 script:
   - sh travis.sh run_syntax_tests
+  - sh travis.sh run_syntax_compatibility
 
 notifications:
   email:
     on_success: change
-    on_failure: change
+    on_failure: always
