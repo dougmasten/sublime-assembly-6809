@@ -492,7 +492,6 @@ start equ *+100
 #       ^^^ keyword.operator
 #           ^ keyword.operator.immediate
 #            ^^^ constant.numeric.hexadecimal
-;                    ^^^^^^^ .line
 
 
 ;--------------------------------------------------------------------
@@ -509,7 +508,6 @@ start equ *+100
         eord start
 #       ^^^^ keyword.operator
 ;            ^^^^^ constant.other
-;                  ^^^^^^^ .line
 
         eord [EXT]
 #       ^^^^ keyword.operator
@@ -717,8 +715,8 @@ start equ *+100
 
         ldq start
 #       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ .line
+#           ^^^^^ constant.other
+
 
         ldq [EXT]
 #       ^^^ keyword.operator
@@ -820,7 +818,6 @@ start equ *+100
 #       ^^^ keyword.operator
 #           ^ keyword.operator.immediate
 #            ^^^ constant.numeric.hexadecimal
-;                    ^^^^^^^ .line
 
 
 ;--------------------------------------------------------------------
@@ -836,8 +833,8 @@ start equ *+100
 
         ord start
 #       ^^^ keyword.operator
-;           ^^^^^ constant.other
-;                 ^^^^^^^ .line
+#           ^^^^^ constant.other
+
 
         ord [EXT]
 #       ^^^ keyword.operator
@@ -1292,7 +1289,6 @@ start equ *+100
 #       ^^^ keyword.operator
 #           ^ keyword.operator.immediate
 #            ^^^ constant.numeric.hexadecimal
-;                    ^^^^^^^ .line
 
 
 ;--------------------------------------------------------------------
