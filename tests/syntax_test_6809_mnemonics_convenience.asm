@@ -8,30 +8,23 @@
 ;       included here for completeness.
         opt 6809conv
 
-        asrd comment
+        asrd
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        clrd comment
+        clrd
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        comd comment
+        comd
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        lsld comment
+        lsld
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        lsrd comment
+        lsrd
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        negd comment
+        negd
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        tstd comment
+        tstd
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line

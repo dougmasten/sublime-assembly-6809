@@ -5,51 +5,38 @@
 ; 6309 convenience instructions (lwasm)
         opt 6309conv
 
-
-        asrq comment
+        asrq
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        clrq comment
+        clrq
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        comq comment
+        comq
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        lsle comment
+        lsle
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        lslf comment
+        lslf
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        lslq comment
+        lslq
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        lsrq comment
+        lsrq
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        nege comment
+        nege
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        negf comment
+        negf
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        negw comment
+        negw
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        negq comment
+        negq
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
 
-        tstq comment
+        tstq
 #       ^^^^ keyword.operator
-#            ^^^^^^^ comment.line
