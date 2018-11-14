@@ -422,7 +422,7 @@ contexts:
 
   # Validate stack registers
   validate-stack-registers:
-    - match: (?<!\S)
+    - match: ''
       set: highlight-registers
     - include: line-ending
 
