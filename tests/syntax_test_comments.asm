@@ -15,10 +15,12 @@
 #^^^^^^^^ comment.line
 
  ; Comment
+# <- - comment.line
 #^ punctuation.definition.comment
 #^^^^^^^^^ comment.line
 
  * Comment
+# <- - comment.line
 #^ punctuation.definition.comment
 #^^^^^^^^^ comment.line
 
