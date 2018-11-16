@@ -40,7 +40,7 @@ variables:
                       )
                     )'
   lwasm_list_id: '[\s\h]*\([\s\w\.]*\):\d{5}[\s\d\(\)\+\?]{9}'
-  edtasm_list_id: '(\d{5}) '
+  edtasm_id: '(\d{5}) '
 
 contexts:
   line-ending:
@@ -75,7 +75,7 @@ contexts:
       push: lwasm-listing
 
     # Edtasm file
-    - match: '(?=^{{edtasm_list_id}})'
+    - match: '(?=^{{edtasm_id}})'
       push: edtasm-listing
 
     # Disassembly listing
@@ -718,7 +718,7 @@ contexts:
 
   # Edtasm file
   edtasm-listing:
-    - match: '{{edtasm_list_id}}'
+    - match: '{{edtasm_id}}'
       captures:
         1: comment.line.edtasm.asm.6809
       set: column_1
