@@ -718,6 +718,7 @@ contexts:
 
   # Edtasm file
   edtasm-listing:
+    # Comment out line numbers
     - match: '{{edtasm_id}}'
       captures:
         1: comment.line.edtasm.asm.6809
