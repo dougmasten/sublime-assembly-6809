@@ -12,3 +12,7 @@
 #                                                                   ^ constant.numeric.decimal
 #                                                                     ^ punctuation.definition.comment
 #                                                                     ^^^^^^^^^ comment.line
+
+E000                  (reboot_system-2.a):00014         reboot_system
+# <- comment.line
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
