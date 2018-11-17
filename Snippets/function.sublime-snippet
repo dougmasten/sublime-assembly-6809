@@ -3,8 +3,8 @@
     <content><![CDATA[
 ;------------------------------------------------------------------------------
 ; Function    : $1
-; Input       : ${2:none}
-; Output      : ${3:none}
+; Entry       : ${2:none}
+; Exit        : ${3:none}
 ; Destroys    : ${4:none}
 ; Calls       : ${5:none}
 ; Description : $6
