@@ -6,6 +6,7 @@
 0000 8601             (        test1.asm):00334 (5)     label1 lda #1 ; comment
 # <- comment.line
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
+#                                                       ^^^^^^^^^^^^^ - comment.line
 #                                                       ^^^^^^ entity.name.type.constant
 #                                                              ^^^ keyword.operator
 #                                                                  ^ keyword.operator.immediate
@@ -16,3 +17,4 @@
 E000                  (reboot_system-2.a):00014         reboot_system
 # <- comment.line
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
+#                                                       ^^^^^^^^^^^^^ - comment.line
