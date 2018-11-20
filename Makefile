@@ -9,7 +9,7 @@ help:
 publish:
 	@git push origin master --tags
 
-tests:
+test:
 	@lwasm tests/*.asm
 
 clean:
