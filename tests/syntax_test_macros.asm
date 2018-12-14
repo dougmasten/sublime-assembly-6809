@@ -18,7 +18,8 @@ label2      macro noexpand comment
 #                 ^^^^^^^^ support.function.directive.macro
 
             endm
+#           ^^^^ support.function.directive.macro
 
 ; no prefix label
- macro
+; macro
 ;^^^^^ invalid.keyword.operator
