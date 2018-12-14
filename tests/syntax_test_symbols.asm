@@ -82,68 +82,22 @@ label9@ equ *
 ! equ *
 # <- entity.name.type.constant
 
+; double label
+label1 label2 equ *
+#^^^^^ entity.name.type.constant
+# <- entity.name.type.constant
+#      ^^^^^^ - entity.name.type.constant
 
-;-----------------------------------------------------
-; Branch symbols
-
-        ble loop1
-#           ^^^^^ constant.other
-
-        blo loop1
-#           ^^^^^ constant.other
-
-        bls loop1
-#           ^^^^^ constant.other
-
-        blt loop1
-#           ^^^^^ constant.other
-
-        bmi loop1
-#           ^^^^^ constant.other
-
-        bne loop1
-#           ^^^^^ constant.other
-
+; branches
         bra loop1
 #           ^^^^^ constant.other
-
-        brn loop1
-#           ^^^^^ constant.other
-
-        bsr loop1
-#           ^^^^^ constant.other
-
-        lble loop1
-#            ^^^^^ constant.other
-
-        lblo loop1
-#            ^^^^^ constant.other
-
-        lbls loop1
-#            ^^^^^ constant.other
-
-        lblt loop1
-#            ^^^^^ constant.other
-
-        lbmi loop1
-#            ^^^^^ constant.other
-
-        lbne loop1
-#            ^^^^^ constant.other
 
         lbra loop1
 #            ^^^^^ constant.other
 
-        lbrn loop1
-#            ^^^^^ constant.other
-
-        lbsr loop1
-#            ^^^^^ constant.other
-
         jmp loop1
-; TODO!
-;           ^^^^^ constant.other
+#           ^^^^^ constant.other
 
         jsr loop1
-; TODO!
-;           ^^^^^ constant.other
+#           ^^^^^ constant.other
+
