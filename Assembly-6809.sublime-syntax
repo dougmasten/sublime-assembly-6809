@@ -36,11 +36,16 @@ variables:
                         qrts|
                         m80ext|
                         testmode|
-                        c[dtc]?
+                        c[dtc]?|
+                        emuext|
+                        operandsizewarning|
+                        newsource
                       )
                     )'
-  lwasm_list_id: '[\s\h]*\([\s\w\.]*\):\d{5}[\s\d\(\)\+\?]{9}'
   edtasm_id: '(\d{5}) '
+  disassembly_id: '\h{4}\:\s'
+  lwasm_list_id: '[\s\h]*\([\s\w\-\.]*\):\d{5}[\s\d\(\)\+\?\[\]]{9}'
+
 
 contexts:
   line-ending:
@@ -70,18 +75,17 @@ contexts:
 
 
   main:
-    # Lwasm assembly list output
-    - match: '(?={{lwasm_list_id}})'
-      push: lwasm-listing
-
     # Edtasm file
     - match: '(?=^{{edtasm_id}})'
       push: edtasm-listing
 
     # Disassembly listing
-    - match: '^\h{4}\:\s'
-      scope: comment.line.disasm.asm.6809
-      push: disassembly
+    - match: '(?=^{{disassembly_id}})'
+      push: disassembly-listing
+
+    # Lwasm assembly list output
+    - match: '(?=^{{lwasm_list_id}})'
+      push: lwasm-listing
 
     # Process column #1
     - match: ''
@@ -89,9 +93,8 @@ contexts:
 
 
   column_1:
-    # Blank column one
-    - match: '\s+'
-      set: column_2
+    - match: ''
+      pop: true
 
     # Line begins with a comment
     - match: '([*;#]).*$'
@@ -111,6 +114,14 @@ contexts:
             - include: column_2
         - include: line-ending
 
+    # Blank column one
+    - match: '\s+'
+      set: column_2
+
+    - match: '.*$'
+      scope: invalid.illegal
+      pop: true
+
     - include: bail-out
 
     # Use for debugging. It should not match anything.
@@ -126,8 +137,13 @@ contexts:
     - include: emulator-extensions
     - include: os9
     #- include: invalid
+    #- match: ''
+    #  pop: true
+
     - include: line-ending
-    - include: bail-out
+    #- include: bail-out
+    #- match: '.*$'
+    #  pop: true
     # No match. Mark as invalid
     # - match: \S*$?
     #   scope: invalid.keyword.operator.asm.6809
@@ -713,7 +729,7 @@ contexts:
     - match: '{{lwasm_list_id}}'
       scope: comment.line.lwasm.asm.6809
       set: column_1
-    - include: bail-out
+    #- include: bail-out
 
 
   # Edtasm file
@@ -723,13 +739,17 @@ contexts:
       captures:
         1: comment.line.edtasm.asm.6809
       set: column_1
-    - include: bail-out
+    #- include: bail-out
 
 
   # Disassembly listing
-  disassembly:
-    - match: '(\h\h)\s'
-      scope: comment.line.asm.6809
-    - match: \s*
-      set: column_2
-    - include: line-ending
+  disassembly-listing:
+    - match: '{{disassembly_id}}'
+      scope: comment.line.disasm.asm.6809
+      set:
+        - match: '(\h\h)\s'
+          scope: comment.line.disasm.asm.6809
+        - match: \s*
+          set: column_2
+        - include: line-ending
+    #- include: bail-out
