@@ -2,6 +2,7 @@
 # <- source.asm.6809
 
 ; Mnemonics available on Motorola 6809 and Hitachi 6309 CPUs
+
         opt 6809
 IMM8 equ $12
 IMM16 equ $3456
@@ -15,10 +16,10 @@ start equ *+100
 
 
 ;--------------------------------------------------------------------
-        adca #IMM8
+        adca #255
 #       ^^^^ keyword.operator
 #            ^ keyword.operator.immediate
-#             ^^^^ constant.other
+#             ^^^ constant.numeric.decimal
 
         adca <$ff
 #       ^^^^ keyword.operator
