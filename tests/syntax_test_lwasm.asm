@@ -14,7 +14,16 @@
 #                                                                     ^ punctuation.definition.comment
 #                                                                     ^^^^^^^^^ comment.line
 
+
+; test for "-" in filename
 E000                  (reboot_system-2.a):00014         reboot_system
 # <- comment.line
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
 #                                                       ^^^^^^^^^^^^^ - comment.line
+
+
+; test for "[" and "]" in instruction clock cycles
+2005 10838C1B         (         init.asm):00024 [5]                     cmpd #$8c1b
+# <- comment.line
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
+#                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^ - comment.line
