@@ -2,31 +2,31 @@
 # <- source.asm.6809
 
 
- ifeq
+ ifeq 1
 #^^^^ support.function.conditional
 
- ifne
+ ifne 1
 #^^^^ support.function.conditional
 
- if
+ if 1
 #^^ support.function.conditional
 
- ifgt
+ ifgt 1
 #^^^^ support.function.conditional
 
- iflt
+ iflt 1
 #^^^^ support.function.conditional
 
- ifle
+ ifle 1
 #^^^^ support.function.conditional
 
- ifdef
+ ifdef 1
 #^^^^^ support.function.conditional
 
- ifpragma
+ ifpragma newsource
 #^^^^^^^^ support.function.conditional
 
- ifndef
+ ifndef test
 #^^^^^^ support.function.conditional
 
  else
