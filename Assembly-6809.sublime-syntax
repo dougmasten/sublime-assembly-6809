@@ -19,27 +19,30 @@ variables:
   all_registers: '(?i)cc|dp|pc|[0abdefsuvwxy]'
   pragma_options:  '(?ix:
                       (no)?(
-                        6800compat|
-                        6[83]09(conv)?|
+                        dollar(not)?local|
                         index0tonone|
+                        undefextern|
                         cescapes|
                         (importundef)?export|
-                        undefextern|
-                        dollar(not)?local|
                         pcaspcr|
                         shadow|
                         list|
                         autobranchlength|
-                        (nosymbol|symbolno)case|
+                        symbol(no)?case|
                         condundefzero|
+                        6800compat|
                         forwardrefmax|
+                        testmode|
+                        c[cdt]?|
                         qrts|
                         m80ext|
-                        testmode|
-                        c[dtc]?|
-                        emuext|
+                        6[83]09(conv)?|
+                        newsource|
+                        oldsource|
                         operandsizewarning|
-                        newsource
+                        emuext|
+                        output|
+                        expandcond
                       )
                     )'
   edtasm_id: '(\d{5}) '
