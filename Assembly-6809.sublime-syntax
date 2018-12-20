@@ -365,6 +365,22 @@ contexts:
       scope: keyword.operator.asm.6809
       set: comments-eol
 
+    # 6800 source code compatibility
+    - match: |-
+        (?ix:
+           \b(
+             [acs]ba|
+             (cl|se)([cfiv]|if)|
+             cpx|
+             (de|in)[sxy]|
+             ta[bp]|
+             t([bp]a|(sx|xs))|
+             wai
+           )
+        )(?!\S)
+      scope: keyword.operator.asm.6809
+      set: comments-eol
+
 
   # Invalid instructions
   invalid:
