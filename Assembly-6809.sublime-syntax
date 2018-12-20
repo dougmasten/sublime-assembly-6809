@@ -189,7 +189,7 @@ contexts:
             - include: address-extended
             - include: expr
             - match: '\S*'
-              scope: invalid.illegal.constant.language.register.asm.6809
+              scope: invalid.illegal.variable.language.register.asm.6809
               set: comments-eol
             - include: line-ending
         - include: line-ending
@@ -213,7 +213,7 @@ contexts:
             - match: (?i)(?:(?={{all_registers}},{{all_registers}}))
               set: highlight-registers
             - match: '\S*'
-              scope: invalid.illegal.constant.language.register.asm.6809
+              scope: invalid.illegal.variable.language.register.asm.6809
               set: comments-eol
             - include: line-ending
         - include: line-ending
@@ -255,7 +255,7 @@ contexts:
             - match: ''
               set: comments-eol
             - match: '\S*'
-              scope: invalid.illegal.constant.language.register.asm.6809
+              scope: invalid.illegal.variable.language.register.asm.6809
               set: comments-eol
             - include: line-ending
         - include: line-ending
@@ -290,7 +290,7 @@ contexts:
             - match: ''
               set: comments-eol
             - match: '\S*'
-              scope: invalid.illegal.constant.language.register.asm.6809
+              scope: invalid.illegal.variable.language.register.asm.6809
               set: comments-eol
             - include: line-ending
         - include: line-ending
@@ -306,7 +306,7 @@ contexts:
             - match: ''
               set: comments-eol
             - match: '\S*'
-              scope: invalid.illegal.constant.language.register.asm.6809
+              scope: invalid.illegal.variable.language.register.asm.6809
               set: comments-eol
             - include: line-ending
         - include: line-ending
@@ -352,7 +352,7 @@ contexts:
                 )
               set: highlight-registers
             - match: '\S*'
-              scope: invalid.illegal.constant.language.register.asm.6809
+              scope: invalid.illegal.variable.language.register.asm.6809
               set: comments-eol
             - include: line-ending
         - include: line-ending
@@ -450,7 +450,7 @@ contexts:
   # Highlight string of registers and commas
   highlight-registers:
     - match: '{{all_registers}}'
-      scope: constant.language.register.asm.6809
+      scope: variable.language.register.asm.6809
     - match: ','
       scope: operator.separator.asm.6809
     - match: '[\+\-]'
@@ -463,7 +463,7 @@ contexts:
   # Highlight string of registers and commas between brackets
   highlight-registers-brackets:
     - match: '{{all_registers}}'
-      scope: meta.brackets.asm.6809 constant.language.register.asm.6809
+      scope: meta.brackets.asm.6809 variable.language.register.asm.6809
     - match: ','
       scope: meta.brackets.asm.6809 operator.separator.asm.6809
     - match: '[\+\-]'
@@ -480,7 +480,7 @@ contexts:
   # Invalid string of registers
   invalid-registers:
     - match: '[\S\w]'
-      scope: invalid.constant.language.register.asm.6809
+      scope: invalid.variable.language.register.asm.6809
     - match: \s
       set: comments-eol
     - include: line-ending

@@ -14,5 +14,5 @@
 #                 ^^^ - comment.line
 #                    ^ constant.numeric.decimal
 #                     ^ operator.separator
-#                      ^ constant.language.register
+#                      ^ variable.language.register
 

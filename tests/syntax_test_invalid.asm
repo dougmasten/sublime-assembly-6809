@@ -24,40 +24,40 @@
 
 ;--------------------------------------------------------------------
  pshs a,b,d
-;     ^^^^^ invalid.constant.language.register
+;     ^^^^^ invalid.variable.language.register
 
  pshs d,e,f,w
-;     ^^^^^^^ invalid.constant.language.register
+;     ^^^^^^^ invalid.variable.language.register
 
  pshs d,dp
-;     ^^^^ invalid.constant.language.register
+;     ^^^^ invalid.variable.language.register
 
  pshs s
-#     ^ invalid.constant.language.register
+#     ^ invalid.variable.language.register
 
  pshs s,d
-#     ^^^ invalid.constant.language.register
+#     ^^^ invalid.variable.language.register
 
  pshs d,s
-#     ^^^ invalid.constant.language.register
+#     ^^^ invalid.variable.language.register
 
  pshs d,s,y
-#     ^^^^^ invalid.constant.language.register
+#     ^^^^^ invalid.variable.language.register
 
 
 ;--------------------------------------------------------------------
  pshu u
-#     ^ invalid.constant.language.register
+#     ^ invalid.variable.language.register
 
 
 ;--------------------------------------------------------------------
  puls s
-#     ^ invalid.constant.language.register
+#     ^ invalid.variable.language.register
 
 
 ;--------------------------------------------------------------------
  pulu u
-#     ^ invalid.constant.language.register
+#     ^ invalid.variable.language.register
 
 
 ;--------------------------------------------------------------------
@@ -81,32 +81,32 @@
 
         tfm x+,x+ comment
 #       ^^^ keyword.operator
-;           ^^^^^ invalid.illegal.constant.language.register.asm.6809
+;           ^^^^^ invalid.illegal.variable.language.register.asm.6809
 ;                 ^^^^^^^ comment.line
 
         tfm u+,u+ comment
 #       ^^^ keyword.operator
-;           ^^^^^ invalid.illegal.constant.language.register.asm.6809
+;           ^^^^^ invalid.illegal.variable.language.register.asm.6809
 ;                 ^^^^^^^ comment.line
 
         tfm s+,s+ comment
 #       ^^^ keyword.operator
-;           ^^^^^ invalid.illegal.constant.language.register.asm.6809
+;           ^^^^^ invalid.illegal.variable.language.register.asm.6809
 ;                 ^^^^^^^ comment.line
 
         tfm d+,d+ comment
 #       ^^^ keyword.operator
-;           ^^^^^ invalid.illegal.constant.language.register.asm.6809
+;           ^^^^^ invalid.illegal.variable.language.register.asm.6809
 ;                 ^^^^^^^ comment.line
 
         tfm a+,b+ comment
 #       ^^^ keyword.operator
-#           ^^^^^ invalid.illegal.constant.language.register.asm.6809
+#           ^^^^^ invalid.illegal.variable.language.register.asm.6809
 #                 ^^^^^^^ comment.line
 
         tfm w,x+ comment
 #       ^^^ keyword.operator
-#           ^^^^ invalid.illegal.constant.language.register.asm.6809
+#           ^^^^ invalid.illegal.variable.language.register.asm.6809
 #                ^^^^^^^ comment.line
 
         ldmd #256 comment

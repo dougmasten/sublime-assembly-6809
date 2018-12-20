@@ -25,12 +25,12 @@ start equ *+100
         adcd ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         adcd ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         adcd [,--u]
@@ -39,7 +39,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         adcd $ffff
@@ -50,9 +50,9 @@ start equ *+100
 ;--------------------------------------------------------------------
         adcr x,y
 #       ^^^^ keyword.operator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^ operator.separator
-#              ^ constant.language.register
+#              ^ variable.language.register
 
 
 ;--------------------------------------------------------------------
@@ -70,12 +70,12 @@ start equ *+100
         adde ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         adde ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         adde [,--u]
@@ -84,7 +84,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         adde $ffff
@@ -107,12 +107,12 @@ start equ *+100
         addf ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         addf ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         addf [,--u]
@@ -121,7 +121,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         addf $ffff
@@ -142,12 +142,12 @@ start equ *+100
         addw ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         addw ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         addw [,--u]
@@ -156,7 +156,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         addw $ffff
@@ -167,9 +167,9 @@ start equ *+100
 ;--------------------------------------------------------------------
         addr x,y
 #       ^^^^ keyword.operator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^ operator.separator
-#              ^ constant.language.register
+#              ^ variable.language.register
 
 
 ;--------------------------------------------------------------------
@@ -194,12 +194,12 @@ start equ *+100
         andd ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         andd ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         andd [,--u]
@@ -208,7 +208,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         andd $ffff
@@ -219,9 +219,9 @@ start equ *+100
 ;--------------------------------------------------------------------
         andr x,y
 #       ^^^^ keyword.operator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^ operator.separator
-#              ^ constant.language.register
+#              ^ variable.language.register
 
 
 ;--------------------------------------------------------------------
@@ -318,12 +318,12 @@ start equ *+100
         cmpe ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         cmpe ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         cmpe [,--u]
@@ -332,7 +332,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         cmpe $ffff
@@ -360,12 +360,12 @@ start equ *+100
         cmpf ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         cmpf ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         cmpf [,--u]
@@ -374,7 +374,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         cmpf $ffff
@@ -402,12 +402,12 @@ start equ *+100
         cmpw ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         cmpw ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         cmpw [,--u]
@@ -416,7 +416,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         cmpw $ffff
@@ -427,9 +427,9 @@ start equ *+100
 ;--------------------------------------------------------------------
         cmpr x,y
 #       ^^^^ keyword.operator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^ operator.separator
-#              ^ constant.language.register
+#              ^ variable.language.register
 
 
 ;--------------------------------------------------------------------
@@ -518,12 +518,12 @@ start equ *+100
         eord ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         eord ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         eord [,--u]
@@ -532,7 +532,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         eord $ffff
@@ -543,9 +543,9 @@ start equ *+100
 ;--------------------------------------------------------------------
         eorr s,w
 #       ^^^^ keyword.operator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^ operator.separator
-#              ^ constant.language.register
+#              ^ variable.language.register
 
 
 ;--------------------------------------------------------------------
@@ -588,12 +588,12 @@ start equ *+100
         lde ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 
         lde ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^^ keyword.operator.arithmetic
 
         lde [,--u]
@@ -602,7 +602,7 @@ start equ *+100
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
+#               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 
         lde $ffff
@@ -631,12 +631,12 @@ start equ *+100
         ldf ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 
         ldf ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^^ keyword.operator.arithmetic
 
         ldf [,--u]
@@ -645,7 +645,7 @@ start equ *+100
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
+#               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 
         ldf $ffff
@@ -672,12 +672,12 @@ start equ *+100
         ldw ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 
         ldw ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^^ keyword.operator.arithmetic
 
         ldw [,--u]
@@ -686,7 +686,7 @@ start equ *+100
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
+#               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 
         ldw $ffff
@@ -727,12 +727,12 @@ start equ *+100
         ldq ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 
         ldq ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^^ keyword.operator.arithmetic
 
         ldq [,--u]
@@ -741,7 +741,7 @@ start equ *+100
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
+#               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 
         ldq $ffff
@@ -785,12 +785,12 @@ start equ *+100
         muld ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         muld ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         muld [,--u]
@@ -799,7 +799,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         muld $ffff
@@ -845,12 +845,12 @@ start equ *+100
         ord ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 
         ord ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^^ keyword.operator.arithmetic
 
         ord [,--u]
@@ -859,7 +859,7 @@ start equ *+100
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
+#               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 
         ord $ffff
@@ -870,9 +870,9 @@ start equ *+100
 ;--------------------------------------------------------------------
         orr y,s
 #       ^^^ keyword.operator
-#           ^ constant.language.register
+#           ^ variable.language.register
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
 
 ;--------------------------------------------------------------------
@@ -936,12 +936,12 @@ start equ *+100
         sbcd ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         sbcd ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         sbcd [,--u]
@@ -950,7 +950,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         sbcd $ffff
@@ -961,9 +961,9 @@ start equ *+100
 ;--------------------------------------------------------------------
         sbcr x,u
 #       ^^^^ keyword.operator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^ operator.separator
-#              ^ constant.language.register
+#              ^ variable.language.register
 
 
 ;--------------------------------------------------------------------
@@ -984,12 +984,12 @@ start equ *+100
         ste ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 
         ste ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^^ keyword.operator.arithmetic
 
         ste [,--u]
@@ -998,7 +998,7 @@ start equ *+100
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
+#               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 
 
@@ -1015,12 +1015,12 @@ start equ *+100
         stf ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 
         stf ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^^ keyword.operator.arithmetic
 
         stf [,--u]
@@ -1029,7 +1029,7 @@ start equ *+100
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
+#               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 
 
@@ -1046,12 +1046,12 @@ start equ *+100
         stw ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 
         stw ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^^ keyword.operator.arithmetic
 
         stw [,--u]
@@ -1060,7 +1060,7 @@ start equ *+100
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
+#               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 
 
@@ -1082,12 +1082,12 @@ start equ *+100
         stq ,x
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 
         stq ,y++
 #       ^^^ keyword.operator
 #           ^ operator.separator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^^ keyword.operator.arithmetic
 
         stq [,--u]
@@ -1096,7 +1096,7 @@ start equ *+100
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
-#               ^ constant.language.register
+#               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 
 
@@ -1126,12 +1126,12 @@ start equ *+100
         sube ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         sube ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         sube [,--u]
@@ -1140,7 +1140,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         sube $ffff
@@ -1174,12 +1174,12 @@ start equ *+100
         subf ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         subf ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         subf [,--u]
@@ -1188,7 +1188,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         subf $ffff
@@ -1222,12 +1222,12 @@ start equ *+100
         subw ,x
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 
         subw ,y++
 #       ^^^^ keyword.operator
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^^ keyword.operator.arithmetic
 
         subw [,--u]
@@ -1236,7 +1236,7 @@ start equ *+100
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
-#                ^ constant.language.register
+#                ^ variable.language.register
 #                 ^ punctuation.section.brackets.end
 
         subw $ffff
@@ -1247,40 +1247,40 @@ start equ *+100
 ;--------------------------------------------------------------------
         subr s,x
 #       ^^^^ keyword.operator
-#            ^ constant.language.register
+#            ^ variable.language.register
 #             ^ operator.separator
-#              ^ constant.language.register
+#              ^ variable.language.register
 
 
 ;--------------------------------------------------------------------
         tfm x+,d+
 #       ^^^ keyword.operator
-#           ^ constant.language.register
+#           ^ variable.language.register
 #            ^ keyword.operator.arithmetic
 #             ^ operator.separator
-#              ^ constant.language.register
+#              ^ variable.language.register
 #               ^ keyword.operator.arithmetic
 
         tfm s+,x
 #       ^^^ keyword.operator
-#           ^ constant.language.register
+#           ^ variable.language.register
 #            ^ keyword.operator.arithmetic.asm
 #             ^ operator.separator
-#              ^ constant.language.register
+#              ^ variable.language.register
 
         tfm u-,y-
 #       ^^^ keyword.operator
-#           ^ constant.language.register
+#           ^ variable.language.register
 #            ^ keyword.operator.arithmetic.asm
 #             ^ operator.separator
-#              ^ constant.language.register
+#              ^ variable.language.register
 #               ^ keyword.operator.arithmetic.asm
 
         tfm d,u+
 #       ^^^ keyword.operator
-#           ^ constant.language.register
+#           ^ variable.language.register
 #            ^ operator.separator
-#             ^ constant.language.register
+#             ^ variable.language.register
 #              ^ keyword.operator.arithmetic.asm
 
 
