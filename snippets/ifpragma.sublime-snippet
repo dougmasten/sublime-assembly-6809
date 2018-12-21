@@ -1,0 +1,9 @@
+<snippet>
+    <description>Conditional Assembly</description>
+    <content><![CDATA[  IFPRAGMA ${1:<expr>}
+    ${2}
+  ENDC
+]]></content>
+    <tabTrigger>ifpragma</tabTrigger>
+    <scope>source.mc6809</scope>
+</snippet>
