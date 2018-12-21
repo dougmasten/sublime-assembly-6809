@@ -1,5 +1,5 @@
 # SYNTAX TEST "Packages/Assembly-6809/Assembly-6809.sublime-syntax"
-# <- source.asm.6809
+# <- source.mc6809
 
 
 ; Additional mnemonics available on Hitachi 6309 CPU
@@ -35,7 +35,7 @@ start equ *+100
 
         adcd [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -80,7 +80,7 @@ start equ *+100
 
         adde [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -117,7 +117,7 @@ start equ *+100
 
         addf [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -152,7 +152,7 @@ start equ *+100
 
         addw [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -204,7 +204,7 @@ start equ *+100
 
         andd [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -328,7 +328,7 @@ start equ *+100
 
         cmpe [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -370,7 +370,7 @@ start equ *+100
 
         cmpf [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -412,7 +412,7 @@ start equ *+100
 
         cmpw [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -528,7 +528,7 @@ start equ *+100
 
         eord [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -598,7 +598,7 @@ start equ *+100
 
         lde [,--u]
 #       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
+#           ^^^^^^ meta.brackets
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
@@ -641,7 +641,7 @@ start equ *+100
 
         ldf [,--u]
 #       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
+#           ^^^^^^ meta.brackets
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
@@ -682,7 +682,7 @@ start equ *+100
 
         ldw [,--u]
 #       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
+#           ^^^^^^ meta.brackets
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
@@ -737,7 +737,7 @@ start equ *+100
 
         ldq [,--u]
 #       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
+#           ^^^^^^ meta.brackets
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
@@ -795,7 +795,7 @@ start equ *+100
 
         muld [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -855,7 +855,7 @@ start equ *+100
 
         ord [,--u]
 #       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
+#           ^^^^^^ meta.brackets
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
@@ -946,7 +946,7 @@ start equ *+100
 
         sbcd [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -994,7 +994,7 @@ start equ *+100
 
         ste [,--u]
 #       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
+#           ^^^^^^ meta.brackets
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
@@ -1025,7 +1025,7 @@ start equ *+100
 
         stf [,--u]
 #       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
+#           ^^^^^^ meta.brackets
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
@@ -1056,7 +1056,7 @@ start equ *+100
 
         stw [,--u]
 #       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
+#           ^^^^^^ meta.brackets
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
@@ -1092,7 +1092,7 @@ start equ *+100
 
         stq [,--u]
 #       ^^^ keyword.operator
-#           ^^^^^^ meta.brackets.asm
+#           ^^^^^^ meta.brackets
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^^ keyword.operator.arithmetic
@@ -1136,7 +1136,7 @@ start equ *+100
 
         sube [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -1184,7 +1184,7 @@ start equ *+100
 
         subf [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -1232,7 +1232,7 @@ start equ *+100
 
         subw [,--u]
 #       ^^^^ keyword.operator
-#            ^^^^^^ meta.brackets.asm
+#            ^^^^^^ meta.brackets
 #            ^ punctuation.section.brackets.begin
 #             ^ operator.separator
 #              ^^ keyword.operator.arithmetic
@@ -1264,24 +1264,24 @@ start equ *+100
         tfm s+,x
 #       ^^^ keyword.operator
 #           ^ variable.language.register
-#            ^ keyword.operator.arithmetic.asm
+#            ^ keyword.operator.arithmetic
 #             ^ operator.separator
 #              ^ variable.language.register
 
         tfm u-,y-
 #       ^^^ keyword.operator
 #           ^ variable.language.register
-#            ^ keyword.operator.arithmetic.asm
+#            ^ keyword.operator.arithmetic
 #             ^ operator.separator
 #              ^ variable.language.register
-#               ^ keyword.operator.arithmetic.asm
+#               ^ keyword.operator.arithmetic
 
         tfm d,u+
 #       ^^^ keyword.operator
 #           ^ variable.language.register
 #            ^ operator.separator
 #             ^ variable.language.register
-#              ^ keyword.operator.arithmetic.asm
+#              ^ keyword.operator.arithmetic
 
 
 ;--------------------------------------------------------------------

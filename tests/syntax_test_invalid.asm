@@ -1,5 +1,5 @@
 # SYNTAX TEST "Packages/Assembly-6809/Assembly-6809.sublime-syntax"
-# <- source.asm.6809
+# <- source.mc6809
 
 
 ; invalid instructions
@@ -81,32 +81,32 @@
 
         tfm x+,x+ comment
 #       ^^^ keyword.operator
-;           ^^^^^ invalid.illegal.variable.language.register.asm.6809
+;           ^^^^^ invalid.illegal.variable.language.register
 ;                 ^^^^^^^ comment.line
 
         tfm u+,u+ comment
 #       ^^^ keyword.operator
-;           ^^^^^ invalid.illegal.variable.language.register.asm.6809
+;           ^^^^^ invalid.illegal.variable.language.register
 ;                 ^^^^^^^ comment.line
 
         tfm s+,s+ comment
 #       ^^^ keyword.operator
-;           ^^^^^ invalid.illegal.variable.language.register.asm.6809
+;           ^^^^^ invalid.illegal.variable.language.register
 ;                 ^^^^^^^ comment.line
 
         tfm d+,d+ comment
 #       ^^^ keyword.operator
-;           ^^^^^ invalid.illegal.variable.language.register.asm.6809
+;           ^^^^^ invalid.illegal.variable.language.register
 ;                 ^^^^^^^ comment.line
 
         tfm a+,b+ comment
 #       ^^^ keyword.operator
-#           ^^^^^ invalid.illegal.variable.language.register.asm.6809
+#           ^^^^^ invalid.illegal.variable.language.register
 #                 ^^^^^^^ comment.line
 
         tfm w,x+ comment
 #       ^^^ keyword.operator
-#           ^^^^ invalid.illegal.variable.language.register.asm.6809
+#           ^^^^ invalid.illegal.variable.language.register
 #                ^^^^^^^ comment.line
 
         ldmd #256 comment

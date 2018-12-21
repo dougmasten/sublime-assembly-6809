@@ -1,5 +1,5 @@
 # SYNTAX TEST "Packages/Assembly-6809/Assembly-6809.sublime-syntax"
-# <- source.asm.6809
+# <- source.mc6809
 
 
 ; Indexed addressing mode
@@ -160,96 +160,96 @@
         lda ,x+ comment
 #           ^ operator.separator
 #            ^ variable.language.register
-#             ^ keyword.operator.arithmetic.asm
+#             ^ keyword.operator.arithmetic
 #               ^^^^^^^ comment.line
 
         lda ,x++ comment
 #           ^ operator.separator
 #            ^ variable.language.register
-#             ^^ keyword.operator.arithmetic.asm
+#             ^^ keyword.operator.arithmetic
 #                ^^^^^^^ comment.line
 
         lda ,-x comment
 #           ^ operator.separator
-#            ^ keyword.operator.arithmetic.asm
+#            ^ keyword.operator.arithmetic
 #             ^ variable.language.register
 #               ^^^^^^^ comment.line
 
         lda ,--x comment
 #           ^ operator.separator
-#            ^^ keyword.operator.arithmetic.asm
+#            ^^ keyword.operator.arithmetic
 #              ^ variable.language.register
 #                ^^^^^^^ comment.line
 
         lda ,y+ comment
 #           ^ operator.separator
 #            ^ variable.language.register
-#             ^ keyword.operator.arithmetic.asm
+#             ^ keyword.operator.arithmetic
 #               ^^^^^^^ comment.line
 
         lda ,y++ comment
 #           ^ operator.separator
 #            ^ variable.language.register
-#             ^^ keyword.operator.arithmetic.asm
+#             ^^ keyword.operator.arithmetic
 #                ^^^^^^^ comment.line
 
         lda ,-y comment
 #           ^ operator.separator
-#            ^ keyword.operator.arithmetic.asm
+#            ^ keyword.operator.arithmetic
 #             ^ variable.language.register
 #               ^^^^^^^ comment.line
 
         lda ,--y comment
 #           ^ operator.separator
-#            ^^ keyword.operator.arithmetic.asm
+#            ^^ keyword.operator.arithmetic
 #              ^ variable.language.register
 #                ^^^^^^^ comment.line
 
         lda ,u+ comment
 #           ^ operator.separator
 #            ^ variable.language.register
-#             ^ keyword.operator.arithmetic.asm
+#             ^ keyword.operator.arithmetic
 #               ^^^^^^^ comment.line
 
         lda ,u++ comment
 #           ^ operator.separator
 #            ^ variable.language.register
-#             ^^ keyword.operator.arithmetic.asm
+#             ^^ keyword.operator.arithmetic
 #                ^^^^^^^ comment.line
 
         lda ,-u comment
 #           ^ operator.separator
-#            ^ keyword.operator.arithmetic.asm
+#            ^ keyword.operator.arithmetic
 #             ^ variable.language.register
 #               ^^^^^^^ comment.line
 
         lda ,--u comment
 #           ^ operator.separator
-#            ^^ keyword.operator.arithmetic.asm
+#            ^^ keyword.operator.arithmetic
 #              ^ variable.language.register
 #                ^^^^^^^ comment.line
 
         lda ,s+ comment
 #           ^ operator.separator
 #            ^ variable.language.register
-#             ^ keyword.operator.arithmetic.asm
+#             ^ keyword.operator.arithmetic
 #               ^^^^^^^ comment.line
 
         lda ,s++ comment
 #           ^ operator.separator
 #            ^ variable.language.register
-#             ^^ keyword.operator.arithmetic.asm
+#             ^^ keyword.operator.arithmetic
 #                ^^^^^^^ comment.line
 
         lda ,-s comment
 #           ^ operator.separator
-#            ^ keyword.operator.arithmetic.asm
+#            ^ keyword.operator.arithmetic
 #             ^ variable.language.register
 #               ^^^^^^^ comment.line
 
         lda ,--s comment
 #           ^ operator.separator
-#            ^^ keyword.operator.arithmetic.asm
+#            ^^ keyword.operator.arithmetic
 #              ^ variable.language.register
 #                ^^^^^^^ comment.line
 
@@ -257,7 +257,7 @@
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^ variable.language.register
-#              ^^ keyword.operator.arithmetic.asm
+#              ^^ keyword.operator.arithmetic
 #                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
@@ -265,7 +265,7 @@
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^ variable.language.register
-#              ^^ keyword.operator.arithmetic.asm
+#              ^^ keyword.operator.arithmetic
 #                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
@@ -273,7 +273,7 @@
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^ variable.language.register
-#              ^^ keyword.operator.arithmetic.asm
+#              ^^ keyword.operator.arithmetic
 #                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
@@ -281,14 +281,14 @@
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^ variable.language.register
-#              ^^ keyword.operator.arithmetic.asm
+#              ^^ keyword.operator.arithmetic
 #                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         lda [,--x] comment
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
-#             ^^ keyword.operator.arithmetic.asm
+#             ^^ keyword.operator.arithmetic
 #               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
@@ -296,7 +296,7 @@
         lda [,--y] comment
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
-#             ^^ keyword.operator.arithmetic.asm
+#             ^^ keyword.operator.arithmetic
 #               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
@@ -304,7 +304,7 @@
         lda [,--u] comment
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
-#             ^^ keyword.operator.arithmetic.asm
+#             ^^ keyword.operator.arithmetic
 #               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
@@ -312,7 +312,7 @@
         lda [,--s] comment
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
-#             ^^ keyword.operator.arithmetic.asm
+#             ^^ keyword.operator.arithmetic
 #               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
@@ -323,12 +323,12 @@
         lda ,w++ comment
 #           ^ operator.separator
 #            ^ variable.language.register
-#             ^^ keyword.operator.arithmetic.asm
+#             ^^ keyword.operator.arithmetic
 #                ^^^^^^^ comment.line
 
         lda ,--w comment
 #           ^ operator.separator
-#            ^^ keyword.operator.arithmetic.asm
+#            ^^ keyword.operator.arithmetic
 #              ^ variable.language.register
 #                ^^^^^^^ comment.line
 
@@ -336,14 +336,14 @@
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^ variable.language.register
-#              ^^ keyword.operator.arithmetic.asm
+#              ^^ keyword.operator.arithmetic
 #                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line
 
         lda [,--w] comment
 #           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
-#             ^^ keyword.operator.arithmetic.asm
+#             ^^ keyword.operator.arithmetic
 #               ^ variable.language.register
 #                ^ punctuation.section.brackets.end
 #                  ^^^^^^^ comment.line

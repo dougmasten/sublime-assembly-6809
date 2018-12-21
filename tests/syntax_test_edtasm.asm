@@ -1,5 +1,5 @@
 # SYNTAX TEST "Packages/Assembly-6809/Assembly-6809.sublime-syntax"
-# <- source.asm.6809
+# <- source.mc6809
 
 ; Edtasm assembly file
 

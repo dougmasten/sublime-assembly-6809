@@ -1,5 +1,5 @@
 # SYNTAX TEST "Packages/Assembly-6809/Assembly-6809.sublime-syntax"
-# <- source.asm.6809
+# <- source.mc6809
 
 ; Tests for CCASM 6809/6309 Cross Assembler for Windows by Roger Taylor
 

@@ -1,5 +1,5 @@
 # SYNTAX TEST "Packages/Assembly-6809/Assembly-6809.sublime-syntax"
-# <- source.asm.6809
+# <- source.mc6809
 
 ;--------------------------------------------------------------------
  include filename
@@ -16,7 +16,7 @@
 ;--------------------------------------------------------------------
  end expr comment
 #^^^ support.function.directive.misc
-#    ^^^^ constant.other.asm.6809
+#    ^^^^ constant.other
 #         ^^^^^^^ comment.line
 
  end $2000+$200 comment

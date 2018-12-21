@@ -8,7 +8,7 @@ file_extensions:
   - src
   - s
 
-scope: source.asm.6809
+scope: source.mc6809
 
 variables:
   num_bin: '(?:[01][01]*)'
@@ -64,16 +64,16 @@ contexts:
 
   comments:
     - match: '(?:([*;])).*$\n?'
-      scope: comment.line.asm.6809
+      scope: comment.line.mc6809
       captures:
-        1: punctuation.definition.comment.asm.6809
+        1: punctuation.definition.comment.mc6809
       pop: true
 
   comments-eol:
     - include: skip-white-spaces
     - include: comments
     - match: '.*$'
-      scope: comment.line.asm.6809
+      scope: comment.line.mc6809
       pop: true
 
 
@@ -101,14 +101,14 @@ contexts:
 
     # Line begins with a comment
     - match: '([*;#]).*$'
-      scope: comment.line.asm.6809
+      scope: comment.line.mc6809
       captures:
-        1: punctuation.definition.comment.asm.6809
+        1: punctuation.definition.comment.mc6809
       pop: true
 
     # Label
     - match: '{{symbol_id}}'
-      scope: entity.name.type.constant.asm.6809
+      scope: entity.name.type.constant.mc6809
       set:
         - match: '\s+'
           set:
@@ -129,7 +129,7 @@ contexts:
 
     # Use for debugging. It should not match anything.
     #- match: '.*$'
-    #  scope: invalid.illegal.entity.name.type.constant.asm.6809
+    #  scope: invalid.illegal.entity.name.type.constant.mc6809
 
 
   column_2:
@@ -149,7 +149,7 @@ contexts:
     #  pop: true
     # No match. Mark as invalid
     # - match: \S*$?
-    #   scope: invalid.keyword.operator.asm.6809
+    #   scope: invalid.keyword.operator.mc6809
     #   set: comments-eol
 
 
@@ -163,27 +163,27 @@ contexts:
              (clr|com|dec|inc|tst)[abdefw]|
              (p(sh|ul)[su]|ro[lr]|lsr)w
         )(?!\S)
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set: comments-eol
 
     # Branch instructions
     - match: (?i)l?b([cv][cs]|eq|gt|h[is]|l[ost]|r[an]|mi|pl|sr|[gnl]e)(?!\S)
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set:
         - match: '<'
-          scope: constant.other.asm.6809
+          scope: constant.other.mc6809
           set: comments-eol
         - match: '>'
-          scope: constant.other.asm.6809
+          scope: constant.other.mc6809
           set: comments-eol
         - match: '{{symbol_id}}'
-          scope: constant.other.asm.6809
+          scope: constant.other.mc6809
           set: comments-eol
         - include: line-ending
 
     # Jump instructions
     - match: (?i)jmp|jsr(?!\S)
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set:
         - match: '\s*'
           set:
@@ -192,14 +192,14 @@ contexts:
             - include: address-extended
             - include: expr
             - match: '\S*'
-              scope: invalid.illegal.variable.language.register.asm.6809
+              scope: invalid.illegal.variable.language.register.mc6809
               set: comments-eol
             - include: line-ending
         - include: line-ending
 
     # Addressing modes: Immediate #i8
     - match: (?i)(and|or)cc|(bit|ld)md|cwai(?!\S)
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set:
         - match: '\s*'
           set:
@@ -209,26 +209,26 @@ contexts:
 
     # Addressing modes: Immediate r0,r1
     - match: (?i)(ad[cd]|and|eor|cmp|or|s(bc|ub)|tf)r|exg(?!\S)
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set:
         - match: '\s*'
           set:
             - match: (?i)(?:(?={{all_registers}},{{all_registers}}))
               set: highlight-registers
             - match: '\S*'
-              scope: invalid.illegal.variable.language.register.asm.6809
+              scope: invalid.illegal.variable.language.register.mc6809
               set: comments-eol
             - include: line-ending
         - include: line-ending
 
     # Addressing modes: INSTRUCTION #i8;EA
     - match: (?i)[aeot]im(?!\S)
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set:
         - match: '\s*'
           set:
             - match: '#'
-              scope: keyword.operator.immediate.asm.6809
+              scope: keyword.operator.immediate.mc6809
               set:
                 - include: numbers
                 - include: line-ending
@@ -246,7 +246,7 @@ contexts:
             ldq|
             muld
         )(?!\S)
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set:
         - match: '\s*'
           set:
@@ -258,7 +258,7 @@ contexts:
             - match: ''
               set: comments-eol
             - match: '\S*'
-              scope: invalid.illegal.variable.language.register.asm.6809
+              scope: invalid.illegal.variable.language.register.mc6809
               set: comments-eol
             - include: line-ending
         - include: line-ending
@@ -266,7 +266,7 @@ contexts:
     # Addressing mode: Direct r,sBit,dBit,addr
     # TODO!
     - match: '(?i)b(i?and|(i?e|i)?or)|(ld|st)bt(?!\S)'
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set:
         - match: '\s*'
           set:
@@ -282,7 +282,7 @@ contexts:
             clr|com|dec|inc|neg|tst|
             st[abdefqsuwxy]
         )(?!\S)
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set:
         - match: '\s*'
           set:
@@ -293,14 +293,14 @@ contexts:
             - match: ''
               set: comments-eol
             - match: '\S*'
-              scope: invalid.illegal.variable.language.register.asm.6809
+              scope: invalid.illegal.variable.language.register.mc6809
               set: comments-eol
             - include: line-ending
         - include: line-ending
 
     # Addressing modes: Indexed
     - match: '(?i)lea[suxy](?!\S)'
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set:
         - match: '\s*'
           set:
@@ -309,14 +309,14 @@ contexts:
             - match: ''
               set: comments-eol
             - match: '\S*'
-              scope: invalid.illegal.variable.language.register.asm.6809
+              scope: invalid.illegal.variable.language.register.mc6809
               set: comments-eol
             - include: line-ending
         - include: line-ending
 
     # Instructions: PSHS and PULS
     - match: '(?i)p(sh|ul)s(?!\S)'
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set:
         - match: '\s*'
           set:
@@ -328,7 +328,7 @@ contexts:
 
     # Instructions: PSHU and PULU
     - match: '(?i)p(sh|ul)u(?!\S)'
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set:
         - match: '\s*'
           set:
@@ -340,7 +340,7 @@ contexts:
 
     # Instruction: TFM
     - match: (?i)tfm(?!\S)
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set:
         - match: '\s*'
           set:
@@ -355,14 +355,14 @@ contexts:
                 )
               set: highlight-registers
             - match: '\S*'
-              scope: invalid.illegal.variable.language.register.asm.6809
+              scope: invalid.illegal.variable.language.register.mc6809
               set: comments-eol
             - include: line-ending
         - include: line-ending
 
     # Convenience instructions (supported by lwasm)
     - match: (?i)(asr|clr|com|ls[lr]|neg|tst)q|(lsl|neg)[ef]|negw(?!\S)
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set: comments-eol
 
     # 6800 source code compatibility
@@ -378,21 +378,21 @@ contexts:
              wai
            )
         )(?!\S)
-      scope: keyword.operator.asm.6809
+      scope: keyword.operator.mc6809
       set: comments-eol
 
 
   # Invalid instructions
   invalid:
     - match: (?i)lslw(?!\S)
-      scope: invalid.keyword.operator.asm.6809
+      scope: invalid.keyword.operator.mc6809
       set: comments-eol
 
 
   # Addressing mode - Immediate
   address-immediate:
     - match: \#
-      scope: keyword.operator.immediate.asm.6809
+      scope: keyword.operator.immediate.mc6809
       set:
         - include: expr
         - include: line-ending
@@ -402,7 +402,7 @@ contexts:
   # Addressing mode - Direct (8-bit offset)
   address-direct:
     - match: '<'
-      scope: keyword.operator.direct.asm.6809
+      scope: keyword.operator.direct.mc6809
       set:
         - include: expr
         - include: line-ending
@@ -413,7 +413,7 @@ contexts:
   # Addressing mode - Extended (16-bit offset)
   address-extended:
     - match: '>'
-      scope: keyword.operator.extended.asm.6809
+      scope: keyword.operator.extended.mc6809
       set:
         - include: expr
         - include: line-ending
@@ -449,10 +449,10 @@ contexts:
       set: highlight-registers-brackets
     # Extended Indirect
     - match: '\['
-      scope: meta.brackets.asm.6809 punctuation.section.brackets.begin.asm.6809
+      scope: meta.brackets.mc6809 punctuation.section.brackets.begin.mc6809
       set:
         - match: '\]'
-          scope: meta.brackets.asm.6809 punctuation.section.brackets.end.asm.6809
+          scope: meta.brackets.mc6809 punctuation.section.brackets.end.mc6809
           set: comments-eol
         - include: numbers
         - include: labels
@@ -469,11 +469,11 @@ contexts:
   # Highlight string of registers and commas
   highlight-registers:
     - match: '{{all_registers}}'
-      scope: variable.language.register.asm.6809
+      scope: variable.language.register.mc6809
     - match: ','
-      scope: operator.separator.asm.6809
+      scope: operator.separator.mc6809
     - match: '[\+\-]'
-      scope: keyword.operator.arithmetic.asm.6809
+      scope: keyword.operator.arithmetic.mc6809
     - match: \s
       set: comments-eol
     - include: line-ending
@@ -482,15 +482,15 @@ contexts:
   # Highlight string of registers and commas between brackets
   highlight-registers-brackets:
     - match: '{{all_registers}}'
-      scope: meta.brackets.asm.6809 variable.language.register.asm.6809
+      scope: meta.brackets.mc6809 variable.language.register.mc6809
     - match: ','
-      scope: meta.brackets.asm.6809 operator.separator.asm.6809
+      scope: meta.brackets.mc6809 operator.separator.mc6809
     - match: '[\+\-]'
-      scope: meta.brackets.asm.6809 keyword.operator.arithmetic.asm.6809
+      scope: meta.brackets.mc6809 keyword.operator.arithmetic.mc6809
     - match: '\['
-      scope: meta.brackets.asm.6809 punctuation.section.brackets.begin.asm.6809
+      scope: meta.brackets.mc6809 punctuation.section.brackets.begin.mc6809
     - match: '\]'
-      scope: meta.brackets.asm.6809 punctuation.section.brackets.end.asm.6809
+      scope: meta.brackets.mc6809 punctuation.section.brackets.end.mc6809
     - match: \s
       set: comments-eol
     - include: line-ending
@@ -499,7 +499,7 @@ contexts:
   # Invalid string of registers
   invalid-registers:
     - match: '[\S\w]'
-      scope: invalid.variable.language.register.asm.6809
+      scope: invalid.variable.language.register.mc6809
     - match: \s
       set: comments-eol
     - include: line-ending
@@ -507,14 +507,14 @@ contexts:
 
   pragmas:
     - match: '(?i)pragma|opt|\*pragma(push|pop)?(?!\S)'
-      scope: support.function.directive.assembler.asm.6809
+      scope: support.function.directive.assembler.mc6809
       set:
         - match: '\s*'
           set:
             - match: '{{pragma_options}}'
-              scope: keyword.operator.asm.6809
+              scope: keyword.operator.mc6809
             - match: ','
-              scope: operator.separator.asm.6809
+              scope: operator.separator.mc6809
             - match: ''
               set: comments-eol
             - include: line-ending
@@ -524,13 +524,13 @@ contexts:
   directives:
     # data directives with expr
     - match: (?i)f[cdq]b|[zr]m[bdq]|\.(d[bsw]|4?byte|word|quad|blkb|rs)(?!\S)
-      scope: storage.type.asm.6809
+      scope: storage.type.mc6809
       set:
         - match: '\s*'
           set:
             - include: expr
             - match: ','
-              scope: operator.separator.asm.6809
+              scope: operator.separator.mc6809
             - include: line-ending
             - match: ''
               set: comments-eol
@@ -538,18 +538,18 @@ contexts:
 
     # data directives with strings
     - match: (?i)fc[cns]|\.(asci[isz]|str[sz]?)(?!\S)
-      scope: storage.type.asm.6809
+      scope: storage.type.mc6809
       set: strings
 
     # data directives with misc
     - match: (i?)fill(?!\S)
-      scope: storage.type.asm.6809
+      scope: storage.type.mc6809
       set:
         - match: '\s*'
           set:
             - include: expr
             - match: ','
-              scope: operator.separator.asm.6809
+              scope: operator.separator.mc6809
             - include: line-ending
             - match: ''
               set: comments-eol
@@ -557,7 +557,7 @@ contexts:
 
     # Address Definition
     - match: '(?i)(re)?org|equ|set(dp)?|align(?!\S)'
-      scope: support.function.address.asm.6809
+      scope: support.function.address.mc6809
       set:
         - match: '\s*'
           set:
@@ -569,7 +569,7 @@ contexts:
 
     # Conditional assembly with expr
     - match: '(?i)if(eq|ne|gt|lt|le|def|ndef)?(?!\S)'
-      scope: support.function.conditional.asm.6809
+      scope: support.function.conditional.mc6809
       set:
         - match: '\s*'
           set:
@@ -581,29 +581,29 @@ contexts:
 
     # Conditional assembly with pragma
     - match: '(?i)ifpragma(?!\S)'
-      scope: support.function.conditional.asm.6809
+      scope: support.function.conditional.mc6809
       set:
         - match: '\s*'
           set:
             - match: '{{pragma_options}}'
-              scope: keyword.operator.asm.6809
+              scope: keyword.operator.mc6809
               set: comments-eol
             - include: line-ending
         - include: line-ending
 
     # Conditional assembly
     - match: '(?i)else|endc(?!\S)'
-      scope: support.function.conditional.asm.6809
+      scope: support.function.conditional.mc6809
       set: comments-eol
 
     # Conditional assembly (ccasm)
     - match: (?i)(end(if|p)|ifp[12]|ifge|cond)(?!\S)
-      scope: support.function.conditional.asm.6809
+      scope: support.function.conditional.mc6809
       set: comments-eol
 
     # Miscelaneous Directives
     - match: '(?i)include(bin)?|use|end(?!\S)'
-      scope: support.function.directive.misc.asm.6809
+      scope: support.function.directive.misc.mc6809
       set:
         - match: '\s*'
           set:
@@ -617,13 +617,13 @@ contexts:
 
     # Misc directives with string
     - match: '(?i)error|warning(?!\S)'
-      scope: support.function.directive.misc.asm.6809
+      scope: support.function.directive.misc.mc6809
       set: strings
     - match: '(?i).module(?!\S)'
-      scope: support.function.directive.misc.asm.6809
+      scope: support.function.directive.misc.mc6809
       set: strings
     - match: '(?i)nam|ttl(?!\S)'
-      scope: support.function.directive.misc.asm.6809
+      scope: support.function.directive.misc.mc6809
       set: strings
 
     # end statement for macros and structures
@@ -634,12 +634,12 @@ contexts:
   # OS9 Target Directives
   os9:
     - match: '(?i)os9|e?mod(?!\S)'
-      scope: support.function.directive.asm.6809
+      scope: support.function.directive.mc6809
       set:
         - match: '\s*'
           set:
             - match: '{{symbol_id}}'
-              scope: constant.other.asm.6809
+              scope: constant.other.mc6809
             - include: expr
             - match: ''
               set: comments-eol
@@ -650,33 +650,33 @@ contexts:
   # Macro directives
   macros:
     - match: (?i)macro(?!\S)
-      scope: support.function.directive.macro.asm.6809
+      scope: support.function.directive.macro.mc6809
       set:
         - match: (?i)noexpand(?!\S)
-          scope: support.function.directive.macro.asm.6809
+          scope: support.function.directive.macro.mc6809
           set: comments-eol
         - include: comments-eol
   end-macros:
     - match: (?i)endm(?!\S)
-      scope: support.function.directive.macro.asm.6809
+      scope: support.function.directive.macro.mc6809
       set: comments-eol
 
 
   # Structures directives
   structures:
     - match: (?i)struct(?!\S)
-      scope: support.function.directive.structure.asm.6809
+      scope: support.function.directive.structure.mc6809
       set: comments-eol
   end-structures:
     - match: (?i)ends(truct)?(?!\S)
-      scope: support.function.directive.structure.asm.6809
+      scope: support.function.directive.structure.mc6809
       set: comments-eol
 
 
   # Emulator extensions for MAME
   emulator-extensions:
     - match: '(?i)break|log(?!\S)'
-      scope: support.function.directive.asm.6809
+      scope: support.function.directive.mc6809
       set: comments-eol
 
 
@@ -690,55 +690,55 @@ contexts:
   numbers:
     # Binary number: Prefixed with "%" or suffixed with "b" or "B".
     - match: (?:(?:\%{{num_bin}})|(?:{{num_bin}}[bB]))
-      scope: constant.numeric.binary.asm.6809
+      scope: constant.numeric.binary.mc6809
 
     # Octal number: Prefixed with "@" or suffixed with "Q", "q", "O" or "o".
     - match: (?:(?:\@{{num_oct}})|(?:{{num_oct}}[oqOQ]))
-      scope: constant.numeric.octal.asm.6809
+      scope: constant.numeric.octal.mc6809
 
     # Hexadecimal number: Prefixed with "$", "0x" or "0X", or suffixed with "H".
     - match: (?i)(?:(?:(0x|\$){{num_hex}})|(?:{{num_hex}}h))
-      scope: constant.numeric.hexadecimal.asm.6809
+      scope: constant.numeric.hexadecimal.mc6809
 
     # Decimal number: May be prefixed with "&" but is not required.
     - match: (?:(?:\&{{num_dec}})|(?:{{num_dec}}))
-      scope: constant.numeric.decimal.asm.6809
+      scope: constant.numeric.decimal.mc6809
 
 
   operators:
     - match: '[\+\-\*\/]'
-      scope: keyword.operator.arithmetic.asm.6809
+      scope: keyword.operator.arithmetic.mc6809
     - match: '[|&^~!]|<<|>>'
-      scope: keyword.operator.bitwise.asm.6809
+      scope: keyword.operator.bitwise.mc6809
     - match: ','
-      scope: operator.separator.asm.6809
+      scope: operator.separator.mc6809
 
 
   labels:
     - match: '{{symbol_id}}'
-      scope: constant.other.asm.6809
+      scope: constant.other.mc6809
 
 
   strings:
     - include: skip-white-spaces
     - match: \"
-      scope: punctuation.definition.string.begin.asm.6809
+      scope: punctuation.definition.string.begin.mc6809
       set:
-        - meta_scope: string.quoted.double.asm.6809
+        - meta_scope: string.quoted.double.mc6809
         - match: \"
-          scope: punctuation.definition.string.end.asm.6809
+          scope: punctuation.definition.string.end.mc6809
           set: comments-eol
         - include: line-ending
     - match: \'
-      scope: punctuation.definition.string.begin.asm.6809
+      scope: punctuation.definition.string.begin.mc6809
       set:
-        - meta_scope: string.quoted.single.asm.6809
+        - meta_scope: string.quoted.single.mc6809
         - match: \'
-          scope: punctuation.definition.string.end.asm.6809
+          scope: punctuation.definition.string.end.mc6809
           set: comments-eol
         - include: line-ending
     - match: '.*$'
-      scope: string.unquoted.asm.6809
+      scope: string.unquoted.mc6809
       pop: true
     - include: line-ending
 
@@ -746,7 +746,7 @@ contexts:
   # lwasm assembly listing
   lwasm-listing:
     - match: '{{lwasm_list_id}}'
-      scope: comment.line.lwasm.asm.6809
+      scope: comment.line.lwasm.mc6809
       set: column_1
     #- include: bail-out
 
@@ -756,7 +756,7 @@ contexts:
     # Comment out line numbers
     - match: '{{edtasm_id}}'
       captures:
-        1: comment.line.edtasm.asm.6809
+        1: comment.line.edtasm.mc6809
       set: column_1
     #- include: bail-out
 
@@ -764,10 +764,10 @@ contexts:
   # Disassembly listing
   disassembly-listing:
     - match: '{{disassembly_id}}'
-      scope: comment.line.disasm.asm.6809
+      scope: comment.line.disasm.mc6809
       set:
         - match: '(\h\h)\s'
-          scope: comment.line.disasm.asm.6809
+          scope: comment.line.disasm.mc6809
         - match: \s*
           set: column_2
         - include: line-ending

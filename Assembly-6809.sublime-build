@@ -1,4 +1,4 @@
 {
     "shell_cmd": "lwasm \"$file\"",
-    "selector": "source.asm.6809",
+    "selector": "source.mc6809",
 }
