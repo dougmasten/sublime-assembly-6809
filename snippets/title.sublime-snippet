@@ -1,0 +1,16 @@
+<snippet>
+    <description>Title</description>
+    <content><![CDATA[
+;=============================================================================
+; Title          : $1
+; Description    : $2
+; Author         : $3
+; Date           : $4
+; Version        : $5
+;=============================================================================
+
+
+]]></content>
+    <tabTrigger>title</tabTrigger>
+    <scope>source.mc6809</scope>
+</snippet>
