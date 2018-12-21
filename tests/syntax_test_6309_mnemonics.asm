@@ -447,7 +447,6 @@ start equ *+100
 #       ^^^^ keyword.operator
 
 
-
 ;--------------------------------------------------------------------
         comw
 #       ^^^^ keyword.operator
@@ -578,7 +577,6 @@ start equ *+100
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
 
-
         lde [EXT]
 #       ^^^ keyword.operator
 #           ^ punctuation.section.brackets.begin
@@ -616,11 +614,9 @@ start equ *+100
 #           ^ keyword.operator.immediate
 #            ^^^ constant.numeric.hexadecimal
 
-
         ldf start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-
 
         ldf [EXT]
 #       ^^^ keyword.operator
@@ -712,11 +708,9 @@ start equ *+100
 #           ^ keyword.operator.immediate
 #            ^^^^^^^^^ constant.numeric.hexadecimal
 
-
         ldq start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-
 
         ldq [EXT]
 #       ^^^ keyword.operator
@@ -747,7 +741,6 @@ start equ *+100
         ldq $ffff
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
-
 
 
 ;--------------------------------------------------------------------
@@ -812,7 +805,6 @@ start equ *+100
 #       ^^^^ keyword.operator
 
 
-
 ;--------------------------------------------------------------------
         oim #$c0;4,u
 #       ^^^ keyword.operator
@@ -834,7 +826,6 @@ start equ *+100
         ord start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other
-
 
         ord [EXT]
 #       ^^^ keyword.operator
@@ -903,7 +894,6 @@ start equ *+100
 ;--------------------------------------------------------------------
         rolw
 #       ^^^^ keyword.operator
-
 
 
 ;--------------------------------------------------------------------
@@ -1309,4 +1299,3 @@ start equ *+100
 ;--------------------------------------------------------------------
         tstw
 #       ^^^^ keyword.operator
-
