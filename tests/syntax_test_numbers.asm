@@ -211,9 +211,3 @@
 #        ^^^ constant.numeric.decimal
 #           ^^ keyword.operator.arithmetic
 #             ^ constant.numeric.decimal
-
-
-
- source.c meta.preprocessor.macro.c keyword.operator.arithmetic.c
-
-source.c keyword.operator.arithmetic.c
