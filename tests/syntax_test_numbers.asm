@@ -198,12 +198,22 @@
 ; As of LWASM 2.5, the operators && and || are recognized for boolean and and
 ; boolean or respectively. They will return either 0 or 1 (false or true). They
 ; have the lowest precedence of all the binary operators.
-    ldd #100&&1
-
+    ldd #1&&3
+#   ^^^ keyword.operator
+#       ^ keyword.operator.immediate
+#        ^ constant.numeric.decimal
+#         ^^ keyword.operator.arithmetic
+#           ^ constant.numeric.decimal
 
     ldd #100||1
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^^^ constant.numeric.decimal
-#           ^^ keyword.operator.bitwise
+#           ^^ keyword.operator.arithmetic
 #             ^ constant.numeric.decimal
+
+
+
+ source.c meta.preprocessor.macro.c keyword.operator.arithmetic.c
+
+source.c keyword.operator.arithmetic.c

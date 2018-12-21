@@ -706,6 +706,10 @@ contexts:
 
 
   operators:
+    - match: '\&&'
+      scope: keyword.operator.arithmetic.mc6809
+    - match: '\||'
+      scope: keyword.operator.arithmetic.mc6809
     - match: '[\+\-\*\/]'
       scope: keyword.operator.arithmetic.mc6809
     - match: '[|&^~!]|<<|>>'
