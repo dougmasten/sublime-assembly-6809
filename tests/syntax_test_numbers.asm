@@ -151,53 +151,45 @@
 ; operator. For completeness, a unary positive (+) is supported though it is a
 ; no-op. LWASM also supports using |, &, and ^ for bitwise or, bitwise and, and
 ; bitwise exclusive or respectively.
-    ldd #444-33 comment
+    ldd #444-33
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^^^ constant.numeric.decimal
 #           ^ keyword.operator.arithmetic
 #            ^^ constant.numeric.decimal
-#               ^^^^^^^ comment.line
 
-    ldd #123+45 comment
+    ldd #123+45
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^^^ constant.numeric.decimal
 #           ^ keyword.operator.arithmetic
 #            ^^ constant.numeric.decimal
-#               ^^^^^^^ comment.line
 
-    ldd #100/10 comment
+    ldd #100/10
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^^^ constant.numeric.decimal
 #           ^ keyword.operator.arithmetic
 #            ^^ constant.numeric.decimal
-#               ^^^^^^^ comment.line
 
-
-    ldd #100%10 comment
+    ldd #100%10
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
-;        ^^^ constant.numeric.decimal
+#        ^^^ constant.numeric.decimal
 ;           ^ keyword.operator.arithmetic
-;           ^^ constant.numeric.decimal
-;               ^^^^^^^ comment.line
+;            ^^ constant.numeric.decimal
 
-
-    ldd #-100 comment
+    ldd #-100
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^ keyword.operator.arithmetic
 #         ^^^ constant.numeric.decimal
-#             ^^^^^^^ comment.line
 
-    ldd #+100 comment
+    ldd #+100
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^ keyword.operator.arithmetic
 #         ^^^ constant.numeric.decimal
-#             ^^^^^^^ comment.line
 
 
 ; Operator precedence follows the usual rules. Multiplication, division, and
