@@ -6,43 +6,50 @@
     lda #%00001111
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
+#        ^ punctuation.definition.numeric.binary
 #        ^^^^^^^^^ constant.numeric.binary
 
     lda #00001111b
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^^^^^^^^^ constant.numeric.binary
+#                ^ punctuation.definition.numeric.binary
 
     lda #00001111B
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^^^^^^^^^ constant.numeric.binary
-
+#                ^ punctuation.definition.numeric.binary
 
 ; Octual numbers (Prefixed with a "@" or suffixed with "Q", "q", "O" or "o")
     lda #23Q
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^^^ constant.numeric.octal
+#          ^ punctuation.definition.numeric.octal
 
     lda #23q
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^^^ constant.numeric.octal
+#          ^ punctuation.definition.numeric.octal
 
     lda #23o
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^^^ constant.numeric.octal
+#          ^ punctuation.definition.numeric.octal
 
     lda #23O
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^^^ constant.numeric.octal
+#          ^ punctuation.definition.numeric.octal
 
     lda #@23
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
+#        ^ punctuation.definition.numeric.octal
 #        ^^^ constant.numeric.octal
 
 
@@ -66,6 +73,7 @@
     ldd #&2342
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
+#        ^ punctuation.definition.numeric.decimal
 #        ^^^^^ constant.numeric.decimal
 
     lda #2
@@ -88,33 +96,39 @@
     ldx #0xff20
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
+#        ^^ punctuation.definition.numeric.hexadecimal
 #        ^^^^^^ constant.numeric.hexadecimal
 
     ldy #0Xa3df
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
+#        ^^ punctuation.definition.numeric.hexadecimal
 #        ^^^^^^ constant.numeric.hexadecimal
 
     ldu #-0xa231
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^ keyword.operator.arithmetic
+#         ^^ punctuation.definition.numeric.hexadecimal
 #         ^^^^^^ constant.numeric.hexadecimal
 
     lds #0x2342
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
+#        ^^ punctuation.definition.numeric.hexadecimal
 #        ^^^^^^ constant.numeric.hexadecimal
 
     ldq #2342h
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
-#        ^^^ constant.numeric.hexadecimal
+#        ^^^^^ constant.numeric.hexadecimal
+#            ^ punctuation.definition.numeric.hexadecimal
 
     ldw #42H
 #   ^^^ keyword.operator
 #       ^ keyword.operator.immediate
 #        ^^^ constant.numeric.hexadecimal
+#          ^ punctuation.definition.numeric.hexadecimal
 
 
 ; The ASCII value of a character can be included by prefixing it with a single

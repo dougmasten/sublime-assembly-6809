@@ -86,7 +86,7 @@ contexts:
     - match: '(?=^{{disassembly_id}})'
       push: disassembly-listing
 
-    # Lwasm assembly list output
+    # LWASM assembly list output
     - match: '(?=^{{lwasm_list_id}})'
       push: lwasm-listing
 
@@ -138,7 +138,7 @@ contexts:
     - include: pragmas
     - include: comments
     - include: emulator-extensions
-    - include: os9
+    - include: match-os9
     #- include: invalid
     #- match: ''
     #  pop: true
@@ -230,7 +230,7 @@ contexts:
             - match: '#'
               scope: keyword.operator.immediate.mc6809
               set:
-                - include: numbers
+                - include: match-integers
                 - include: line-ending
             - include: line-ending
         - include: line-ending
@@ -454,7 +454,7 @@ contexts:
         - match: '\]'
           scope: meta.brackets.mc6809 punctuation.section.brackets.end.mc6809
           set: comments-eol
-        - include: numbers
+        - include: match-integers
         - include: labels
         - include: line-ending
 
@@ -632,7 +632,7 @@ contexts:
 
 
   # OS9 Target Directives
-  os9:
+  match-os9:
     - match: '(?i)os9|e?mod(?!\S)'
       scope: support.function.directive.mc6809
       set:
@@ -682,46 +682,75 @@ contexts:
 
   expr:
     # TODO: add '()'
-    - include: numbers
-    - include: operators
+    - include: match-integers
+    - include: match-operators
     - include: labels
 
+  match-integers:
+    - include: match-binary-integer
+    - include: match-octal-integer
+    - include: match-hex-integer
+    - include: match-decimal-integer
 
-  numbers:
-    # Binary number: Prefixed with "%" or suffixed with "b" or "B".
-    - match: (?:(?:\%{{num_bin}})|(?:{{num_bin}}[bB]))
+  match-binary-integer:
+    - match: '(\%){{num_bin}}'
       scope: constant.numeric.binary.mc6809
+      captures:
+        1: punctuation.definition.numeric.binary.mc6809
+    - match: '{{num_bin}}([bB])'
+      scope: constant.numeric.binary.mc6809
+      captures:
+        1: punctuation.definition.numeric.binary.mc6809
 
-    # Octal number: Prefixed with "@" or suffixed with "Q", "q", "O" or "o".
-    - match: (?:(?:\@{{num_oct}})|(?:{{num_oct}}[oqOQ]))
+  match-octal-integer:
+    - match: '(\@){{num_oct}}'
       scope: constant.numeric.octal.mc6809
+      captures:
+        1: punctuation.definition.numeric.octal.mc6809
+    - match: '{{num_oct}}([oqOQ])'
+      scope: constant.numeric.octal.mc6809
+      captures:
+        1: punctuation.definition.numeric.octal.mc6809
 
-    # Hexadecimal number: Prefixed with "$", "0x" or "0X", or suffixed with "H".
-    - match: (?i)(?:(?:(0x|\$){{num_hex}})|(?:{{num_hex}}h))
+  match-hex-integer:
+    - match: '(0[Xx]){{num_hex}}'
       scope: constant.numeric.hexadecimal.mc6809
+      captures:
+        1: punctuation.definition.numeric.hexadecimal.mc6809
+    - match: '(\$){{num_hex}}'
+      scope: constant.numeric.hexadecimal.mc6809
+      captures:
+        1: punctuation.definition.numeric.hexadecimal.mc6809
+    - match: '{{num_hex}}([hH])'
+      scope: constant.numeric.hexadecimal.mc6809
+      captures:
+        1: punctuation.definition.numeric.hexadecimal.mc6809
 
-    # Decimal number: May be prefixed with "&" but is not required.
-    - match: (?:(?:\&{{num_dec}})|(?:{{num_dec}}))
+  match-decimal-integer:
+    - match: '(\&)?{{num_dec}}'
       scope: constant.numeric.decimal.mc6809
+      captures:
+        1: punctuation.definition.numeric.decimal.mc6809
 
-
-  operators:
-    - match: '\&&'
-      scope: keyword.operator.arithmetic.mc6809
-    - match: '\||'
-      scope: keyword.operator.arithmetic.mc6809
-    - match: '[\+\-\*\/]'
-      scope: keyword.operator.arithmetic.mc6809
-    - match: '[|&^~!]|<<|>>'
-      scope: keyword.operator.bitwise.mc6809
-    - match: ','
-      scope: operator.separator.mc6809
-
+  match-operators: [
+    {match: \&& , scope: keyword.operator.arithmetic.mc6809},
+    {match: \&  , scope: keyword.operator.arithmetic.mc6809},
+    {match: \|| , scope: keyword.operator.arithmetic.mc6809},
+    {match: \|  , scope: keyword.operator.arithmetic.mc6809},
+    {match: \+  , scope: keyword.operator.arithmetic.mc6809},
+    {match: \-  , scope: keyword.operator.arithmetic.mc6809},
+    {match: \*  , scope: keyword.operator.arithmetic.mc6809},
+    {match: /   , scope: keyword.operator.arithmetic.mc6809},
+    {match: \^  , scope: keyword.operator.arithmetic.mc6809},
+    {match: \~  , scope: keyword.operator.arithmetic.mc6809},
+    {match: \!  , scope: keyword.operator.arithmetic.mc6809},
+    {match: \<< , scope: keyword.operator.arithmetic.mc6809},
+    {match: \>> , scope: keyword.operator.arithmetic.mc6809}
+  ]
 
   labels:
     - match: '{{symbol_id}}'
       scope: constant.other.mc6809
-
 
   strings:
     - include: skip-white-spaces
@@ -747,13 +776,12 @@ contexts:
     - include: line-ending
 
 
-  # lwasm assembly listing
+  # LWASM assembly listing
   lwasm-listing:
     - match: '{{lwasm_list_id}}'
       scope: comment.line.lwasm.mc6809
       set: column_1
     #- include: bail-out
-
 
   # Edtasm file
   edtasm-listing:
@@ -763,7 +791,6 @@ contexts:
         1: comment.line.edtasm.mc6809
       set: column_1
     #- include: bail-out
-
 
   # Disassembly listing
   disassembly-listing:
