@@ -588,7 +588,7 @@ contexts:
         - include: line-ending
 
     # Conditional assembly with pragma
-    - match: '(?i)ifpragma(?!\S)'
+    - match: '(?i)if(pragma|opt)(?!\S)'
       scope: support.function.conditional.mc6809
       set:
         - match: '\s*'

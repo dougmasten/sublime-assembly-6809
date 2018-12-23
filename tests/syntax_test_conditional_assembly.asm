@@ -25,6 +25,11 @@
 
  ifpragma newsource
 #^^^^^^^^ support.function.conditional
+#         ^^^^^^^^^ keyword.operator
+
+ ifopt newsource
+#^^^^^ support.function.conditional
+#      ^^^^^^^^^ keyword.operator
 
  ifndef test
 #^^^^^^ support.function.conditional
