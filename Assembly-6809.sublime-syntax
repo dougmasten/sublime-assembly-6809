@@ -190,7 +190,7 @@ contexts:
             - include: address-direct
             - include: address-index
             - include: address-extended
-            - include: expr
+            - include: match-expr
             - match: '\S*'
               scope: invalid.illegal.variable.language.register.mc6809
               set: comments-eol
@@ -254,7 +254,7 @@ contexts:
             - include: address-direct
             - include: address-index
             - include: address-extended
-            - include: expr
+            - include: match-expr
             - match: ''
               set: comments-eol
             - match: '\S*'
@@ -289,7 +289,7 @@ contexts:
             - include: address-direct
             - include: address-index
             - include: address-extended
-            - include: expr
+            - include: match-expr
             - match: ''
               set: comments-eol
             - match: '\S*'
@@ -305,7 +305,7 @@ contexts:
         - match: '\s*'
           set:
             - include: address-index
-            - include: expr
+            - include: match-expr
             - match: ''
               set: comments-eol
             - match: '\S*'
@@ -394,7 +394,7 @@ contexts:
     - match: \#
       scope: keyword.operator.immediate.mc6809
       set:
-        - include: expr
+        - include: match-expr
         - include: line-ending
         - match: ''
           set: comments-eol
@@ -404,7 +404,7 @@ contexts:
     - match: '<'
       scope: keyword.operator.direct.mc6809
       set:
-        - include: expr
+        - include: match-expr
         - include: line-ending
         - match: '\S*'
           set: comments-eol
@@ -415,7 +415,7 @@ contexts:
     - match: '>'
       scope: keyword.operator.extended.mc6809
       set:
-        - include: expr
+        - include: match-expr
         - include: line-ending
         - match: '\S*'
           set: comments-eol
@@ -528,7 +528,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: expr
+            - include: match-expr
             - match: ','
               scope: operator.separator.mc6809
             - include: line-ending
@@ -547,7 +547,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: expr
+            - include: match-expr
             - match: ','
               scope: operator.separator.mc6809
             - include: line-ending
@@ -561,7 +561,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: expr
+            - include: match-expr
             - match: ''
               set: comments-eol
             - include: line-ending
@@ -573,7 +573,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: expr
+            - include: match-expr
             - match: ''
               set: comments-eol
             - include: line-ending
@@ -607,7 +607,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: expr
+            - include: match-expr
             - include: line-ending
             - match: ''
               set: comments-eol
@@ -640,7 +640,7 @@ contexts:
           set:
             - match: '{{symbol_id}}'
               scope: constant.other.mc6809
-            - include: expr
+            - include: match-expr
             - match: ''
               set: comments-eol
             - include: line-ending
@@ -680,10 +680,10 @@ contexts:
       set: comments-eol
 
 
-  expr:
-    # TODO: add '()'
+  match-expr:
     - include: match-integers
     - include: match-operators
+    - include: match-parens
     - include: labels
 
   match-integers:
@@ -747,6 +747,16 @@ contexts:
     {match: \<< , scope: keyword.operator.arithmetic.mc6809},
     {match: \>> , scope: keyword.operator.arithmetic.mc6809}
   ]
+
+  match-parens:
+    - match: \(
+      scope: punctuation.section.parens.begin.mc6809
+      push:
+        - match: \)
+          scope: punctuation.section.parens.end.mc6809
+          pop: true
+        - include: line-ending
+        - include: match-expr
 
   labels:
     - match: '{{symbol_id}}'

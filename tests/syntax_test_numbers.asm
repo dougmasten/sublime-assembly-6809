@@ -198,7 +198,30 @@
 ; addition and subtraction. To force a specific order of evaluation,
 ; parentheses can be used in the usual manner.
     ldd #(128+12)*25
-    ldd #(223+21)/4
+#   ^^^ keyword.operator
+#       ^ keyword.operator.immediate
+#        ^ punctuation.section.parens.begin
+#         ^^^ constant.numeric.decimal
+#            ^ keyword.operator.arithmetic
+#             ^^ constant.numeric.decimal
+#               ^ punctuation.section.parens.end
+#                ^ keyword.operator.arithmetic
+#                 ^^ constant.numeric.decimal
+
+    ldd #((223+21)/4)+$a0
+#   ^^^ keyword.operator
+#       ^ keyword.operator.immediate
+#        ^^ punctuation.section.parens.begin
+#          ^^^ constant.numeric.decimal
+#             ^ keyword.operator.arithmetic
+#              ^^ constant.numeric.decimal
+#                ^ punctuation.section.parens.end
+#                 ^ keyword.operator.arithmetic
+#                  ^ constant.numeric.decimal
+#                   ^ punctuation.section.parens.end
+#                    ^ keyword.operator.arithmetic
+#                     ^ punctuation.definition.numeric.hexadecimal
+#                     ^^^ constant.numeric.hexadecimal
 
 
 ; As of LWASM 2.5, the operators && and || are recognized for boolean and and
