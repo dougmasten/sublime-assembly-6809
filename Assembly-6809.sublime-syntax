@@ -62,7 +62,7 @@ contexts:
     - match: (?=\S)
       pop: true
 
-  comments:
+  match-comments:
     - match: '(?:([*;])).*$\n?'
       scope: comment.line.mc6809
       captures:
@@ -71,7 +71,7 @@ contexts:
 
   comments-eol:
     - include: skip-white-spaces
-    - include: comments
+    - include: match-comments
     - match: '.*$'
       scope: comment.line.mc6809
       pop: true
@@ -112,8 +112,8 @@ contexts:
       set:
         - match: '\s+'
           set:
-            - include: structures
-            - include: macros
+            - include: match-structures
+            - include: match-macros
             - include: column_2
         - include: line-ending
 
@@ -133,11 +133,11 @@ contexts:
 
 
   column_2:
-    - include: mnemonics
-    - include: directives
-    - include: pragmas
-    - include: comments
-    - include: emulator-extensions
+    - include: match-mnemonics
+    - include: match-directives
+    - include: match-pragmas
+    - include: match-comments
+    - include: match-emulator-extensions
     - include: match-os9
     #- include: invalid
     #- match: ''
@@ -153,7 +153,13 @@ contexts:
     #   set: comments-eol
 
 
-  mnemonics:
+  match-mnemonics:
+    - include: match-mnemonics-6x09
+    - include: match-mnemonics-convenience
+    - include: match-mnemonics-invalid
+    - include: match-mnemonics-6800
+
+  match-mnemonics-6x09:
     # Addressing mode: Inherent
     - match: |-
         (?ix:
@@ -360,12 +366,14 @@ contexts:
             - include: line-ending
         - include: line-ending
 
-    # Convenience instructions (supported by lwasm)
+  # Convenience instructions (supported by lwasm)
+  match-mnemonics-convenience:
     - match: (?i)(asr|clr|com|ls[lr]|neg|tst)q|(lsl|neg)[ef]|negw(?!\S)
       scope: keyword.operator.mc6809
       set: comments-eol
 
-    # 6800 source code compatibility
+  # 6800 source code compatibility
+  match-mnemonics-6800:
     - match: |-
         (?ix:
            \b(
@@ -383,7 +391,7 @@ contexts:
 
 
   # Invalid instructions
-  invalid:
+  match-mnemonics-invalid:
     - match: (?i)lslw(?!\S)
       scope: invalid.keyword.operator.mc6809
       set: comments-eol
@@ -505,7 +513,7 @@ contexts:
     - include: line-ending
 
 
-  pragmas:
+  match-pragmas:
     - match: '(?i)pragma|opt|\*pragma(push|pop)?(?!\S)'
       scope: support.function.directive.assembler.mc6809
       set:
@@ -521,7 +529,7 @@ contexts:
         - include: line-ending
 
 
-  directives:
+  match-directives:
     # data directives with expr
     - match: (?i)f[cdq]b|[zr]m[bdq]|\.(d[bsw]|4?byte|word|quad|blkb|rs)(?!\S)
       scope: storage.type.mc6809
@@ -627,8 +635,8 @@ contexts:
       set: strings
 
     # end statement for macros and structures
-    - include: end-macros
-    - include: end-structures
+    - include: match-end-macros
+    - include: match-end-structures
 
 
   # OS9 Target Directives
@@ -648,7 +656,7 @@ contexts:
 
 
   # Macro directives
-  macros:
+  match-macros:
     - match: (?i)macro(?!\S)
       scope: support.function.directive.macro.mc6809
       set:
@@ -656,25 +664,25 @@ contexts:
           scope: support.function.directive.macro.mc6809
           set: comments-eol
         - include: comments-eol
-  end-macros:
+  match-end-macros:
     - match: (?i)endm(?!\S)
       scope: support.function.directive.macro.mc6809
       set: comments-eol
 
 
   # Structures directives
-  structures:
+  match-structures:
     - match: (?i)struct(?!\S)
       scope: support.function.directive.structure.mc6809
       set: comments-eol
-  end-structures:
+  match-end-structures:
     - match: (?i)ends(truct)?(?!\S)
       scope: support.function.directive.structure.mc6809
       set: comments-eol
 
 
   # Emulator extensions for MAME
-  emulator-extensions:
+  match-emulator-extensions:
     - match: '(?i)break|log(?!\S)'
       scope: support.function.directive.mc6809
       set: comments-eol
