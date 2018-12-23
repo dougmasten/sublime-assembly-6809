@@ -549,8 +549,8 @@ contexts:
       scope: storage.type.mc6809
       set: strings
 
-    # data directives with misc
-    - match: (i?)fill(?!\S)
+    # data directives with reserve zeroed bytes
+    - match: (?i)fill|rzb|zmb|bsz(?!\S)
       scope: storage.type.mc6809
       set:
         - match: '\s*'

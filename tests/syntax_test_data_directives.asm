@@ -229,3 +229,15 @@ buffer_size equ $a1a2
 #               ^ operator.separator
 #                ^^ constant.numeric.decimal
 #                   ^^^^^^^ comment.line
+
+        rzb 10
+#       ^^^ storage.type
+#           ^^ constant.numeric.decimal
+
+        zmb 10
+#       ^^^ storage.type
+#           ^^ constant.numeric.decimal
+
+        bsz 10
+#       ^^^ storage.type
+#           ^^ constant.numeric.decimal
