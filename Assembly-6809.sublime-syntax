@@ -531,7 +531,7 @@ contexts:
 
   match-directives:
     # data directives with expr
-    - match: (?i)f[cdq]b|[zr]m[bdq]|\.(d[bsw]|4?byte|word|quad|blkb|rs)(?!\S)
+    - match: (?i)f[cdq]b|[zr]m[bdq]|d[bw]|\.(d[bsw]|4?byte|word|quad|blkb|rs)(?!\S)
       scope: storage.type.mc6809
       set:
         - match: '\s*'
@@ -550,7 +550,7 @@ contexts:
       set: strings
 
     # data directives with reserve zeroed bytes
-    - match: (?i)fill|rzb|zmb|bsz(?!\S)
+    - match: (?i)fill|rzb|zmb|bsz|ds(?!\S)
       scope: storage.type.mc6809
       set:
         - match: '\s*'
