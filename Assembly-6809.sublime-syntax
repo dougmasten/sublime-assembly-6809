@@ -799,7 +799,6 @@ contexts:
     - match: '{{lwasm_list_id}}'
       scope: comment.line.lwasm.mc6809
       set: column_1
-    #- include: bail-out
 
   # Edtasm file
   edtasm-listing:
@@ -808,7 +807,6 @@ contexts:
       captures:
         1: comment.line.edtasm.mc6809
       set: column_1
-    #- include: bail-out
 
   # Disassembly listing
   disassembly-listing:
@@ -820,4 +818,3 @@ contexts:
         - match: \s*
           set: column_2
         - include: line-ending
-    #- include: bail-out
