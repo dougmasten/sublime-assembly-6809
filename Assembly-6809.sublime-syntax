@@ -58,10 +58,6 @@ contexts:
   skip-white-spaces:
     - match: \s*
 
-  bail-out:
-    - match: (?=\S)
-      pop: true
-
   match-comments:
     - match: '(?:([*;])).*$\n?'
       scope: comment.line.mc6809
@@ -125,12 +121,6 @@ contexts:
       scope: invalid.illegal
       pop: true
 
-    - include: bail-out
-
-    # Use for debugging. It should not match anything.
-    #- match: '.*$'
-    #  scope: invalid.illegal.entity.name.type.constant.mc6809
-
 
   column_2:
     - include: match-mnemonics
@@ -139,19 +129,10 @@ contexts:
     - include: match-comments
     - include: match-emulator-extensions
     - include: match-os9
-    #- include: invalid
-    #- match: ''
-    #  pop: true
 
-    - include: line-ending
-    #- include: bail-out
-    #- match: '.*$'
-    #  pop: true
-    # No match. Mark as invalid
-    # - match: \S*$?
-    #   scope: invalid.keyword.operator.mc6809
-    #   set: comments-eol
-
+    # No match in column #2 - skip to next line
+    - match: '.*$'
+      pop: true
 
   match-mnemonics:
     - include: match-mnemonics-6x09

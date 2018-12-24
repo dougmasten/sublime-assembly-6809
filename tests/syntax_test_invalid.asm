@@ -22,6 +22,9 @@
  bhs.w comment
 ;^^^^^ invalid.keyword.operator
 
+ zabx
+# ^^^ - keyword.operator
+
 ;--------------------------------------------------------------------
  pshs a,b,d
 ;     ^^^^^ invalid.variable.language.register
