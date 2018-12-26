@@ -423,5 +423,18 @@
 
 
 ;------------------------------------------------------------------------------
-; Extended indirect
-        lda [$8000]
+; Indirect Extended
+        lda [$8000+$2000]
+#           ^ punctuation.section.brackets.begin
+#            ^^^^^ constant.numeric.hexadecimal
+#                 ^ keyword.operator.arithmetic
+#                  ^^^^^ constant.numeric.hexadecimal
+#                       ^ punctuation.section.brackets.end
+
+
+
+
+        std   [<$06,s]
+        jmp   [>$a000]
+
+

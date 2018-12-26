@@ -447,7 +447,7 @@ contexts:
         - match: '\]'
           scope: meta.brackets.mc6809 punctuation.section.brackets.end.mc6809
           set: comments-eol
-        - include: match-integers
+        - include: match-expr
         - include: labels
         - include: line-ending
 
