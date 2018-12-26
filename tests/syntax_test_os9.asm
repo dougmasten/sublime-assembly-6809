@@ -7,8 +7,19 @@
         os9
 #       ^^^ support.function.directive
 
-        mod
+        mod eom,name,tylg,atrv,start,size
 #       ^^^ support.function.directive
+#           ^^^ constant.other
+#              ^ operator.separator
+#               ^^^^ constant.other
+#                   ^ operator.separator
+#                    ^^^^ constant.other
+#                        ^ operator.separator
+#                         ^^^^ constant.other
+#                             ^ operator.separator
+#                              ^^^^^ constant.other
+#                                   ^ operator.separator
+#                                    ^^^^ constant.other
 
         emod
 #       ^^^^ support.function.directive

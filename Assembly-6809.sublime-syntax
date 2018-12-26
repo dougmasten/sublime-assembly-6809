@@ -622,7 +622,7 @@ contexts:
 
   # OS9 Target Directives
   match-os9:
-    - match: '(?i)os9|e?mod(?!\S)'
+    - match: '(?i)os9|emod(?!\S)'
       scope: support.function.directive.mc6809
       set:
         - match: '\s*'
@@ -634,6 +634,15 @@ contexts:
               set: comments-eol
             - include: line-ending
         - include: line-ending
+    - match: '(?i)mod(?!\S)'
+      scope: support.function.directive.mc6809
+      set:
+        - match: '\s*'
+          set:
+            - include: match-expr
+            - match: ','
+              scope: operator.separator.mc6809
+            - include: line-ending
 
 
   # Macro directives
