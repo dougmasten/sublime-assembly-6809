@@ -224,6 +224,15 @@
 #                     ^^^ constant.numeric.hexadecimal
 
 
+    ldd #100%2
+#   ^^^ keyword.operator
+#       ^ keyword.operator.immediate
+#        ^^^ constant.numeric.decimal
+#           ^ keyword.operator.arithmetic
+#            ^ constant.numeric.decimal
+
+
+
 ; As of LWASM 2.5, the operators && and || are recognized for boolean and and
 ; boolean or respectively. They will return either 0 or 1 (false or true). They
 ; have the lowest precedence of all the binary operators.
