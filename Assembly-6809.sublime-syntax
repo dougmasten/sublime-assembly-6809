@@ -394,6 +394,8 @@ contexts:
       scope: keyword.operator.direct.mc6809
       set:
         - include: match-expr
+        - match: (?i)(?=,[suxyw])
+          set: highlight-registers
         - include: line-ending
         - match: '\S*'
           set: comments-eol
@@ -405,6 +407,8 @@ contexts:
       scope: keyword.operator.extended.mc6809
       set:
         - include: match-expr
+        - match: (?i)(?=,[suxyw])
+          set: highlight-registers
         - include: line-ending
         - match: '\S*'
           set: comments-eol

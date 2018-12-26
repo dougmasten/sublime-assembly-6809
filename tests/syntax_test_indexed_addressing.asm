@@ -349,9 +349,73 @@
 #                  ^^^^^^^ comment.line
 
 
-        lda ,w++ comment
+;------------------------------------------------------------------------------
+; Force extended addressing
 
-        lda ,-w comment
+        lda >$a000,s
+#           ^ keyword.operator.extended
+#            ^^^^^ constant.numeric.hexadecimal
+#                 ^ operator.separator
+#                  ^ variable.language.register
+
+        lda >$a000,u
+#           ^ keyword.operator.extended
+#            ^^^^^ constant.numeric.hexadecimal
+#                 ^ operator.separator
+#                  ^ variable.language.register
+
+        lda >$a000,x
+#           ^ keyword.operator.extended
+#            ^^^^^ constant.numeric.hexadecimal
+#                 ^ operator.separator
+#                  ^ variable.language.register
+
+        lda >$a000,y
+#           ^ keyword.operator.extended
+#            ^^^^^ constant.numeric.hexadecimal
+#                 ^ operator.separator
+#                  ^ variable.language.register
+
+        lda >$a000,w
+#           ^ keyword.operator.extended
+#            ^^^^^ constant.numeric.hexadecimal
+#                 ^ operator.separator
+#                  ^ variable.language.register
+
+
+
+;------------------------------------------------------------------------------
+; Force direct addressing
+
+        lda <$a0,s
+#           ^ keyword.operator.direct
+#            ^^^ constant.numeric.hexadecimal
+#               ^ operator.separator
+#                ^ variable.language.register
+
+        lda <$a0,u
+#           ^ keyword.operator.direct
+#            ^^^ constant.numeric.hexadecimal
+#               ^ operator.separator
+#                ^ variable.language.register
+
+        lda <$a0,x
+#           ^ keyword.operator.direct
+#            ^^^ constant.numeric.hexadecimal
+#               ^ operator.separator
+#                ^ variable.language.register
+
+        lda <$a0,y
+#           ^ keyword.operator.direct
+#            ^^^ constant.numeric.hexadecimal
+#               ^ operator.separator
+#                ^ variable.language.register
+
+        lda <$a0,w
+#           ^ keyword.operator.direct
+#            ^^^ constant.numeric.hexadecimal
+#               ^ operator.separator
+#                ^ variable.language.register
 
 ;------------------------------------------------------------------------------
 ; Constant offset from PC
