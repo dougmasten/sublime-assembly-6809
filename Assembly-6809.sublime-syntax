@@ -135,12 +135,13 @@ contexts:
       pop: true
 
   match-mnemonics:
-    - include: match-mnemonics-6x09
+    - include: match-mnemonics-6809
+    - include: match-mnemonics-6309
     - include: match-mnemonics-convenience
     - include: match-mnemonics-invalid
     - include: match-mnemonics-6800
 
-  match-mnemonics-6x09:
+  match-mnemonics-6809:
     # Addressing mode: Inherent
     - match: |-
         (?ix:
@@ -208,20 +209,6 @@ contexts:
             - include: line-ending
         - include: line-ending
 
-    # Addressing modes: INSTRUCTION #i8;EA
-    - match: (?i)[aeot]im(?!\S)
-      scope: keyword.operator.mc6809
-      set:
-        - match: '\s*'
-          set:
-            - match: '#'
-              scope: keyword.operator.immediate.mc6809
-              set:
-                - include: match-integers
-                - include: line-ending
-            - include: line-ending
-        - include: line-ending
-
     # Addressing modes: Immediate, Direct, Indexed and Extended
     - match: |-
         (?ix:
@@ -248,18 +235,6 @@ contexts:
               scope: invalid.illegal.variable.language.register.mc6809
               set: comments-eol
             - include: line-ending
-        - include: line-ending
-
-    # Addressing mode: Direct r,sBit,dBit,addr
-    # TODO!
-    - match: '(?i)b(i?and|(i?e|i)?or)|(ld|st)bt(?!\S)'
-      scope: keyword.operator.mc6809
-      set:
-        - match: '\s*'
-          set:
-            - include: address-immediate
-            - match: ''
-              set: comments-eol
         - include: line-ending
 
     # Addressing modes: Direct, Indexed and Extended
@@ -325,6 +300,8 @@ contexts:
               set: validate-stack-registers
         - include: line-ending
 
+
+  match-mnemonics-6309:
     # Instruction: TFM
     - match: (?i)tfm(?!\S)
       scope: keyword.operator.mc6809
@@ -346,6 +323,33 @@ contexts:
               set: comments-eol
             - include: line-ending
         - include: line-ending
+
+    # Addressing mode: Direct r,sBit,dBit,addr
+    # TODO!
+    - match: '(?i)b(i?and|(i?e|i)?or)|(ld|st)bt(?!\S)'
+      scope: keyword.operator.mc6809
+      set:
+        - match: '\s*'
+          set:
+            - include: address-immediate
+            - match: ''
+              set: comments-eol
+        - include: line-ending
+
+    # Addressing modes: INSTRUCTION #i8;EA
+    - match: (?i)[aeot]im(?!\S)
+      scope: keyword.operator.mc6809
+      set:
+        - match: '\s*'
+          set:
+            - match: '#'
+              scope: keyword.operator.immediate.mc6809
+              set:
+                - include: match-integers
+                - include: line-ending
+            - include: line-ending
+        - include: line-ending
+
 
   # Convenience instructions (supported by lwasm)
   match-mnemonics-convenience:
