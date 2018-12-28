@@ -2,12 +2,15 @@
 # <- source.mc6809
 
 
+
 ; Additional mnemonics available on Hitachi 6309 CPU
+        *pragmapush 6309
         opt 6309
-IMM8 equ $12
-IMM16 equ $3456
-EXT equ $abcd
-start equ *+100
+
+IMM8    equ $12
+IMM16   equ $3456
+EXT     equ $abcd
+start   equ *+100
 
 
 ;--------------------------------------------------------------------
@@ -1357,3 +1360,6 @@ start equ *+100
 ;--------------------------------------------------------------------
         tstw
 #       ^^^^ keyword.operator
+
+
+        *pragmapop 6309
