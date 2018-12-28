@@ -480,17 +480,18 @@ contexts:
 
   # Highlight string of registers and commas between brackets
   highlight-registers-brackets:
+    - meta_scope: meta.brackets.mc6809
     - match: '{{all_registers}}'
-      scope: meta.brackets.mc6809 variable.language.register.mc6809
+      scope: variable.language.register.mc6809
     - match: ','
-      scope: meta.brackets.mc6809 operator.separator.mc6809
+      scope: operator.separator.mc6809
     - match: '[\+\-]'
-      scope: meta.brackets.mc6809 keyword.operator.arithmetic.mc6809
+      scope: keyword.operator.arithmetic.mc6809
     - match: '\['
-      scope: meta.brackets.mc6809 punctuation.section.brackets.begin.mc6809
+      scope: punctuation.section.brackets.begin.mc6809
     - match: '\]'
-      scope: meta.brackets.mc6809 punctuation.section.brackets.end.mc6809
-    - match: \s
+      scope: punctuation.section.brackets.end.mc6809
+    - match: (?=\s)
       set: comments-eol
     - include: line-ending
 
