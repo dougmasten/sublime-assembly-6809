@@ -177,9 +177,9 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: address-direct
-            - include: address-index
-            - include: address-extended
+            - include: match-address-direct
+            - include: match-address-index
+            - include: match-address-extended
             - include: match-expr
             - match: '\S*'
               scope: invalid.illegal.variable.language.register.mc6809
@@ -193,7 +193,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: address-immediate
+            - include: match-address-immediate
             - include: line-ending
         - include: line-ending
 
@@ -226,10 +226,10 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: address-immediate
-            - include: address-direct
-            - include: address-index
-            - include: address-extended
+            - include: match-address-immediate
+            - include: match-address-direct
+            - include: match-address-index
+            - include: match-address-extended
             - include: match-expr
             - match: ''
               set: comments-eol
@@ -250,9 +250,9 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: address-direct
-            - include: address-index
-            - include: address-extended
+            - include: match-address-direct
+            - include: match-address-index
+            - include: match-address-extended
             - include: match-expr
             - match: ''
               set: comments-eol
@@ -268,7 +268,7 @@ contexts:
       set:
         - match: '\s*'
           set:
-            - include: address-index
+            - include: match-address-index
             - include: match-expr
             - match: ''
               set: comments-eol
@@ -285,7 +285,7 @@ contexts:
         - match: '\s*'
           set:
             - match: '(?=[\S\w]*s[\S\w]*\s)'
-              set: invalid-registers
+              set: highlight-invalid-registers
             - match: ''
               set: validate-stack-registers
         - include: line-ending
@@ -297,7 +297,7 @@ contexts:
         - match: '\s*'
           set:
             - match: '(?=[\S\w]*u[\S\w]*\s)'
-              set: invalid-registers
+              set: highlight-invalid-registers
             - match: ''
               set: validate-stack-registers
         - include: line-ending
@@ -327,13 +327,21 @@ contexts:
         - include: line-ending
 
     # Addressing mode: Direct r,sBit,dBit,addr
-    # TODO!
     - match: '(?i)b(i?and|(i?e|i)?or)|(ld|st)bt(?!\S)'
       scope: keyword.operator.mc6809
       set:
         - match: '\s*'
           set:
-            - include: address-immediate
+            - match: (?i)(cc|a|b)
+              scope: variable.language.register.mc6809
+              set:
+                - match: ','
+                  scope: operator.separator.mc6809
+                - include: match-expr
+                - match: ''
+                  set: comments-eol
+                - include: line-ending
+            - include: match-address-immediate
             - match: ''
               set: comments-eol
         - include: line-ending
@@ -347,19 +355,29 @@ contexts:
             - match: '#'
               scope: keyword.operator.immediate.mc6809
               set:
-                - include: match-integers
+                - include: match-expr
                 - include: line-ending
+                - match: ';'
+                  scope: operator.separator.mc6809
+                  set:
+                    - include: match-expr
+                    - match: ','
+                      scope: operator.separator.mc6809
+                      set:
+                        - match: '(?=u)' #todo
+                          set: highlight-registers
+                        - include: line-ending
+                    - include: line-ending
             - include: line-ending
         - include: line-ending
 
 
-  # Convenience instructions (supported by lwasm)
   match-mnemonics-convenience:
     - match: (?i)(asr|clr|com|ls[lr]|neg|tst)q|(lsl|neg)[ef]|negw(?!\S)
       scope: keyword.operator.mc6809
       set: comments-eol
 
-  # 6800 source code compatibility
+
   match-mnemonics-6800:
     - match: |-
         (?ix:
@@ -377,15 +395,13 @@ contexts:
       set: comments-eol
 
 
-  # Invalid instructions
   match-mnemonics-invalid:
     - match: (?i)lslw(?!\S)
       scope: invalid.keyword.operator.mc6809
       set: comments-eol
 
 
-  # Addressing mode - Immediate
-  address-immediate:
+  match-address-immediate:
     - match: \#
       scope: keyword.operator.immediate.mc6809
       set:
@@ -394,8 +410,8 @@ contexts:
         - match: ''
           set: comments-eol
 
-  # Addressing mode - Direct (8-bit offset)
-  address-direct:
+  match-address-direct:
+    # 8-bit offset
     - match: '<'
       scope: keyword.operator.direct.mc6809
       set:
@@ -407,8 +423,8 @@ contexts:
           set: comments-eol
 
 
-  # Addressing mode - Extended (16-bit offset)
-  address-extended:
+  match-address-extended:
+    # 16-bit offset
     - match: '>'
       scope: keyword.operator.extended.mc6809
       set:
@@ -420,8 +436,7 @@ contexts:
           set: comments-eol
 
 
-  # Addressing mode - Indexed
-  address-index:
+  match-address-index:
     # Non-indirect
     - match: |-
         (?ix:
@@ -431,7 +446,8 @@ contexts:
               (?=,[suxy]\+)|
               (?=,[suxyw]\+\+)|
               (?=,\-[suxy])|
-              (?=,\-\-[suxyw])
+              (?=,\-\-[suxyw])|
+              (?=,pcr)
             )
         )
       set: highlight-registers
@@ -454,19 +470,19 @@ contexts:
           scope: meta.brackets.mc6809 punctuation.section.brackets.end.mc6809
           set: comments-eol
         - include: match-expr
-        - include: labels
+        - include: match-labels
         - include: line-ending
 
 
-  # Validate stack registers
   validate-stack-registers:
     - match: ''
       set: highlight-registers
     - include: line-ending
 
 
-  # Highlight string of registers and commas
   highlight-registers:
+    - match: '(?i)pcr'
+      scope: variable.language.register.mc6809
     - match: '{{all_registers}}'
       scope: variable.language.register.mc6809
     - match: ','
@@ -478,7 +494,6 @@ contexts:
     - include: line-ending
 
 
-  # Highlight string of registers and commas between brackets
   highlight-registers-brackets:
     - meta_scope: meta.brackets.mc6809
     - match: '{{all_registers}}'
@@ -496,8 +511,7 @@ contexts:
     - include: line-ending
 
 
-  # Invalid string of registers
-  invalid-registers:
+  highlight-invalid-registers:
     - match: '[\S\w]'
       scope: invalid.variable.language.register.mc6809
     - match: \s
@@ -539,7 +553,7 @@ contexts:
     # data directives with strings
     - match: (?i)fc[cns]|\.(asci[isz]|str[sz]?)(?!\S)
       scope: storage.type.mc6809
-      set: strings
+      set: match-strings
 
     # data directives with reserve zeroed bytes
     - match: (?i)fill|rzb|zmb|bsz|ds(?!\S)
@@ -618,20 +632,19 @@ contexts:
     # Misc directives with string
     - match: '(?i)error|warning(?!\S)'
       scope: support.function.directive.misc.mc6809
-      set: strings
+      set: match-strings
     - match: '(?i).module(?!\S)'
       scope: support.function.directive.misc.mc6809
-      set: strings
+      set: match-strings
     - match: '(?i)nam|ttl(?!\S)'
       scope: support.function.directive.misc.mc6809
-      set: strings
+      set: match-strings
 
     # end statement for macros and structures
     - include: match-end-macros
     - include: match-end-structures
 
 
-  # OS9 Target Directives
   match-os9:
     - match: '(?i)os9|emod(?!\S)'
       scope: support.function.directive.mc6809
@@ -656,7 +669,6 @@ contexts:
             - include: line-ending
 
 
-  # Macro directives
   match-macros:
     - match: (?i)macro(?!\S)
       scope: support.function.directive.macro.mc6809
@@ -671,7 +683,6 @@ contexts:
       set: comments-eol
 
 
-  # Structures directives
   match-structures:
     - match: (?i)struct(?!\S)
       scope: support.function.directive.structure.mc6809
@@ -682,8 +693,8 @@ contexts:
       set: comments-eol
 
 
-  # Emulator extensions for MAME
   match-emulator-extensions:
+    # MAME extensions
     - match: '(?i)break|log(?!\S)'
       scope: support.function.directive.mc6809
       set: comments-eol
@@ -693,7 +704,7 @@ contexts:
     - include: match-integers
     - include: match-operators
     - include: match-parens
-    - include: labels
+    - include: match-labels
 
   match-integers:
     - include: match-binary-integer
@@ -768,11 +779,11 @@ contexts:
         - include: line-ending
         - include: match-expr
 
-  labels:
+  match-labels:
     - match: '{{symbol_id}}'
       scope: constant.other.mc6809
 
-  strings:
+  match-strings:
     - include: skip-white-spaces
     - match: \"
       scope: punctuation.definition.string.begin.mc6809
