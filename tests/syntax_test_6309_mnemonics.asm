@@ -177,7 +177,9 @@ start equ *+100
 #       ^^^ keyword.operator
 #           ^ keyword.operator.immediate
 #            ^^^ constant.numeric.hexadecimal
-
+#               ^ operator.separator
+#                 ^ operator.separator
+#                  ^ variable.language.register
 
 ;--------------------------------------------------------------------
         andd #IMM16
@@ -237,27 +239,57 @@ start equ *+100
 ;--------------------------------------------------------------------
         band a,5,1,$40
 #       ^^^^ keyword.operator
-
+#            ^ variable.language.register
+#             ^ operator.separator
+#              ^ constant.numeric.decimal
+#               ^ operator.separator
+#                ^ constant.numeric.decimal
+#                 ^ operator.separator
+#                  ^^^ constant.numeric.hexadecimal
 
 ;--------------------------------------------------------------------
         beor a,6,1,$40
 #       ^^^^ keyword.operator
-
+#            ^ variable.language.register
+#             ^ operator.separator
+#              ^ constant.numeric.decimal
+#               ^ operator.separator
+#                ^ constant.numeric.decimal
+#                 ^ operator.separator
+#                  ^^^ constant.numeric.hexadecimal
 
 ;--------------------------------------------------------------------
         biand a,1,3,$40
 #       ^^^^^ keyword.operator
-
+#             ^ variable.language.register
+#              ^ operator.separator
+#               ^ constant.numeric.decimal
+#                ^ operator.separator
+#                 ^ constant.numeric.decimal
+#                  ^ operator.separator
+#                   ^^^ constant.numeric.hexadecimal
 
 ;--------------------------------------------------------------------
         bieor a,0,3,$40
 #       ^^^^^ keyword.operator
-
+#             ^ variable.language.register
+#              ^ operator.separator
+#               ^ constant.numeric.decimal
+#                ^ operator.separator
+#                 ^ constant.numeric.decimal
+#                  ^ operator.separator
+#                   ^^^ constant.numeric.hexadecimal
 
 ;--------------------------------------------------------------------
         bior a,0,4,$40
 #       ^^^^ keyword.operator
-
+#            ^ variable.language.register
+#             ^ operator.separator
+#              ^ constant.numeric.decimal
+#               ^ operator.separator
+#                ^ constant.numeric.decimal
+#                 ^ operator.separator
+#                  ^^^ constant.numeric.hexadecimal
 
 ;--------------------------------------------------------------------
         bitd #IMM16
@@ -276,7 +308,13 @@ start equ *+100
 ;--------------------------------------------------------------------
         bor a,6,1,$40
 #       ^^^ keyword.operator
-
+#           ^ variable.language.register
+#            ^ operator.separator
+#             ^ constant.numeric.decimal
+#              ^ operator.separator
+#               ^ constant.numeric.decimal
+#                ^ operator.separator
+#                 ^^^ constant.numeric.hexadecimal
 
 ;--------------------------------------------------------------------
         clrd
@@ -491,6 +529,9 @@ start equ *+100
 #       ^^^ keyword.operator
 #           ^ keyword.operator.immediate
 #            ^^^ constant.numeric.hexadecimal
+#               ^ operator.separator
+#                 ^ operator.separator
+#                  ^ variable.language.register
 
 
 ;--------------------------------------------------------------------
@@ -693,7 +734,13 @@ start equ *+100
 ;--------------------------------------------------------------------
         ldbt a,5,1,$40
 #       ^^^^ keyword.operator
-
+#            ^ variable.language.register
+#             ^ operator.separator
+#              ^ constant.numeric.decimal
+#               ^ operator.separator
+#                ^ constant.numeric.decimal
+#                 ^ operator.separator
+#                  ^^^ constant.numeric.hexadecimal
 
 ;--------------------------------------------------------------------
         ldmd #1
@@ -810,7 +857,9 @@ start equ *+100
 #       ^^^ keyword.operator
 #           ^ keyword.operator.immediate
 #            ^^^ constant.numeric.hexadecimal
-
+#               ^ operator.separator
+#                 ^ operator.separator
+#                  ^ variable.language.register
 
 ;--------------------------------------------------------------------
         ord #IMM16
@@ -1057,7 +1106,13 @@ start equ *+100
 ;--------------------------------------------------------------------
         stbt a,5,1,$40
 #       ^^^^ keyword.operator
-
+#            ^ variable.language.register
+#             ^ operator.separator
+#              ^ constant.numeric.decimal
+#               ^ operator.separator
+#                ^ constant.numeric.decimal
+#                 ^ operator.separator
+#                  ^^^ constant.numeric.hexadecimal
 
 ;--------------------------------------------------------------------
         stq $ffff
@@ -1279,6 +1334,9 @@ start equ *+100
 #       ^^^ keyword.operator
 #           ^ keyword.operator.immediate
 #            ^^^ constant.numeric.hexadecimal
+#               ^ operator.separator
+#                 ^ operator.separator
+#                  ^ variable.language.register
 
 
 ;--------------------------------------------------------------------

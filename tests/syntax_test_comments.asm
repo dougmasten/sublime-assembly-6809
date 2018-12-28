@@ -66,3 +66,6 @@
    fcb $22,$22+$10,256-10 ; comment
 #                         ^ punctuation.definition.comment
 #                         ^^^^^^^^^ comment.line
+
+   band a,5,1,$40 comment
+#                 ^^^^^^^ comment.line
