@@ -47,9 +47,9 @@ variables:
                         expandcond
                       )
                     )'
-  edtasm_id: '(\d{5}) '
-  disassembly_id: '\h{4}\:\s'
-  lwasm_list_id: '[\s\hs]*\([\s\w\-\.]*\):\d{5}[\s\d\(\)\+\?\[\]]{9}'
+  edtasm_id: '^(\d{5}) '
+  disassembly_id: '^\h{4}\:\s'
+  lwasm_list_id: '^[\s\hs]*\([\s\w\-\.]*\):\d{5}[\s\d\(\)\+\?\[\]]{9}'
 
 
 contexts:
@@ -77,15 +77,15 @@ contexts:
 
   main:
     # Edtasm file
-    - match: '(?=^{{edtasm_id}})'
+    - match: '(?={{edtasm_id}})'
       push: edtasm-listing
 
     # Disassembly listing
-    - match: '(?=^{{disassembly_id}})'
+    - match: '(?={{disassembly_id}})'
       push: disassembly-listing
 
     # LWASM assembly list output
-    - match: '(?=^{{lwasm_list_id}})'
+    - match: '(?={{lwasm_list_id}})'
       push: lwasm-listing
 
     # Process column #1
@@ -796,20 +796,17 @@ contexts:
     - include: line-ending
 
 
-  # LWASM assembly listing
   lwasm-listing:
     - match: '{{lwasm_list_id}}'
       scope: comment.line.lwasm.mc6809
       set: column_1
 
-  # Edtasm file
   edtasm-listing:
     - match: '{{edtasm_id}}'
       captures:
         1: comment.line.edtasm.mc6809
       set: column_1
 
-  # Disassembly listing
   disassembly-listing:
     - match: '{{disassembly_id}}'
       scope: comment.line.disasm.mc6809
