@@ -61,7 +61,7 @@ contexts:
     - match: \s*
 
   match-comments:
-    - match: '(?:([*;])).*$\n?'
+    - match: '(?:([*;])).*$'
       scope: comment.line.mc6809
       captures:
         1: punctuation.definition.comment.mc6809
