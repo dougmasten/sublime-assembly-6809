@@ -733,11 +733,7 @@ contexts:
         1: punctuation.definition.numeric.octal.mc6809
 
   match-hex-integer:
-    - match: '(0[Xx]){{num_hex}}'
-      scope: constant.numeric.hexadecimal.mc6809
-      captures:
-        1: punctuation.definition.numeric.hexadecimal.mc6809
-    - match: '(\$){{num_hex}}'
+    - match: '(\$|0[Xx]){{num_hex}}'
       scope: constant.numeric.hexadecimal.mc6809
       captures:
         1: punctuation.definition.numeric.hexadecimal.mc6809
