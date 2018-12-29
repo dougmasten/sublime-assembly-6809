@@ -748,22 +748,13 @@ contexts:
       captures:
         1: punctuation.definition.numeric.decimal.mc6809
 
-  match-operators: [
-    {match: \&& , scope: keyword.operator.arithmetic.mc6809},
-    {match: \&  , scope: keyword.operator.arithmetic.mc6809},
-    {match: \|| , scope: keyword.operator.arithmetic.mc6809},
-    {match: \|  , scope: keyword.operator.arithmetic.mc6809},
-    {match: \+  , scope: keyword.operator.arithmetic.mc6809},
-    {match: \-  , scope: keyword.operator.arithmetic.mc6809},
-    {match: \*  , scope: keyword.operator.arithmetic.mc6809},
-    {match: /   , scope: keyword.operator.arithmetic.mc6809},
-    {match: \^  , scope: keyword.operator.arithmetic.mc6809},
-    {match: \~  , scope: keyword.operator.arithmetic.mc6809},
-    {match: \!  , scope: keyword.operator.arithmetic.mc6809},
-    {match: \<< , scope: keyword.operator.arithmetic.mc6809},
-    {match: \>> , scope: keyword.operator.arithmetic.mc6809},
-    {match: \%  , scope: keyword.operator.arithmetic.mc6809}
-  ]
+  match-operators:
+    - match: <<|>>|&&|\|\|
+      scope: keyword.operator.arithmetic.mc6809
+    - match: \*
+      scope: keyword.operator.arithmetic.mc6809
+    - match: \+|\-|/|%|\||\^|\~|!|\&
+      scope: keyword.operator.arithmetic.mc6809
 
   match-parens:
     - match: \(
