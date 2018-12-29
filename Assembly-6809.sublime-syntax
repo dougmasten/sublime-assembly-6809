@@ -76,19 +76,28 @@ contexts:
 
 
   main:
-    # Edtasm file
-    - match: '(?={{edtasm_id}})'
-      push: edtasm-listing
+    # Edtasm listing
+    - match: '{{edtasm_id}}'
+      captures:
+        1: comment.line.edtasm.mc6809
+      push: column_1
 
     # Disassembly listing
-    - match: '(?={{disassembly_id}})'
-      push: disassembly-listing
+    - match: '{{disassembly_id}}'
+      scope: comment.line.disasm.mc8609
+      push:
+        - match: '(\h\h)\s'
+          scope: comment.line.disasm.mc6809
+        - match: \s*
+          set: column_2
+        - include: line-ending
 
-    # LWASM assembly list output
-    - match: '(?={{lwasm_list_id}})'
-      push: lwasm-listing
+    # LWASM assembly listing
+    - match: '{{lwasm_list_id}}'
+      scope: comment.line.lwasm.mc6809
+      push: column_1
 
-    # Process column #1
+    # Process normal listing
     - match: ''
       push: column_1
 
@@ -792,25 +801,3 @@ contexts:
       scope: string.unquoted.mc6809
       pop: true
     - include: line-ending
-
-
-  lwasm-listing:
-    - match: '{{lwasm_list_id}}'
-      scope: comment.line.lwasm.mc6809
-      set: column_1
-
-  edtasm-listing:
-    - match: '{{edtasm_id}}'
-      captures:
-        1: comment.line.edtasm.mc6809
-      set: column_1
-
-  disassembly-listing:
-    - match: '{{disassembly_id}}'
-      scope: comment.line.disasm.mc6809
-      set:
-        - match: '(\h\h)\s'
-          scope: comment.line.disasm.mc6809
-        - match: \s*
-          set: column_2
-        - include: line-ending
