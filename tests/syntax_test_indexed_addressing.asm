@@ -28,34 +28,39 @@
 #              ^^^^^^^ comment.line
 
         lda [,x] comment
-#           ^
+#           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^ variable.language.register
-#              ^
+#              ^ punctuation.section.brackets.end
 #                ^^^^^^^ comment.line
 
         lda [,y] comment
-#           ^
+#           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^ variable.language.register
-#              ^
+#              ^ punctuation.section.brackets.end
 #                ^^^^^^^ comment.line
 
         lda [,u] comment
-#           ^
+#           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^ variable.language.register
-#              ^
+#              ^ punctuation.section.brackets.end
 #                ^^^^^^^ comment.line
 
         lda [,s] comment
-#           ^
+#           ^ punctuation.section.brackets.begin
 #            ^ operator.separator
 #             ^ variable.language.register
-#              ^
+#              ^ punctuation.section.brackets.end
 #                ^^^^^^^ comment.line
 
-        lda [,w]
+        lda [,w] comment
+#           ^ punctuation.section.brackets.begin
+#            ^ operator.separator
+#             ^ variable.language.register
+#              ^ punctuation.section.brackets.end
+#                ^^^^^^^ comment.line
 
 ;------------------------------------------------------------------------------
 ; Constant offset from W
@@ -64,8 +69,11 @@
 #            ^ variable.language.register
 #              ^^^^^^^ comment.line
 
-        lda 10,w comment
-
+        lda $128,w comment
+#           ^^^^ constant.numeric.hexadecimal
+#               ^ operator.separator
+#                ^ variable.language.register
+#                  ^^^^^^^ comment.line
 
 ;------------------------------------------------------------------------------
 ; Accumulator offset from R
