@@ -505,7 +505,7 @@ contexts:
 
 
   match-pragmas:
-    - match: '(?i)(pragma|opt|\*pragma(push|pop)?)(?!\S)\s*'
+    - match: (?i)(pragma|opt|\*pragma(push|pop)?)(?!\S)\s*
       captures:
         1: support.function.directive.assembler.mc6809
       set:
@@ -576,7 +576,7 @@ contexts:
         - include: pop-on-eol
 
     # Conditional assembly
-    - match: '(?i)else|endc(?!\S)'
+    - match: (?i)else|endc(?!\S)
       scope: support.function.conditional.mc6809
       set: comments-eol
 
