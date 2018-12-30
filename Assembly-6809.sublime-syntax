@@ -326,8 +326,7 @@ contexts:
         - match: (?i)(cc|a|b)
           scope: variable.language.register.mc6809
           set:
-            - match: \,
-              scope: operator.separator.mc6809
+            - include: match-comma
             - include: match-expr
             - match: ''
               set: comments-eol
@@ -473,8 +472,7 @@ contexts:
       scope: variable.language.register.mc6809
     - match: '{{all_registers}}'
       scope: variable.language.register.mc6809
-    - match: \,
-      scope: operator.separator.mc6809
+    - include: match-comma
     - match: '[\+\-]'
       scope: keyword.operator.arithmetic.mc6809
     - match: \s
@@ -486,8 +484,7 @@ contexts:
     - meta_scope: meta.brackets.mc6809
     - match: '{{all_registers}}'
       scope: variable.language.register.mc6809
-    - match: \,
-      scope: operator.separator.mc6809
+    - include: match-comma
     - match: '[\+\-]'
       scope: keyword.operator.arithmetic.mc6809
     - match: \[
@@ -514,8 +511,7 @@ contexts:
       set:
         - match: '{{pragma_options}}(?=[,\s])'
           scope: keyword.operator.mc6809
-        - match: \,
-          scope: operator.separator.mc6809
+        - include: match-comma
         - match: ''
           set: comments-eol
         - include: pop-on-eol
@@ -528,8 +524,7 @@ contexts:
         1: storage.type.mc6809
       set:
         - include: match-expr
-        - match: \,
-          scope: operator.separator.mc6809
+        - include: match-comma
         - include: pop-on-eol
         - match: ''
           set: comments-eol
@@ -545,8 +540,7 @@ contexts:
         1: storage.type.mc6809
       set:
         - include: match-expr
-        - match: \,
-          scope: operator.separator.mc6809
+        - include: match-comma
         - include: pop-on-eol
         - match: ''
           set: comments-eol
@@ -634,8 +628,7 @@ contexts:
         1: support.function.directive.mc6809
       set:
         - include: match-expr
-        - match: \,
-          scope: operator.separator.mc6809
+        - include: match-comma
         - include: pop-on-eol
 
 
@@ -733,6 +726,10 @@ contexts:
           pop: true
         - include: pop-on-eol
         - include: match-expr
+
+  match-comma:
+    - match: \,
+      scope: operator.separator.mc6809
 
   match-labels:
     - match: '{{symbol_id}}'
