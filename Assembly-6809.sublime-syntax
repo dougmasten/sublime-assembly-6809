@@ -406,7 +406,7 @@ contexts:
         - match: (?i)(?=,[suxyw])
           set: highlight-registers
         - include: pop-on-eol
-        - match: '\S*'
+        - match: \S*
           set: comments-eol
 
 
