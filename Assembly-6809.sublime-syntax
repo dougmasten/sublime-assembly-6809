@@ -13,12 +13,12 @@ file_extensions:
 scope: source.mc6809
 
 variables:
-  num_bin: '(?:[01][01]*)'
-  num_oct: '(?:[0-7][0-7]*)'
-  num_dec: '(?:\d\d*)'
-  num_hex: '(?:\h\h*)'
-  symbol_id: '(?:[A-Za-z\.\@\_!\?][A-Za-z0-9\.\@\$\_\?]*)'
-  all_registers: '(?i)cc|dp|pc|[0abdefsuvwxy]'
+  num_bin: (?:[01][01]*)
+  num_oct: (?:[0-7][0-7]*)
+  num_dec: (?:\d\d*)
+  num_hex: (?:\h\h*)
+  symbol_id: (?:[A-Za-z\.\@\_!\?][A-Za-z0-9\.\@\$\_\?]*)
+  all_registers: (?i)cc|dp|pc|[0abdefsuvwxy]
   pragma_options:  '(?ix:
                       (no)?(
                         dollar(not)?local|
@@ -47,9 +47,9 @@ variables:
                         expandcond
                       )
                     )'
-  edtasm_id: '^(\d{5}) '
-  disassembly_id: '^\h{4}\:\s'
-  lwasm_list_id: '^[\s\hs]*\([\s\w\-\.]*\):\d{5}[\s\d\(\)\+\?\[\]]{9}'
+  edtasm_id: ^(\d{5})\s
+  disassembly_id: ^\h{4}\:\s
+  lwasm_list_id: ^[\s\hs]*\([\s\w\-\.]*\):\d{5}[\s\d\(\)\+\?\[\]]{9}
 
 
 contexts:
@@ -61,7 +61,7 @@ contexts:
     - match: \s*
 
   match-comments:
-    - match: '(\s*)(([*;]).*)$'
+    - match: (\s*)(([*;]).*)$
       captures:
         2: comment.line.mc6809
         3: punctuation.definition.comment.mc6809
@@ -69,7 +69,7 @@ contexts:
 
   comments-eol:
     - include: match-comments
-    - match: '(\s*)(.*)$'
+    - match: (\s*)(.*)$
       captures:
         2: comment.line.mc6809
       pop: true
@@ -86,7 +86,7 @@ contexts:
     - match: '{{disassembly_id}}'
       scope: comment.line.disasm.mc8609
       push:
-        - match: '(\h\h)\s'
+        - match: (\h\h)\s
           scope: comment.line.disasm.mc6809
         - match: \s*
           set: column_2
@@ -107,7 +107,7 @@ contexts:
       pop: true
 
     # Line begins with a comment
-    - match: '([*;#]).*$'
+    - match: ([*;#]).*$
       scope: comment.line.mc6809
       captures:
         1: punctuation.definition.comment.mc6809
@@ -123,10 +123,10 @@ contexts:
         - include: column_2
 
     # Blank column one
-    - match: '\s+'
+    - match: \s+
       set: column_2
 
-    - match: '.*$'
+    - match: .*$
       scope: invalid.illegal
       pop: true
 
@@ -140,7 +140,7 @@ contexts:
     - include: match-os9
 
     # No match in column #2 - skip to next line
-    - match: '.*$'
+    - match: .*$
       pop: true
 
   match-mnemonics:
@@ -167,10 +167,10 @@ contexts:
     - match: (?i)l?b([cv][cs]|eq|gt|h[is]|l[ost]|r[an]|mi|pl|sr|[gnl]e)(?!\S)
       scope: keyword.operator.mc6809
       set:
-        - match: '<'
+        - match: \<
           scope: constant.other.mc6809
           set: comments-eol
-        - match: '>'
+        - match: \>
           scope: constant.other.mc6809
           set: comments-eol
         - match: '{{symbol_id}}'
@@ -182,13 +182,13 @@ contexts:
     - match: (?i)jmp|jsr(?!\S)
       scope: keyword.operator.mc6809
       set:
-        - match: '\s*'
+        - match: \s*
           set:
             - include: match-address-direct
             - include: match-address-index
             - include: match-address-extended
             - include: match-expr
-            - match: '\S*'
+            - match: \S*
               scope: invalid.illegal.variable.language.register.mc6809
               set: comments-eol
             - include: pop-on-eol
@@ -207,7 +207,7 @@ contexts:
       set:
         - match: (?i)(?:(?={{all_registers}},{{all_registers}}))
           set: highlight-registers
-        - match: '\S*'
+        - match: \S*
           scope: invalid.illegal.variable.language.register.mc6809
           set: comments-eol
         - include: pop-on-eol
@@ -234,7 +234,7 @@ contexts:
         - include: match-expr
         - match: ''
           set: comments-eol
-        - match: '\S*'
+        - match: \S*
           scope: invalid.illegal.variable.language.register.mc6809
           set: comments-eol
         - include: pop-on-eol
@@ -257,7 +257,7 @@ contexts:
         - include: match-expr
         - match: ''
           set: comments-eol
-        - match: '\S*'
+        - match: \S*
           scope: invalid.illegal.variable.language.register.mc6809
           set: comments-eol
         - include: pop-on-eol
@@ -271,7 +271,7 @@ contexts:
         - include: match-expr
         - match: ''
           set: comments-eol
-        - match: '\S*'
+        - match: \S*
           scope: invalid.illegal.variable.language.register.mc6809
           set: comments-eol
         - include: pop-on-eol
@@ -281,7 +281,7 @@ contexts:
       captures:
         1: keyword.operator.mc6809
       set:
-        - match: '(?=[\S\w]*s[\S\w]*\s)'
+        - match: (?=[\S\w]*s[\S\w]*\s)
           set: highlight-invalid-registers
         - match: ''
           set: validate-stack-registers
@@ -291,7 +291,7 @@ contexts:
       captures:
         1: keyword.operator.mc6809
       set:
-        - match: '(?=[\S\w]*u[\S\w]*\s)'
+        - match: (?=[\S\w]*u[\S\w]*\s)
           set: highlight-invalid-registers
         - match: ''
           set: validate-stack-registers
@@ -326,7 +326,7 @@ contexts:
         - match: (?i)(cc|a|b)
           scope: variable.language.register.mc6809
           set:
-            - match: ','
+            - match: \,
               scope: operator.separator.mc6809
             - include: match-expr
             - match: ''
@@ -341,16 +341,16 @@ contexts:
       captures:
         1: keyword.operator.mc6809
       set:
-        - match: '#'
+        - match: \#
           scope: keyword.operator.immediate.mc6809
           set:
             - include: match-expr
             - include: pop-on-eol
-            - match: ';'
+            - match: \;
               scope: operator.separator.mc6809
               set:
                 - include: match-expr
-                - match: ','
+                - match: \,
                   scope: operator.separator.mc6809
                   set:
                     - match: '(?=u)' #todo
@@ -400,7 +400,7 @@ contexts:
 
   match-address-direct:
     # 8-bit offset
-    - match: '<'
+    - match: \<
       scope: keyword.operator.direct.mc6809
       set:
         - include: match-expr
@@ -413,14 +413,14 @@ contexts:
 
   match-address-extended:
     # 16-bit offset
-    - match: '>'
+    - match: \>
       scope: keyword.operator.extended.mc6809
       set:
         - include: match-expr
         - match: (?i)(?=,[suxyw])
           set: highlight-registers
         - include: pop-on-eol
-        - match: '\S*'
+        - match: \S*
           set: comments-eol
 
 
@@ -451,10 +451,10 @@ contexts:
         )
       set: highlight-registers-brackets
     # Extended Indirect
-    - match: '\['
+    - match: \[
       scope: meta.brackets.mc6809 punctuation.section.brackets.begin.mc6809
       set:
-        - match: '\]'
+        - match: \]
           scope: meta.brackets.mc6809 punctuation.section.brackets.end.mc6809
           set: comments-eol
         - include: match-expr
@@ -473,7 +473,7 @@ contexts:
       scope: variable.language.register.mc6809
     - match: '{{all_registers}}'
       scope: variable.language.register.mc6809
-    - match: ','
+    - match: \,
       scope: operator.separator.mc6809
     - match: '[\+\-]'
       scope: keyword.operator.arithmetic.mc6809
@@ -486,13 +486,13 @@ contexts:
     - meta_scope: meta.brackets.mc6809
     - match: '{{all_registers}}'
       scope: variable.language.register.mc6809
-    - match: ','
+    - match: \,
       scope: operator.separator.mc6809
     - match: '[\+\-]'
       scope: keyword.operator.arithmetic.mc6809
-    - match: '\['
+    - match: \[
       scope: punctuation.section.brackets.begin.mc6809
-    - match: '\]'
+    - match: \]
       scope: punctuation.section.brackets.end.mc6809
     - match: (?=\s)
       set: comments-eol
@@ -514,7 +514,7 @@ contexts:
       set:
         - match: '{{pragma_options}}(?=[,\s])'
           scope: keyword.operator.mc6809
-        - match: ','
+        - match: \,
           scope: operator.separator.mc6809
         - match: ''
           set: comments-eol
@@ -528,7 +528,7 @@ contexts:
         1: storage.type.mc6809
       set:
         - include: match-expr
-        - match: ','
+        - match: \,
           scope: operator.separator.mc6809
         - include: pop-on-eol
         - match: ''
@@ -545,7 +545,7 @@ contexts:
         1: storage.type.mc6809
       set:
         - include: match-expr
-        - match: ','
+        - match: \,
           scope: operator.separator.mc6809
         - include: pop-on-eol
         - match: ''
@@ -634,7 +634,7 @@ contexts:
         1: support.function.directive.mc6809
       set:
         - include: match-expr
-        - match: ','
+        - match: \,
           scope: operator.separator.mc6809
         - include: pop-on-eol
 
@@ -756,7 +756,7 @@ contexts:
           scope: punctuation.definition.string.end.mc6809
           set: comments-eol
         - include: pop-on-eol
-    - match: '.*$'
+    - match: .*$
       scope: string.unquoted.mc6809
       pop: true
     - include: pop-on-eol
