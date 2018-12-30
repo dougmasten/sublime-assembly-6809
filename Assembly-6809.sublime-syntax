@@ -53,7 +53,7 @@ variables:
 
 
 contexts:
-  line-ending:
+  pop-on-eol:
     - match: $
       pop: true
 
@@ -90,7 +90,7 @@ contexts:
           scope: comment.line.disasm.mc6809
         - match: \s*
           set: column_2
-        - include: line-ending
+        - include: pop-on-eol
 
     # LWASM assembly listing
     - match: '{{lwasm_list_id}}'
@@ -176,7 +176,7 @@ contexts:
         - match: '{{symbol_id}}'
           scope: constant.other.mc6809
           set: comments-eol
-        - include: line-ending
+        - include: pop-on-eol
 
     # Jump instructions
     - match: (?i)jmp|jsr(?!\S)
@@ -191,15 +191,15 @@ contexts:
             - match: '\S*'
               scope: invalid.illegal.variable.language.register.mc6809
               set: comments-eol
-            - include: line-ending
-        - include: line-ending
+            - include: pop-on-eol
+        - include: pop-on-eol
 
     # Addressing modes: Immediate #i8
     - match: (?i)((and|or)cc|(bit|ld)md|cwai)(?!\S)\s*
       scope: keyword.operator.mc6809
       set:
         - include: match-address-immediate
-        - include: line-ending
+        - include: pop-on-eol
 
     # Addressing modes: Immediate r0,r1
     - match: (?i)(ad[cd]|and|eor|cmp|or|s(bc|ub)|tf)r|exg(?!\S)
@@ -212,8 +212,8 @@ contexts:
             - match: '\S*'
               scope: invalid.illegal.variable.language.register.mc6809
               set: comments-eol
-            - include: line-ending
-        - include: line-ending
+            - include: pop-on-eol
+        - include: pop-on-eol
 
     # Addressing modes: Immediate, Direct, Indexed and Extended
     - match: |-
@@ -240,7 +240,7 @@ contexts:
         - match: '\S*'
           scope: invalid.illegal.variable.language.register.mc6809
           set: comments-eol
-        - include: line-ending
+        - include: pop-on-eol
 
     # Addressing modes: Direct, Indexed and Extended
     - match: |-
@@ -263,7 +263,7 @@ contexts:
         - match: '\S*'
           scope: invalid.illegal.variable.language.register.mc6809
           set: comments-eol
-        - include: line-ending
+        - include: pop-on-eol
 
     # Addressing modes: Indexed
     - match: '(?i)(lea[suxy])(?!\S)\s*'
@@ -277,7 +277,7 @@ contexts:
         - match: '\S*'
           scope: invalid.illegal.variable.language.register.mc6809
           set: comments-eol
-        - include: line-ending
+        - include: pop-on-eol
 
     # Instructions: PSHS and PULS
     - match: '(?i)(p(sh|ul)s)(?!\S)\s*'
@@ -319,7 +319,7 @@ contexts:
         - match: '\S*'
           scope: invalid.illegal.variable.language.register.mc6809
           set: comments-eol
-        - include: line-ending
+        - include: pop-on-eol
 
     # Addressing mode: Direct r,sBit,dBit,addr
     - match: (?i)(b(i?and|(i?e|i)?or)|(ld|st)bt)(?!\S)\s*
@@ -334,7 +334,7 @@ contexts:
             - include: match-expr
             - match: ''
               set: comments-eol
-            - include: line-ending
+            - include: pop-on-eol
         - include: match-address-immediate
         - match: ''
           set: comments-eol
@@ -348,7 +348,7 @@ contexts:
           scope: keyword.operator.immediate.mc6809
           set:
             - include: match-expr
-            - include: line-ending
+            - include: pop-on-eol
             - match: ';'
               scope: operator.separator.mc6809
               set:
@@ -358,9 +358,9 @@ contexts:
                   set:
                     - match: '(?=u)' #todo
                       set: highlight-registers
-                    - include: line-ending
-                - include: line-ending
-        - include: line-ending
+                    - include: pop-on-eol
+                - include: pop-on-eol
+        - include: pop-on-eol
 
 
   match-mnemonics-convenience:
@@ -397,7 +397,7 @@ contexts:
       scope: keyword.operator.immediate.mc6809
       set:
         - include: match-expr
-        - include: line-ending
+        - include: pop-on-eol
         - match: ''
           set: comments-eol
 
@@ -409,7 +409,7 @@ contexts:
         - include: match-expr
         - match: (?i)(?=,[suxyw])
           set: highlight-registers
-        - include: line-ending
+        - include: pop-on-eol
         - match: '\S*'
           set: comments-eol
 
@@ -422,7 +422,7 @@ contexts:
         - include: match-expr
         - match: (?i)(?=,[suxyw])
           set: highlight-registers
-        - include: line-ending
+        - include: pop-on-eol
         - match: '\S*'
           set: comments-eol
 
@@ -462,13 +462,13 @@ contexts:
           set: comments-eol
         - include: match-expr
         - include: match-labels
-        - include: line-ending
+        - include: pop-on-eol
 
 
   validate-stack-registers:
     - match: ''
       set: highlight-registers
-    - include: line-ending
+    - include: pop-on-eol
 
 
   highlight-registers:
@@ -482,7 +482,7 @@ contexts:
       scope: keyword.operator.arithmetic.mc6809
     - match: \s
       set: comments-eol
-    - include: line-ending
+    - include: pop-on-eol
 
 
   highlight-registers-brackets:
@@ -499,7 +499,7 @@ contexts:
       scope: punctuation.section.brackets.end.mc6809
     - match: (?=\s)
       set: comments-eol
-    - include: line-ending
+    - include: pop-on-eol
 
 
   highlight-invalid-registers:
@@ -507,7 +507,7 @@ contexts:
       scope: invalid.variable.language.register.mc6809
     - match: \s
       set: comments-eol
-    - include: line-ending
+    - include: pop-on-eol
 
 
   match-pragmas:
@@ -521,7 +521,7 @@ contexts:
           scope: operator.separator.mc6809
         - match: ''
           set: comments-eol
-        - include: line-ending
+        - include: pop-on-eol
 
 
   match-directives:
@@ -533,7 +533,7 @@ contexts:
         - include: match-expr
         - match: ','
           scope: operator.separator.mc6809
-        - include: line-ending
+        - include: pop-on-eol
         - match: ''
           set: comments-eol
 
@@ -550,7 +550,7 @@ contexts:
         - include: match-expr
         - match: ','
           scope: operator.separator.mc6809
-        - include: line-ending
+        - include: pop-on-eol
         - match: ''
           set: comments-eol
 
@@ -562,7 +562,7 @@ contexts:
         - include: match-expr
         - match: ''
           set: comments-eol
-        - include: line-ending
+        - include: pop-on-eol
 
     # Conditional assembly with expr
     - match: (?i)(if(eq|ne|gt|lt|le|def|ndef)?)(?!\S)\s*
@@ -572,7 +572,7 @@ contexts:
         - include: match-expr
         - match: ''
           set: comments-eol
-        - include: line-ending
+        - include: pop-on-eol
 
     # Conditional assembly with pragma
     - match: (?i)(if(pragma|opt))(?!\S)\s*
@@ -582,7 +582,7 @@ contexts:
         - match: '{{pragma_options}}'
           scope: keyword.operator.mc6809
           set: comments-eol
-        - include: line-ending
+        - include: pop-on-eol
 
     # Conditional assembly
     - match: '(?i)else|endc(?!\S)'
@@ -600,10 +600,10 @@ contexts:
         1: support.function.directive.misc.mc6809
       set:
         - include: match-expr
-        - include: line-ending
+        - include: pop-on-eol
         - match: ''
           set: comments-eol
-        - include: line-ending
+        - include: pop-on-eol
 
     # Misc directives with string
     - match: '(?i)error|warning(?!\S)'
@@ -631,7 +631,7 @@ contexts:
         - include: match-expr
         - match: ''
           set: comments-eol
-        - include: line-ending
+        - include: pop-on-eol
     - match: (?i)(mod)(?!\S)\s*
       captures:
         1: support.function.directive.mc6809
@@ -639,7 +639,7 @@ contexts:
         - include: match-expr
         - match: ','
           scope: operator.separator.mc6809
-        - include: line-ending
+        - include: pop-on-eol
 
 
   match-macros:
@@ -734,7 +734,7 @@ contexts:
         - match: \)
           scope: punctuation.section.parens.end.mc6809
           pop: true
-        - include: line-ending
+        - include: pop-on-eol
         - include: match-expr
 
   match-labels:
@@ -750,7 +750,7 @@ contexts:
         - match: \"
           scope: punctuation.definition.string.end.mc6809
           set: comments-eol
-        - include: line-ending
+        - include: pop-on-eol
     - match: \'
       scope: punctuation.definition.string.begin.mc6809
       set:
@@ -758,8 +758,8 @@ contexts:
         - match: \'
           scope: punctuation.definition.string.end.mc6809
           set: comments-eol
-        - include: line-ending
+        - include: pop-on-eol
     - match: '.*$'
       scope: string.unquoted.mc6809
       pop: true
-    - include: line-ending
+    - include: pop-on-eol
