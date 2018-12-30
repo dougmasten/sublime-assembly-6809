@@ -515,7 +515,7 @@ contexts:
       captures:
         1: support.function.directive.assembler.mc6809
       set:
-        - match: '{{pragma_options}}'
+        - match: '{{pragma_options}}(?=[,\s])'
           scope: keyword.operator.mc6809
         - match: ','
           scope: operator.separator.mc6809
