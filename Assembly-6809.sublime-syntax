@@ -61,17 +61,17 @@ contexts:
     - match: \s*
 
   match-comments:
-    - match: '(?:([*;])).*$'
-      scope: comment.line.mc6809
+    - match: '(\s*)(([*;]).*)$'
       captures:
-        1: punctuation.definition.comment.mc6809
+        2: comment.line.mc6809
+        3: punctuation.definition.comment.mc6809
       pop: true
 
   comments-eol:
-    - include: skip-white-spaces
     - include: match-comments
-    - match: '.*$'
-      scope: comment.line.mc6809
+    - match: '(\s*)(.*)$'
+      captures:
+        2: comment.line.mc6809
       pop: true
 
 
@@ -114,15 +114,13 @@ contexts:
       pop: true
 
     # Label
-    - match: '{{symbol_id}}'
-      scope: entity.name.type.constant.mc6809
+    - match: '({{symbol_id}})(\s*)'
+      captures:
+        1: entity.name.type.constant.mc6809
       set:
-        - match: '\s+'
-          set:
-            - include: match-structures
-            - include: match-macros
-            - include: column_2
-        - include: line-ending
+        - include: match-structures
+        - include: match-macros
+        - include: column_2
 
     # Blank column one
     - match: '\s+'
@@ -197,13 +195,10 @@ contexts:
         - include: line-ending
 
     # Addressing modes: Immediate #i8
-    - match: (?i)(and|or)cc|(bit|ld)md|cwai(?!\S)
+    - match: (?i)((and|or)cc|(bit|ld)md|cwai)(?!\S)\s*
       scope: keyword.operator.mc6809
       set:
-        - match: '\s*'
-          set:
-            - include: match-address-immediate
-            - include: line-ending
+        - include: match-address-immediate
         - include: line-ending
 
     # Addressing modes: Immediate r0,r1
@@ -223,161 +218,148 @@ contexts:
     # Addressing modes: Immediate, Direct, Indexed and Extended
     - match: |-
         (?ix:
-            (adc|and|bit|e?or|sbc)[abd]|
-            (add|sub)[abdefw]|
-            (cmp|ld)[abdefsuwxy]|
-            div[dq]|
-            e?ord|
-            ldq|
-            muld
-        )(?!\S)
+            (
+              (adc|and|bit|e?or|sbc)[abd]|
+              (add|sub)[abdefw]|
+              (cmp|ld)[abdefsuwxy]|
+              div[dq]|
+              e?ord|
+              ldq|
+              muld
+            )
+        )(?!\S)\s*
       scope: keyword.operator.mc6809
       set:
-        - match: '\s*'
-          set:
-            - include: match-address-immediate
-            - include: match-address-direct
-            - include: match-address-index
-            - include: match-address-extended
-            - include: match-expr
-            - match: ''
-              set: comments-eol
-            - match: '\S*'
-              scope: invalid.illegal.variable.language.register.mc6809
-              set: comments-eol
-            - include: line-ending
+        - include: match-address-immediate
+        - include: match-address-direct
+        - include: match-address-index
+        - include: match-address-extended
+        - include: match-expr
+        - match: ''
+          set: comments-eol
+        - match: '\S*'
+          scope: invalid.illegal.variable.language.register.mc6809
+          set: comments-eol
         - include: line-ending
 
     # Addressing modes: Direct, Indexed and Extended
     - match: |-
         (?ix:
-            (as|ls|ro)[lr]|
-            clr|com|dec|inc|neg|tst|
-            st[abdefqsuwxy]
-        )(?!\S)
-      scope: keyword.operator.mc6809
+            (
+              (as|ls|ro)[lr]|
+              clr|com|dec|inc|neg|tst|
+              st[abdefqsuwxy]
+            )
+        )(?!\S)\s*
+      captures:
+        1: keyword.operator.mc6809
       set:
-        - match: '\s*'
-          set:
-            - include: match-address-direct
-            - include: match-address-index
-            - include: match-address-extended
-            - include: match-expr
-            - match: ''
-              set: comments-eol
-            - match: '\S*'
-              scope: invalid.illegal.variable.language.register.mc6809
-              set: comments-eol
-            - include: line-ending
+        - include: match-address-direct
+        - include: match-address-index
+        - include: match-address-extended
+        - include: match-expr
+        - match: ''
+          set: comments-eol
+        - match: '\S*'
+          scope: invalid.illegal.variable.language.register.mc6809
+          set: comments-eol
         - include: line-ending
 
     # Addressing modes: Indexed
-    - match: '(?i)lea[suxy](?!\S)'
-      scope: keyword.operator.mc6809
+    - match: '(?i)(lea[suxy])(?!\S)\s*'
+      captures:
+        1: keyword.operator.mc6809
       set:
-        - match: '\s*'
-          set:
-            - include: match-address-index
-            - include: match-expr
-            - match: ''
-              set: comments-eol
-            - match: '\S*'
-              scope: invalid.illegal.variable.language.register.mc6809
-              set: comments-eol
-            - include: line-ending
+        - include: match-address-index
+        - include: match-expr
+        - match: ''
+          set: comments-eol
+        - match: '\S*'
+          scope: invalid.illegal.variable.language.register.mc6809
+          set: comments-eol
         - include: line-ending
 
     # Instructions: PSHS and PULS
-    - match: '(?i)p(sh|ul)s(?!\S)'
-      scope: keyword.operator.mc6809
+    - match: '(?i)(p(sh|ul)s)(?!\S)\s*'
+      captures:
+        1: keyword.operator.mc6809
       set:
-        - match: '\s*'
-          set:
-            - match: '(?=[\S\w]*s[\S\w]*\s)'
-              set: highlight-invalid-registers
-            - match: ''
-              set: validate-stack-registers
-        - include: line-ending
+        - match: '(?=[\S\w]*s[\S\w]*\s)'
+          set: highlight-invalid-registers
+        - match: ''
+          set: validate-stack-registers
 
     # Instructions: PSHU and PULU
-    - match: '(?i)p(sh|ul)u(?!\S)'
-      scope: keyword.operator.mc6809
+    - match: '(?i)(p(sh|ul)u)(?!\S)\s*'
+      captures:
+        1: keyword.operator.mc6809
       set:
-        - match: '\s*'
-          set:
-            - match: '(?=[\S\w]*u[\S\w]*\s)'
-              set: highlight-invalid-registers
-            - match: ''
-              set: validate-stack-registers
-        - include: line-ending
+        - match: '(?=[\S\w]*u[\S\w]*\s)'
+          set: highlight-invalid-registers
+        - match: ''
+          set: validate-stack-registers
 
 
   match-mnemonics-6309:
     # Instruction: TFM
-    - match: (?i)tfm(?!\S)
-      scope: keyword.operator.mc6809
+    - match: (?i)(tfm)(?!\S)\s*
+      captures:
+        1: keyword.operator.mc6809
       set:
-        - match: '\s*'
-          set:
-            - match: |-
-                (?ix:
-                    (?:
-                      (?=[xyusd]\+,[xyusd]\+)|
-                      (?=[xyusd]\-,[xyusd]\-)|
-                      (?=[xyusd]\+,[xyusd]\b)|
-                      (?=[xyusd],[xyusd]\+)
-                    )
+        - match: |-
+            (?ix:
+                (?:
+                  (?=[xyusd]\+,[xyusd]\+)|
+                  (?=[xyusd]\-,[xyusd]\-)|
+                  (?=[xyusd]\+,[xyusd]\b)|
+                  (?=[xyusd],[xyusd]\+)
                 )
-              set: highlight-registers
-            - match: '\S*'
-              scope: invalid.illegal.variable.language.register.mc6809
-              set: comments-eol
-            - include: line-ending
+            )
+          set: highlight-registers
+        - match: '\S*'
+          scope: invalid.illegal.variable.language.register.mc6809
+          set: comments-eol
         - include: line-ending
 
     # Addressing mode: Direct r,sBit,dBit,addr
-    - match: '(?i)b(i?and|(i?e|i)?or)|(ld|st)bt(?!\S)'
-      scope: keyword.operator.mc6809
+    - match: (?i)(b(i?and|(i?e|i)?or)|(ld|st)bt)(?!\S)\s*
+      captures:
+        1: keyword.operator.mc6809
       set:
-        - match: '\s*'
+        - match: (?i)(cc|a|b)
+          scope: variable.language.register.mc6809
           set:
-            - match: (?i)(cc|a|b)
-              scope: variable.language.register.mc6809
-              set:
-                - match: ','
-                  scope: operator.separator.mc6809
-                - include: match-expr
-                - match: ''
-                  set: comments-eol
-                - include: line-ending
-            - include: match-address-immediate
+            - match: ','
+              scope: operator.separator.mc6809
+            - include: match-expr
             - match: ''
               set: comments-eol
-        - include: line-ending
+            - include: line-ending
+        - include: match-address-immediate
+        - match: ''
+          set: comments-eol
 
     # Addressing modes: INSTRUCTION #i8;EA
-    - match: (?i)[aeot]im(?!\S)
-      scope: keyword.operator.mc6809
+    - match: (?i)([aeot]im)(?!\S)\s*
+      captures:
+        1: keyword.operator.mc6809
       set:
-        - match: '\s*'
+        - match: '#'
+          scope: keyword.operator.immediate.mc6809
           set:
-            - match: '#'
-              scope: keyword.operator.immediate.mc6809
+            - include: match-expr
+            - include: line-ending
+            - match: ';'
+              scope: operator.separator.mc6809
               set:
                 - include: match-expr
-                - include: line-ending
-                - match: ';'
+                - match: ','
                   scope: operator.separator.mc6809
                   set:
-                    - include: match-expr
-                    - match: ','
-                      scope: operator.separator.mc6809
-                      set:
-                        - match: '(?=u)' #todo
-                          set: highlight-registers
-                        - include: line-ending
+                    - match: '(?=u)' #todo
+                      set: highlight-registers
                     - include: line-ending
-            - include: line-ending
+                - include: line-ending
         - include: line-ending
 
 
@@ -529,35 +511,31 @@ contexts:
 
 
   match-pragmas:
-    - match: '(?i)pragma|opt|\*pragma(push|pop)?(?!\S)'
-      scope: support.function.directive.assembler.mc6809
+    - match: '(?i)(pragma|opt|\*pragma(push|pop)?)(?!\S)\s*'
+      captures:
+        1: support.function.directive.assembler.mc6809
       set:
-        - match: '\s*'
-          set:
-            - match: '{{pragma_options}}'
-              scope: keyword.operator.mc6809
-            - match: ','
-              scope: operator.separator.mc6809
-            - match: ''
-              set: comments-eol
-            - include: line-ending
+        - match: '{{pragma_options}}'
+          scope: keyword.operator.mc6809
+        - match: ','
+          scope: operator.separator.mc6809
+        - match: ''
+          set: comments-eol
         - include: line-ending
 
 
   match-directives:
     # data directives with expr
-    - match: (?i)f[cdq]b|[zr]m[bdq]|d[bw]|\.(d[bsw]|4?byte|word|quad|blkb|rs)(?!\S)
-      scope: storage.type.mc6809
+    - match: (?i)(f[cdq]b|[zr]m[bdq]|d[bw]|\.(d[bsw]|4?byte|word|quad|blkb|rs))(?!\S)\s*
+      captures:
+        1: storage.type.mc6809
       set:
-        - match: '\s*'
-          set:
-            - include: match-expr
-            - match: ','
-              scope: operator.separator.mc6809
-            - include: line-ending
-            - match: ''
-              set: comments-eol
+        - include: match-expr
+        - match: ','
+          scope: operator.separator.mc6809
         - include: line-ending
+        - match: ''
+          set: comments-eol
 
     # data directives with strings
     - match: (?i)fc[cns]|\.(asci[isz]|str[sz]?)(?!\S)
@@ -565,53 +543,45 @@ contexts:
       set: match-strings
 
     # data directives with reserve zeroed bytes
-    - match: (?i)fill|rzb|zmb|bsz|ds(?!\S)
-      scope: storage.type.mc6809
+    - match: (?i)(fill|rzb|zmb|bsz|ds)(?!\S)\s*
+      captures:
+        1: storage.type.mc6809
       set:
-        - match: '\s*'
-          set:
-            - include: match-expr
-            - match: ','
-              scope: operator.separator.mc6809
-            - include: line-ending
-            - match: ''
-              set: comments-eol
+        - include: match-expr
+        - match: ','
+          scope: operator.separator.mc6809
         - include: line-ending
+        - match: ''
+          set: comments-eol
 
     # Address Definition
-    - match: '(?i)(re)?org|equ|set(dp)?|align(?!\S)'
-      scope: support.function.address.mc6809
+    - match: (?i)((re)?org|equ|set(dp)?|align)(?!\S)\s*
+      captures:
+        1: support.function.address.mc6809
       set:
-        - match: '\s*'
-          set:
-            - include: match-expr
-            - match: ''
-              set: comments-eol
-            - include: line-ending
+        - include: match-expr
+        - match: ''
+          set: comments-eol
         - include: line-ending
 
     # Conditional assembly with expr
-    - match: '(?i)if(eq|ne|gt|lt|le|def|ndef)?(?!\S)'
-      scope: support.function.conditional.mc6809
+    - match: (?i)(if(eq|ne|gt|lt|le|def|ndef)?)(?!\S)\s*
+      captures:
+        1: support.function.conditional.mc6809
       set:
-        - match: '\s*'
-          set:
-            - include: match-expr
-            - match: ''
-              set: comments-eol
-            - include: line-ending
+        - include: match-expr
+        - match: ''
+          set: comments-eol
         - include: line-ending
 
     # Conditional assembly with pragma
-    - match: '(?i)if(pragma|opt)(?!\S)'
-      scope: support.function.conditional.mc6809
+    - match: (?i)(if(pragma|opt))(?!\S)\s*
+      captures:
+        1: support.function.conditional.mc6809
       set:
-        - match: '\s*'
-          set:
-            - match: '{{pragma_options}}'
-              scope: keyword.operator.mc6809
-              set: comments-eol
-            - include: line-ending
+        - match: '{{pragma_options}}'
+          scope: keyword.operator.mc6809
+          set: comments-eol
         - include: line-ending
 
     # Conditional assembly
@@ -625,18 +595,15 @@ contexts:
       set: comments-eol
 
     # Miscelaneous Directives
-    - match: '(?i)include(bin)?|use|end(?!\S)'
-      scope: support.function.directive.misc.mc6809
+    - match: (?i)(include(bin)?|use|end)(?!\S)\s*
+      captures:
+        1: support.function.directive.misc.mc6809
       set:
-        - match: '\s*'
-          set:
-            - include: match-expr
-            - include: line-ending
-            - match: ''
-              set: comments-eol
-            - include: line-ending
+        - include: match-expr
         - include: line-ending
-
+        - match: ''
+          set: comments-eol
+        - include: line-ending
 
     # Misc directives with string
     - match: '(?i)error|warning(?!\S)'
@@ -655,37 +622,32 @@ contexts:
 
 
   match-os9:
-    - match: '(?i)os9|emod(?!\S)'
-      scope: support.function.directive.mc6809
+    - match: (?i)(os9|emod)(?!\S)\s*
+      captures:
+        1: support.function.directive.mc6809
       set:
-        - match: '\s*'
-          set:
-            - match: '{{symbol_id}}'
-              scope: constant.other.mc6809
-            - include: match-expr
-            - match: ''
-              set: comments-eol
-            - include: line-ending
+        - match: '{{symbol_id}}'
+          scope: constant.other.mc6809
+        - include: match-expr
+        - match: ''
+          set: comments-eol
         - include: line-ending
-    - match: '(?i)mod(?!\S)'
-      scope: support.function.directive.mc6809
+    - match: (?i)(mod)(?!\S)\s*
+      captures:
+        1: support.function.directive.mc6809
       set:
-        - match: '\s*'
-          set:
-            - include: match-expr
-            - match: ','
-              scope: operator.separator.mc6809
-            - include: line-ending
+        - include: match-expr
+        - match: ','
+          scope: operator.separator.mc6809
+        - include: line-ending
 
 
   match-macros:
-    - match: (?i)macro(?!\S)
-      scope: support.function.directive.macro.mc6809
-      set:
-        - match: (?i)noexpand(?!\S)
-          scope: support.function.directive.macro.mc6809
-          set: comments-eol
-        - include: comments-eol
+    - match: (?i)(macro)(?!\S)((\s+)(noexpand)(?!\S))?
+      captures:
+        1: support.function.directive.macro.mc6809
+        4: support.function.directive.macro.mc6809
+      set: comments-eol
   match-end-macros:
     - match: (?i)endm(?!\S)
       scope: support.function.directive.macro.mc6809
@@ -780,7 +742,7 @@ contexts:
       scope: constant.other.mc6809
 
   match-strings:
-    - include: skip-white-spaces
+    - match: \s*
     - match: \"
       scope: punctuation.definition.string.begin.mc6809
       set:
