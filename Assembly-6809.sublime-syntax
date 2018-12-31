@@ -281,6 +281,13 @@ contexts:
       captures:
         1: keyword.operator.mc6809
       set:
+        - match: \#
+          scope: keyword.operator.immediate.mc6809
+          set:
+            - include: match-expr
+            - match: \s
+              set: comments-eol
+            - include: pop-on-eol
         - match: (?=[\S\w]*s[\S\w]*\s)
           set: highlight-invalid-registers
         - match: ''
@@ -291,6 +298,13 @@ contexts:
       captures:
         1: keyword.operator.mc6809
       set:
+        - match: \#
+          scope: keyword.operator.immediate.mc6809
+          set:
+            - include: match-expr
+            - match: \s
+              set: comments-eol
+            - include: pop-on-eol
         - match: (?=[\S\w]*u[\S\w]*\s)
           set: highlight-invalid-registers
         - match: ''

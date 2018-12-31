@@ -1745,6 +1745,11 @@ start equ *+100
 #                           ^ operator.separator
 #                            ^^ variable.language.register
 
+        pshs #0
+#       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^ constant.numeric.decimal
+
 
 ;--------------------------------------------------------------------
         pshu cc,d,x
@@ -1755,6 +1760,11 @@ start equ *+100
 #                ^ operator.separator
 #                 ^ variable.language.register
 
+        pshu #$00
+#       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^ constant.numeric.hexadecimal
+
 
 ;--------------------------------------------------------------------
         puls d,pc
@@ -1763,11 +1773,21 @@ start equ *+100
 #             ^ operator.separator
 #              ^^ variable.language.register
 
+        puls #IMM8
+#       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^^^^ constant.other.
+
 
 ;--------------------------------------------------------------------
         pulu y
 #       ^^^^ keyword.operator
 #            ^ variable.language.register
+
+        pulu #0
+#       ^^^^ keyword.operator
+#            ^ keyword.operator.immediate
+#             ^ constant.numeric.decimal
 
 
 ;--------------------------------------------------------------------
