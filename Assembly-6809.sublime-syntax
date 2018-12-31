@@ -68,10 +68,10 @@ contexts:
       pop: true
 
   comments-eol:
-    - include: match-comments
-    - match: (\s*)(.*)$
+    - match: (\s*)(([*;]?).*)$
       captures:
         2: comment.line.mc6809
+        3: punctuation.definition.comment.mc6809
       pop: true
 
 
