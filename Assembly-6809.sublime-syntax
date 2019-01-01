@@ -679,7 +679,9 @@ contexts:
     - include: match-integers
     - include: match-operators
     - include: match-parens
+    - include: match-sizeof
     - include: match-labels
+
 
   match-integers:
     - include: match-binary-integer
@@ -748,6 +750,21 @@ contexts:
   match-labels:
     - match: '{{symbol_id}}'
       scope: constant.other.mc6809
+
+  match-sizeof:
+    - match: (?i)sizeof(\b)
+      scope: support.function.directive.structure.mc6809
+      push:
+        - match: \{
+          scope: punctuation.section.parens.begin.mc6809
+          set:
+            - match: \}
+              scope: punctuation.section.parens.end.mc6809
+              pop: true
+            - include: match-expr
+            - include: pop-on-eol
+        - include: match-expr
+        - include: pop-on-eol
 
   match-strings:
     - match: \s*

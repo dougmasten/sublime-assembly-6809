@@ -19,3 +19,9 @@ label2      struct
             ends
 #           ^^^^ support.function.directive.structure
 
+
+ rmb sizeof{label1}
+#    ^^^^^^ support.function.directive.structure
+#          ^ punctuation.section.parens.begin
+#           ^^^^^^ constant.other
+#                 ^ punctuation.section.parens.end
