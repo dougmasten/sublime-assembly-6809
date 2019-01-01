@@ -4,7 +4,7 @@
    <key>name</key>
    <string>Symbol Index</string>
    <key>scope</key>
-   <string>source.asm.6809 entity.name.constant</string>
+   <string>source.mc6809 entity.name.constant</string>
    <key>settings</key>
    <dict>
       <key>showInIndexedSymbolList</key>

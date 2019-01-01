@@ -4,7 +4,7 @@
     <key>name</key>
     <string>Comments</string>
     <key>scope</key>
-    <string>source.asm.6809</string>
+    <string>source.mc6809</string>
     <key>settings</key>
     <dict>
         <key>shellVariables</key>
