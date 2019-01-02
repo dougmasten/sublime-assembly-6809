@@ -505,7 +505,7 @@ contexts:
       scope: punctuation.section.brackets.begin.mc6809
     - match: \]
       scope: punctuation.section.brackets.end.mc6809
-    - match: (?=\s)
+    - match: \s
       set: comments-eol
     - include: pop-on-eol
 
