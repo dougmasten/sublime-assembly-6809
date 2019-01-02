@@ -23,3 +23,10 @@ label2      macro noexpand comment
 ; no prefix label
 ; macro
 ;^^^^^ invalid.keyword.operator
+
+label3      macro
+            lda #\1*2
+#                ^ punctuation.definition.macro
+#                 ^ variable.language.macro
+#                  ^ keyword.operator.arithmetic
+#                   ^ constant.numeric.decimal

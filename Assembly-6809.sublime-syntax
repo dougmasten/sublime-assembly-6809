@@ -656,6 +656,11 @@ contexts:
     - match: (?i)endm(?!\S)
       scope: support.function.directive.macro.mc6809
       set: comments-eol
+  match-macro-reference:
+    - match: (\\)(\d?)
+      captures:
+        1: punctuation.definition.macro.mc6809
+        2: variable.language.macro.mc6809
 
 
   match-structures:
@@ -681,6 +686,7 @@ contexts:
     - include: match-parens
     - include: match-sizeof
     - include: match-labels
+    - include: match-macro-reference
 
 
   match-integers:
