@@ -441,26 +441,22 @@ contexts:
     # Non-indirect
     - match: |-
         (?ix:
-            (?:
-              (?=[abdefw],[suxy])|
-              (?=,[suxyw])|
-              (?=,[suxy]\+)|
-              (?=,[suxyw]\+\+)|
-              (?=,\-[suxy])|
-              (?=,\-\-[suxyw])|
-              (?=,pcr)
-            )
+            (?=[abdefw],[suxy])|
+            (?=,[suxyw])|
+            (?=,[suxy]\+)|
+            (?=,[suxyw]\+\+)|
+            (?=,\-[suxy])|
+            (?=,\-\-[suxyw])|
+            (?=,pcr)
         )
       set: highlight-registers
     # Indirect
     - match: |-
         (?ix:
-            (?:
-              (?=\[,[suxyw]\])|
-              (?=\[[abdefw],[suxy]\])|
-              (?=\[,[suxyw]\+\+\])|
-              (?=\[,\-\-[suxyw]\])
-            )
+            (?=\[,[suxyw]\])|
+            (?=\[[abdefw],[suxy]\])|
+            (?=\[,[suxyw]\+\+\])|
+            (?=\[,\-\-[suxyw]\])
         )
       set: highlight-registers-brackets
     # Extended Indirect
