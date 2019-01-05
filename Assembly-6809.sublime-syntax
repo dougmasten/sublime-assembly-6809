@@ -687,6 +687,7 @@ contexts:
     - include: match-sizeof
     - include: match-labels
     - include: match-macro-reference
+    - include: match-characters
 
 
   match-integers:
@@ -752,6 +753,26 @@ contexts:
   match-comma:
     - match: \,
       scope: operator.separator.mc6809
+
+  match-characters:
+    - match: \'
+      scope: punctuation.definition.string.begin.mc6809
+      push:
+        - meta_scope: string.quoted.single.mc6809
+        - match: \S(\'?)
+          captures:
+            1: punctuation.definition.string.end.mc6809
+          pop: true
+        - include: pop-on-eol
+    - match: \"
+      scope: punctuation.definition.string.begin.mc6809
+      push:
+        - meta_scope: string.quoted.double.mc6809
+        - match: \S\S(\"?)
+          captures:
+            1: punctuation.definition.string.end.mc6809
+          pop: true
+        - include: pop-on-eol
 
   match-labels:
     - match: '{{symbol_id}}'

@@ -113,8 +113,18 @@
 ; The ASCII value of a character can be included by prefixing it with a single
 ; quote (’). The ASCII values of two characters can be included by prefixing
 ; the characters with a quote (").
-    lda #'H
+    lda #'H+5
+#       ^ keyword.operator.immediate
+#        ^ punctuation.definition.string.begin
+#        ^^ string.quoted.single
+#          ^ keyword.operator.arithmetic
+#           ^ constant.numeric.decimal
+
     ldd #"AB"
+#       ^ keyword.operator.immediate
+#        ^ punctuation.definition.string.begin
+#        ^^^^ string.quoted.double
+#           ^ punctuation.definition.string.end
 
 
 ; A symbol may appear at any point where a number is acceptable. The special
