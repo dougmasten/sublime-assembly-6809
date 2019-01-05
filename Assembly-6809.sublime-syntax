@@ -544,8 +544,9 @@ contexts:
           set: comments-eol
 
     # data directives with strings
-    - match: (?i)fc[cns]|\.(asci[isz]|str[sz]?)(?!\S)
-      scope: storage.type.mc6809
+    - match: (?i)(fc[cns]|\.(asci[isz]|str[sz]?))(?!\S)\s*
+      captures:
+        1: storage.type.mc6809
       set: match-strings
 
     # data directives with reserve zeroed bytes
@@ -611,14 +612,17 @@ contexts:
         - include: pop-on-eol
 
     # Misc directives with string
-    - match: '(?i)error|warning(?!\S)'
-      scope: support.function.directive.misc.mc6809
+    - match: (?i)(error|warning)(?!\S)\s*
+      captures:
+        1: support.function.directive.misc.mc6809
       set: match-strings
-    - match: '(?i).module(?!\S)'
-      scope: support.function.directive.misc.mc6809
+    - match: (?i)(.module)(?!\S)\s*
+      captures:
+        1: support.function.directive.misc.mc6809
       set: match-strings
-    - match: '(?i)nam|ttl(?!\S)'
-      scope: support.function.directive.misc.mc6809
+    - match: (?i)(nam|ttl)(?!\S)\s*
+      captures:
+        1: support.function.directive.misc.mc6809
       set: match-strings
 
     # end statement for macros and structures
@@ -794,7 +798,6 @@ contexts:
         - include: pop-on-eol
 
   match-strings:
-    - match: \s*
     - match: \"
       scope: punctuation.definition.string.begin.mc6809
       set:
