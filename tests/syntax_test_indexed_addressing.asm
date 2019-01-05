@@ -436,11 +436,20 @@
 
 ;------------------------------------------------------------------------------
 ; Constant offset from PC
-        lda 10,pcr
+        lda 1,pcr
+#           ^ constant.numeric.decimal
+#            ^ operator.separator
+#             ^^^ variable.language.register
 
+        lda [1,pcr]
+#           ^ punctuation.section.brackets.begin
+#            ^ constant.numeric.decimal
+#             ^ operator.separator
+#              ^^^ variable.language.register
+#                 ^ punctuation.section.brackets.end
 
 ;------------------------------------------------------------------------------
-; Indirect Extended
+; Extended Indirect
         lda [$8000+$2000]
 #           ^ punctuation.section.brackets.begin
 #            ^^^^^ constant.numeric.hexadecimal
