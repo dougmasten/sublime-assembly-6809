@@ -114,7 +114,7 @@ contexts:
       pop: true
 
     # Label
-    - match: '({{symbol_id}})(\s*)'
+    - match: '({{symbol_id}})(:?)(\s*)'
       captures:
         1: entity.name.type.constant.mc6809
       set:
