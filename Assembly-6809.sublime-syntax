@@ -467,6 +467,10 @@ contexts:
     - match: \[
       scope: meta.brackets.mc6809 punctuation.section.brackets.begin.mc6809
       set:
+        - match: (,)([suxyw])
+          captures:
+            1: operator.separator.mc6809
+            2: variable.language.register.mc6809
         - match: \]
           scope: meta.brackets.mc6809 punctuation.section.brackets.end.mc6809
           set: comments-eol

@@ -62,6 +62,15 @@
 #              ^ punctuation.section.brackets.end
 #                ^^^^^^^ comment.line
 
+        std [$06,u] comment
+#           ^ punctuation.section.brackets.begin
+#            ^^^ constant.numeric.hexadecimal
+#               ^ operator.separator
+#                ^ variable.language.register
+#                 ^ punctuation.section.brackets.end
+#                   ^^^^^^^ comment.line
+
+
 ;------------------------------------------------------------------------------
 ; Constant offset from W
         lda ,w comment
@@ -438,11 +447,3 @@
 #                 ^ keyword.operator.arithmetic
 #                  ^^^^^ constant.numeric.hexadecimal
 #                       ^ punctuation.section.brackets.end
-
-
-
-
-        std   [<$06,s]
-        jmp   [>$a000]
-
-
