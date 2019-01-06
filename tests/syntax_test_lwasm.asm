@@ -33,3 +33,9 @@ E000                  (reboot_system-2.a):00014         reboot_system
 # <- comment.line
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
 #                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - comment.line
+
+; test for data directives that take more than one line
+2684 0000000000000000 (  boot-loader.asm):00075                         zmb RSDOS_TRACK_LEN-(*-dos_buffer)
+     0000000000000000
+# <- comment.line
+#^^^^^^^^^^^^^^^^^^^^ comment.line

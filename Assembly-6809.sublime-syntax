@@ -96,6 +96,8 @@ contexts:
     - match: '{{lwasm_list_id}}'
       scope: comment.line.lwasm.mc6809
       push: column_1
+    - match: ^\s{5}\h{2,16}$
+      scope: comment.line.lwasm.mc6809
 
     # Process normal listing
     - match: ''
