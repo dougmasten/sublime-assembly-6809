@@ -49,7 +49,7 @@ variables:
                     )'
   edtasm_id: ^(\d{5})\s
   disassembly_id: ^\h{4}\:\s
-  lwasm_list_id: ^[\s\hs]*\([\s\w\-\.]*\):\d{5}[\s\d\(\)\+\?\[\]]{9}
+  lwasm_list_id: ^[\s\h\?s]*\([\s\w\-\.]*\):\d{5}[\s\d\(\)\+\?\[\]]{9}
 
 
 contexts:

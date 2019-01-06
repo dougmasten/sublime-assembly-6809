@@ -27,3 +27,9 @@ E000                  (reboot_system-2.a):00014         reboot_system
 # <- comment.line
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
 #                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^ - comment.line
+
+; test for "?"
+     ????             (        test1.asm):00293         FIELD1          equ UNDEFINED
+# <- comment.line
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
+#                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - comment.line
