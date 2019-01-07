@@ -1,5 +1,5 @@
 {
-  "scope": "source.asm.6809",
+  "scope": "source.mc6809",
   "completions":
   [
     { "trigger": "abx", "contents": "abx " },
