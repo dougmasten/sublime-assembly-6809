@@ -797,7 +797,6 @@ contexts:
               pop: true
             - include: match-expr
             - include: pop-on-eol
-        - include: match-expr
         - include: pop-on-eol
 
   match-strings:
