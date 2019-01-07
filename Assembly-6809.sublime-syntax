@@ -49,7 +49,8 @@ variables:
                     )'
   edtasm_id: ^(\d{5})\s
   disassembly_id: ^\h{4}\:\s
-  lwasm_list_id: ^[\s\h\?s]*\([\s\w\-\.]*\):\d{5}[\s\d\(\)\+\?\[\]]{9}
+  lwasm_list_id: ^[\s\h\?s]{22}\([\s\w\-\.]*\):\d{5}[\s\d\(\)\+\?\[\]]{9}
+  lwasm_list_data_id: ^\s{5}\h{2,16}$
 
 
 contexts:
@@ -96,7 +97,7 @@ contexts:
     - match: '{{lwasm_list_id}}'
       scope: comment.line.lwasm.mc6809
       push: column_1
-    - match: ^\s{5}\h{2,16}$
+    - match: '{{lwasm_list_data_id}}'
       scope: comment.line.lwasm.mc6809
 
     # Process normal listing
