@@ -1,0 +1,8 @@
+{
+  "scope": "source.mc6809",
+  "completions":
+  [
+    { "trigger": "sizeof", "contents": "sizeof{$0}" },
+
+  ]
+}
