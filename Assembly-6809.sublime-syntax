@@ -228,7 +228,8 @@ contexts:
               muld
             )
         )(?!\S)\s*
-      scope: keyword.operator.mc6809
+      captures:
+        1: keyword.operator.mc6809
       set:
         - include: match-address-immediate
         - include: match-address-direct
