@@ -39,3 +39,9 @@ E000                  (reboot_system-2.a):00014         reboot_system
      0000000000000000
 # <- comment.line
 #^^^^^^^^^^^^^^^^^^^^ comment.line
+
+; test for cycle counts with subtotal
+0711 3416             (  linked-list.asm):00046 (8)     8       create_list        pshs d,x
+# <- comment.line
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
+#                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^ - comment.line
