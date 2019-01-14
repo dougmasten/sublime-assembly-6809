@@ -45,3 +45,9 @@ E000                  (reboot_system-2.a):00014         reboot_system
 # <- comment.line
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
 #                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^ - comment.line
+
+; test for "/" in filename
+                      (./engine/main.asm):00032                     include     constants.asm
+# <- comment.line
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
+#                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^ - comment.line
