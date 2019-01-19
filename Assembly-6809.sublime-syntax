@@ -157,7 +157,7 @@ contexts:
     # Addressing mode: Inherent
     - match: |-
         (?ix:
-             abx|daa|mul|nop|rt[is]|
+             abx|daa|mul|nop|rti|\??rts|
              s(wi[23]?|exw?|ync)|
              ((as|ls|ro)[lr]|neg)[abd]|
              (clr|com|dec|inc|tst)[abdefw]|
