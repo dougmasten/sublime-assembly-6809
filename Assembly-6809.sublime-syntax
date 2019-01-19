@@ -17,7 +17,7 @@ variables:
   num_oct: (?:[0-7][0-7]*)
   num_dec: (?:\d\d*)
   num_hex: (?:\h\h*)
-  symbol_id: (?:[A-Za-z\.\@\_!\?][A-Za-z0-9\.\@\$\_\?]*)
+  symbol_id: (?:[A-Za-z\.\@\_!\?][A-Za-z0-9\.\@\$\_\?]*)|([0-9](?!\S))
   all_registers: (?i)cc|dp|pc|[0abdefsuvwxy]
   pragma_options:  '(?ix:
                       (no)?(

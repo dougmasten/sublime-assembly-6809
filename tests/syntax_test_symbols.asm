@@ -88,6 +88,11 @@ label1 label2 equ *
 # <- entity.name.type.constant
 #      ^^^^^^ - entity.name.type.constant
 
+; Local symbol contains just one number
+1 equ *
+# <- entity.name.type.constant
+#^^^^^^ - entity.name.type.constant
+
 ; branches
         bra loop1
 #           ^^^^^ constant.other
