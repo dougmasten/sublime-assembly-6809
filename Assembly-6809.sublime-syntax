@@ -629,6 +629,18 @@ contexts:
         1: support.function.directive.misc.mc6809
       set: match-strings
 
+    # Preprocessor addon directives
+    - match: (?i)(repeat)(?!\S)\s*
+      captures:
+        1: support.function.directive.addon.mc6809
+      set:
+        - include: match-expr
+        - include: comments-eol
+    - match: (?i)(endrepeat)(?!\S)
+      captures:
+        1: support.function.directive.addon.mc6809
+      set: comments-eol
+
     # end statement for macros and structures
     - include: match-end-macros
     - include: match-end-structures
