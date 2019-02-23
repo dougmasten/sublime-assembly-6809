@@ -141,6 +141,7 @@ contexts:
     - include: match-comments
     - include: match-emulator-extensions
     - include: match-os9
+    - include: match-macro-label
 
     # No match in column #2 - skip to next line
     - match: .*$
@@ -664,6 +665,12 @@ contexts:
         - include: match-expr
         - include: match-comma
         - include: pop-on-eol
+
+
+  match-macro-label:
+    - match: ({{symbol_id}})
+      scope: constant.other.mc6809
+      set: comments-eol
 
 
   match-macros:

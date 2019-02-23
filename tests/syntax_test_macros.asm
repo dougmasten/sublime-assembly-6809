@@ -30,3 +30,8 @@ label3      macro
 #                 ^ variable.language.macro
 #                  ^ keyword.operator.arithmetic
 #                   ^ constant.numeric.decimal
+
+           label1  ; comment
+#          ^^^^^^ constant.other
+#                  ^ punctuation.definition.comment
+#                  ^^^^^^^^^ comment.line
