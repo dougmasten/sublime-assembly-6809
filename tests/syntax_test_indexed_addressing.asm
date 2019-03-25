@@ -399,7 +399,12 @@
 #                 ^ operator.separator
 #                  ^ variable.language.register
 
-
+        leay >-u16Value,Y
+#            ^ keyword.operator.extended
+#             ^ keyword.operator.arithmetic
+#              ^^^^^^^^ constant.other
+#                      ^ operator.separator
+#                       ^ variable.language.register
 
 ;------------------------------------------------------------------------------
 ; Force direct addressing
@@ -433,6 +438,12 @@
 #            ^^^ constant.numeric.hexadecimal
 #               ^ operator.separator
 #                ^ variable.language.register
+
+        leay <$28,s
+#            ^ keyword.operator.direct
+#             ^^^ constant.numeric.hexadecimal
+#                ^ operator.separator
+#                 ^ variable.language.register
 
 ;------------------------------------------------------------------------------
 ; Constant offset from PC

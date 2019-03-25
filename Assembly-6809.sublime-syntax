@@ -272,7 +272,9 @@ contexts:
       captures:
         1: keyword.operator.mc6809
       set:
+        - include: match-address-direct
         - include: match-address-index
+        - include: match-address-extended
         - include: match-expr
         - match: ''
           set: comments-eol
