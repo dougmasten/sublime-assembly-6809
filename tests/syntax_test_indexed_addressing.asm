@@ -445,6 +445,12 @@
 #                ^ operator.separator
 #                 ^ variable.language.register
 
+        lda <<3,u
+#           ^^ keyword.operator.direct
+#             ^ constant.numeric.decimal
+#              ^ operator.separator
+#               ^ variable.language.register
+
 ;------------------------------------------------------------------------------
 ; Constant offset from PC
         lda 1,pcr

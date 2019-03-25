@@ -419,6 +419,17 @@ contexts:
           set: comments-eol
 
   match-address-direct:
+    # 5-bit offset
+    - match: \<\<
+      scope: keyword.operator.direct.mc6809
+      set:
+        - include: match-expr
+        - match: (?i)(?=,[suxyw])
+          set: highlight-registers
+        - include: pop-on-eol
+        - match: \S*
+          set: comments-eol
+
     # 8-bit offset
     - match: \<
       scope: keyword.operator.direct.mc6809
