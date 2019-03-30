@@ -18,6 +18,7 @@ variables:
   num_dec: (?:\d\d*)
   num_hex: (?:\h\h*)
   symbol_id: (?:[A-Za-z\.\@\_!\?][A-Za-z0-9\.\@\$\_\?]*)|([0-9](?!\S))
+  filename_id: (?:\S+(?!\S))
   all_registers: (?i)cc|dp|pc|[0abdefsuvwxy]
   pragma_options:  '(?ix:
                       (no)?(
@@ -618,13 +619,24 @@ contexts:
       scope: support.function.conditional.mc6809
       set: comments-eol
 
+    # Filenames
+    - match: (?i)(include(bin)?|use)(?!\S)\s*
+      captures:
+        1: support.function.directive.misc.mc6809
+      set:
+        - match: '{{filename_id}}'
+          scope: constant.other.mc6809
+        - include: match-filename
+        - match: ''
+          set: comments-eol
+        - include: pop-on-eol
+
     # Miscelaneous Directives
-    - match: (?i)(include(bin)?|use|end)(?!\S)\s*
+    - match: (?i)(end)(?!\S)\s*
       captures:
         1: support.function.directive.misc.mc6809
       set:
         - include: match-expr
-        - include: pop-on-eol
         - match: ''
           set: comments-eol
         - include: pop-on-eol

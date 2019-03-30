@@ -2,10 +2,16 @@
 # <- source.mc6809
 
 ;--------------------------------------------------------------------
- include filename
+ include filename-1.asm comment
 #^^^^^^^ support.function.directive.misc
-#        ^^^^^^^^ constant.other
+#        ^^^^^^^^^^^^^^ constant.other
+#                       ^^^^^^^ comment.line
 
+;--------------------------------------------------------------------
+ includebin filename-2.asm comment
+#^^^^^^^^^^ support.function.directive.misc
+#           ^^^^^^^^^^^^^^ constant.other
+#                          ^^^^^^^ comment.line
 
 ;--------------------------------------------------------------------
  use filename
