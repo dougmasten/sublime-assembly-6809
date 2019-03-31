@@ -52,7 +52,8 @@ variables:
   disassembly_id: ^\h{4}\:\s
   lwasm_list_id: ^[\s\h\?s]{22}\([\s\w\-\.\/]*\):\d{5}[\s\d\(\)\+\?\[\]]{9}([\s\d]{8})?
   lwasm_list_data_id: ^\s{5}\h{2,16}$
-
+  lwasm_list_symbol_header_id: ^Symbol Table:$
+  lwasm_list_symbol_id: ^\[[S\s][GL]\][\s\w]{34}\h{4}$
 
 contexts:
   pop-on-eol:
@@ -100,6 +101,11 @@ contexts:
       push: column_1
     - match: '{{lwasm_list_data_id}}'
       scope: comment.line.lwasm.mc6809
+    - match: '{{lwasm_list_symbol_header_id}}'
+      scope: comment.line.lwasm.mc6809
+    - match: '{{lwasm_list_symbol_id}}'
+      scope: comment.line.lwasm.mc6809
+
 
     # Process normal listing
     - match: ''

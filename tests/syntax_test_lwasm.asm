@@ -51,3 +51,13 @@ E000                  (reboot_system-2.a):00014         reboot_system
 # <- comment.line
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
 #                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^ - comment.line
+
+; header for symbol table
+Symbol Table:
+# <- comment.line
+#^^^^^^^^^^^^ comment.line
+
+; symbol table
+[ G] demogame                         D988
+# <- comment.line
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
