@@ -61,3 +61,9 @@ Symbol Table:
 [ G] demogame                         D988
 # <- comment.line
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
+
+
+; symbol table with 32-bit entry
+[ G] copyright_year_ascii             32303139
+# <- comment.line
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
