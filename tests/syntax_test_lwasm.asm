@@ -67,3 +67,8 @@ Symbol Table:
 [ G] copyright_year_ascii             32303139
 # <- comment.line
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
+
+; warnings
+Warning: Operand size larger than required
+# <- invalid.comment.line.lwasm
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.comment.line.lwasm

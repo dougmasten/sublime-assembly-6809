@@ -54,6 +54,7 @@ variables:
   lwasm_list_data_id: ^\s{5}\h{2,16}$
   lwasm_list_symbol_header_id: ^Symbol Table:$
   lwasm_list_symbol_id: ^\[[S\s][GL]\][\s\w\W]{34}\h{4}(\h{4})?$
+  lwasm_list_warnings: '^Warning: Operand size larger than required$'
 
 contexts:
   pop-on-eol:
@@ -105,6 +106,8 @@ contexts:
       scope: comment.line.lwasm.mc6809
     - match: '{{lwasm_list_symbol_id}}'
       scope: comment.line.lwasm.mc6809
+    - match: '{{lwasm_list_warnings}}'
+      scope: invalid.comment.line.lwasm.mc6809
 
 
     # Process normal listing
