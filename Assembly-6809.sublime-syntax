@@ -178,8 +178,9 @@ contexts:
       set: comments-eol
 
     # Branch instructions
-    - match: (?i)l?b([cv][cs]|eq|gt|h[is]|l[ost]|r[an]|mi|pl|sr|[gnl]e)(?!\S)
-      scope: keyword.operator.mc6809
+    - match: (?i)(l?b([cv][cs]|eq|gt|h[is]|l[ost]|r[an]|mi|pl|sr|[gnl]e))(?!\S)\s*
+      captures:
+        1: keyword.operator.mc6809
       set:
         - match: \<
           scope: constant.other.mc6809
