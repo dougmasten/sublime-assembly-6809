@@ -387,6 +387,10 @@ contexts:
                       set: highlight-registers
                     - include: pop-on-eol
                 - include: pop-on-eol
+                - match: \s+
+                  set: comments-eol
+            - match: \s+
+              set: comments-eol
         - include: pop-on-eol
 
 

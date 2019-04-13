@@ -69,3 +69,6 @@
 
    band a,5,1,$40 comment
 #                 ^^^^^^^ comment.line
+
+   aim #%11110111;PIA1_CTRL_B  ; comment
+#                              ^^^^^^^^^ comment.line
