@@ -193,19 +193,17 @@ contexts:
         - include: pop-on-eol
 
     # Jump instructions
-    - match: (?i)jmp|jsr(?!\S)
-      scope: keyword.operator.mc6809
+    - match: (?i)(jmp|jsr)(?!\S)\s*
+      captures:
+        1: keyword.operator.mc6809
       set:
-        - match: \s*
-          set:
-            - include: match-address-direct
-            - include: match-address-index
-            - include: match-address-extended
-            - include: match-expr
-            - match: \S*
-              scope: invalid.illegal.variable.language.register.mc6809
-              set: comments-eol
-            - include: pop-on-eol
+        - include: match-address-direct
+        - include: match-address-index
+        - include: match-address-extended
+        - include: match-expr
+        - match: \S*
+          scope: invalid.illegal.variable.language.register.mc6809
+          set: comments-eol
         - include: pop-on-eol
 
     # Addressing modes: Immediate #i8
