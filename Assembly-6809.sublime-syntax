@@ -188,8 +188,8 @@ contexts:
         - match: \>
           scope: constant.other.mc6809
           set: comments-eol
-        - match: '{{symbol_id}}'
-          scope: constant.other.mc6809
+        - include: match-expr
+        - match: ''
           set: comments-eol
         - include: pop-on-eol
 
