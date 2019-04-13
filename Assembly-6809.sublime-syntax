@@ -217,7 +217,8 @@ contexts:
 
     # Addressing modes: Immediate r0,r1
     - match: (?i)((ad[cd]|and|eor|cmp|or|s(bc|ub)|tf)r|exg)(?!\S)\s*
-      scope: keyword.operator.mc6809
+      captures:
+        1: keyword.operator.mc6809
       set:
         - match: (?i)(?:(?={{all_registers}},{{all_registers}}))
           set: highlight-registers
