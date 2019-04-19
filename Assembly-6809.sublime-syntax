@@ -603,7 +603,7 @@ contexts:
         - include: pop-on-eol
 
     # Conditional assembly with expr
-    - match: (?i)(if(eq|ne|gt|lt|le|def|ndef)?)(?!\S)\s*
+    - match: (?i)(if(eq|ne|ge|gt|lt|le|def|ndef)?)(?!\S)\s*
       captures:
         1: support.function.conditional.mc6809
       set:
@@ -628,7 +628,7 @@ contexts:
       set: comments-eol
 
     # Conditional assembly (ccasm)
-    - match: (?i)(end(if|p)|ifp[12]|ifge|cond)(?!\S)
+    - match: (?i)(end(if|p)|ifp[12]|cond)(?!\S)
       scope: support.function.conditional.mc6809
       set: comments-eol
 
