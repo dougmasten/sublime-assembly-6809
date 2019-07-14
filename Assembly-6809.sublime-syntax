@@ -576,7 +576,7 @@ contexts:
           set: comments-eol
 
     # data directives with strings
-    - match: (?i)(fc[cns]|\.(asci[isz]|str[sz]?))(?!\S)\s*
+    - match: (?i)(fc[cnsz]|\.(asci[isz]|str[sz]?))(?!\S)\s*
       captures:
         1: storage.type.mc6809
       set: match-strings

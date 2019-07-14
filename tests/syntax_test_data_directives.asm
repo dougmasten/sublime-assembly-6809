@@ -121,6 +121,12 @@ buffer_size equ $a1a2
 #           ^^^^^^^^^ string.quoted.double
 #                   ^ punctuation.definition.string.end
 
+        fcz "Testing" comment
+#       ^^^ storage.type
+#           ^ punctuation.definition.string.begin
+#           ^^^^^^^^^ string.quoted.double
+#                   ^ punctuation.definition.string.end
+
         .asciz "Testing" comment
 #       ^^^^^^ storage.type
 #              ^ punctuation.definition.string.begin
