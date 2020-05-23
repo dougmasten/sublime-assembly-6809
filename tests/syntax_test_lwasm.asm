@@ -62,6 +62,10 @@ Symbol Table:
 # <- comment.line
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
 
+; symbol table
+[ G] TEXT_SCREEN_ADDR                 78000
+# <- comment.line
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line
 
 ; symbol table with 32-bit entry
 [ G] copyright_year_ascii             32303139
@@ -72,3 +76,4 @@ Symbol Table:
 Warning: Operand size larger than required
 # <- invalid.comment.line.lwasm
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.comment.line.lwasm
+
