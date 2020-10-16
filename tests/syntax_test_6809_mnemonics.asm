@@ -1962,6 +1962,27 @@ start equ *+100
 #       ^^^ keyword.operator
 #           ^^^^^ constant.numeric.hexadecimal
 
+
+        sta 1,pcr
+#       ^^^ keyword.operator
+#           ^ constant.numeric.decimal.mc6809
+#            ^ operator.separator.mc6809
+#             ^^^ variable.language.register.mc6809
+
+        sta <1,pcr
+#       ^^^ keyword.operator
+#           ^ keyword.operator.direct.mc6809
+#            ^ constant.numeric.decimal.mc6809
+#             ^ operator.separator.mc6809
+#              ^^^ variable.language.register.mc6809
+
+        sta >1,pcr
+#       ^^^ keyword.operator
+#           ^ keyword.operator.extended.mc6809
+#            ^ constant.numeric.decimal.mc6809
+#             ^ operator.separator.mc6809
+#              ^^^ variable.language.register.mc6809
+
         sta start
 #       ^^^ keyword.operator
 #           ^^^^^ constant.other

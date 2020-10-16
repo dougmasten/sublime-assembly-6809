@@ -449,7 +449,7 @@ contexts:
       scope: keyword.operator.direct.mc6809
       set:
         - include: match-expr
-        - match: (?i)(?=,[suxyw])
+        - match: (?i)(?=,([suxyw]|pcr))
           set: highlight-registers
         - include: pop-on-eol
         - match: \S*
@@ -462,7 +462,7 @@ contexts:
       scope: keyword.operator.extended.mc6809
       set:
         - include: match-expr
-        - match: (?i)(?=,[suxyw])
+        - match: (?i)(?=,([suxyw]|pcr))
           set: highlight-registers
         - include: pop-on-eol
         - match: \S*
