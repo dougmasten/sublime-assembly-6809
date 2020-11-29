@@ -1,0 +1,31 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+      - main
+
+env:
+  PACKAGE: Assembly-6809 
+  SUBLIME_TEXT_VERSION: 3
+
+jobs:
+  test:
+    runs-on: ubuntu-latest 
+
+    steps:
+      - uses: actions/checkout@v2 
+
+      - name: Download CI script 
+        run: curl -OL https://raw.githubusercontent.com/SublimeText/UnitTesting/master/sbin/travis.sh
+
+      - name: Bootstrap CI script 
+        run: sh travis.sh bootstrap 
+
+      - name: Run Syntax Tests 
+        run: sh travis.sh run_syntax_tests 
+
+      - name: Run Syntax Compatibility
+        run: sh travis.sh run_syntax_compatibility 
