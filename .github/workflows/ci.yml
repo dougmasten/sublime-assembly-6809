@@ -4,12 +4,14 @@ on:
   push:
     branches:
       - main
+
   pull_request:
+    branches:
       - main
 
 env:
   PACKAGE: Assembly-6809 
-  SUBLIME_TEXT_VERSION: 3
+  SUBLIME_TEXT_VERSION: "3"
 
 jobs:
   test:
