@@ -49,7 +49,6 @@ variables:
                       )
                     )'
   edtasm_id: ^(\d{5})\s
-  disassembly_id: ^\h{4}\:\s
   lwasm_list_id: ^[\s\h\?s]{22}\([\s\w\-\.\/]*\):\d{5}[\s\d\(\)\+\?\[\]]{9}([\s\d]{8})?
   lwasm_list_data_id: ^\s{5}\h{2,16}$
   lwasm_list_symbol_header_id: ^Symbol Table:$
@@ -86,16 +85,6 @@ contexts:
         1: comment.line.edtasm.mc6809
       push: column_1
 
-    # Disassembly listing
-    - match: '{{disassembly_id}}'
-      scope: comment.line.disasm.mc8609
-      push:
-        - match: (\h\h)\s
-          scope: comment.line.disasm.mc6809
-        - match: \s*
-          set: column_2
-        - include: pop-on-eol
-
     # LWASM assembly listing
     - match: '{{lwasm_list_id}}'
       scope: comment.line.lwasm.mc6809
@@ -108,7 +97,6 @@ contexts:
       scope: comment.line.lwasm.mc6809
     - match: '{{lwasm_list_warnings}}'
       scope: invalid.comment.line.lwasm.mc6809
-
 
     # Process normal listing
     - match: ''
