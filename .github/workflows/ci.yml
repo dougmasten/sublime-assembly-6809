@@ -19,10 +19,10 @@ on:
 
 jobs:
   syntax_test:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2 
-      - uses: SublimeText/syntax-test-actions@v2
+      - uses: actions/checkout@v2
+      - uses: SublimeText/syntax-test-action@v2
         with:
-          build: latest 
+          build: latest
